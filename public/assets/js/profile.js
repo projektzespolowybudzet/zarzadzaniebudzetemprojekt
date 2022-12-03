@@ -120,7 +120,7 @@ $(document).ready(function () {
 
   $(document).on("click", "#profileDelete", function (event) {
     event.preventDefault();
-    let message = "Are you sure that you want to delete this profile?";
+    let message = "Czy na pewno chcesz usunać profil?";
     // deleteConfirm
 
     // open error modal
@@ -148,7 +148,7 @@ $(document).ready(function () {
           $(".modal").modal();
           $("#error-body").empty();
           $("#error-body").append(
-            `<p class="modal-p">This profile was not deleted.</p>`
+            `<p class="modal-p">Profil nie został usunięty.</p>`
           );
         }
       });

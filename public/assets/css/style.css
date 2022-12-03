@@ -167,7 +167,7 @@ header {
 
 .spending-item,
 .cap-item {
-    background-color: var(--light-yellow);
+    background-color: var(--white);
     padding: 10px 25px 45px 25px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -195,14 +195,15 @@ header {
 
 .spending-label,
 .spending-input {
-    color: var(--darker-blue);
+    color: var(--brand);
 }
 
 #spendingForm,
 #budgetForm {
-    background-color: var(--light-yellow);
+    background-color: var(--white);
     padding: 15px;
     border-radius: 5px;
+    border: solid black;
 }
 
 #spendingBody,
@@ -215,7 +216,7 @@ header {
 }
 
 .datepicker-date-display {
-    background-color: var(--dark-blue);
+    background-color: var(--brand);
 }
 
 .datepicker-cancel,
@@ -224,24 +225,24 @@ header {
 }
 
 .datepicker-table td.is-today {
-    color: var(--light-yellow);
+    color: var(--white);
     background-color: var(--dark-blue);
 }
 
 select {
     display: block;
-    background-color: var(--light-yellow);
+    background-color: var(--white);
 }
 
 .bill-entry {
-    background-color: var(--light-yellow);
+    background-color: var(--white);
     border-radius: 5px;
     margin-bottom: 20px;
 
 }
 
 .bill-entry-title {
-    background-color: var(--yellow);
+    background-color: var(--white);
     color: var(--dark-blue);
     text-align: center;
     border-radius: 5px 5px 0 0;
@@ -279,10 +280,11 @@ select {
     -webkit-box-shadow: 9px 11px 10px -8px rgba(20, 45, 76, 1);
     -moz-box-shadow: 9px 11px 10px -8px rgba(20, 45, 76, 1);
     box-shadow: 9px 11px 10px -8px rgba(20, 45, 76, 1);
+    border: solid black;
 }
 
 #profileBody {
-    background-color: var(--light-blue);
+    background-color: var(--white);
 }
 
 #profileInfo {
@@ -292,7 +294,7 @@ select {
 }
 
 #profileIncome {
-    background-color: var(--light-yellow);
+    background-color: var(--white);
     color: var(--dark-blue) !important;
     height: 100vh;
     width: 100vw;
@@ -301,7 +303,7 @@ select {
 
 .profile-card,
 .income-card {
-    background-color: var(--dark-blue);
+    background-color: var(--white);
     color: var(--light-yellow) !important;
     height: 30rem;
     width: 100%;
@@ -311,7 +313,7 @@ select {
 
 
 .light-yellow-text {
-    color: var(--light-yellow)!important;
+    color: var(--brand)!important;
 }
 
 .profile-card ::placeholder {

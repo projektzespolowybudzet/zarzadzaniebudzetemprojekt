@@ -22,14 +22,14 @@ $(document).ready(function () {
                 // open error modal
                 $(".modal").modal();
                 $("#error-body").empty();
-                $("#error-body").append("<p>Please add in an email</p>");
+                $("#error-body").append("<p>Dodaj email</p>");
                 // alert("Please add in an email");
             } else if (password.length < 6) {
                 // open error modal
                 $(".modal").modal();
                 $("#error-body").empty();
                 $("#error-body").append(
-                    "<p>Please enter a password of at least 6 characters</p>"
+                    "<p>Hasło musi zawierać przynajmniej 6 znaków</p>"
                 );
                 //alert("Please enter a password of at least 6 characters");
             } else {
@@ -72,20 +72,20 @@ $(document).ready(function () {
                 // open error modal
                 $(".modal").modal();
                 $("#error-body").empty();
-                $("#error-body").append("<p>Please add in an email</p>");
+                $("#error-body").append("<p>Dodaj email</p>");
                 //alert("Please add in an email");
             } else if (preferredName.trim() === "") {
                 // open error modal
                 $(".modal").modal();
                 $("#error-body").empty();
-                $("#error-body").append("<p>Please add in a name</p>");
+                $("#error-body").append("<p>Dodaj nazwę użytkownika</p>");
                 //alert("Please add in a name");
             } else if (password.length < 6) {
                 // open error modal
                 $(".modal").modal();
                 $("#error-body").empty();
                 $("#error-body").append(
-                    "<p>Please enter a password of at least 6 characters</p>"
+                    "<p>Hasło musi zawierać przynajmniej 6 znaków</p>"
                 );
                 //alert("Please enter a password of at least 6 characters");
             } else {
@@ -118,7 +118,7 @@ $(document).ready(function () {
                         $(".modal").modal();
                         $("#error-body").empty();
                         $("#error-body").append(
-                            `<p>There was an error with this request. Please make sure you have filled out the form correctly.</p>`
+                            `<p>Wystąpił błąd. Upewnij się, że formularz został uzupełniony poprawnie.</p>`
                         );
                     }
                 });
