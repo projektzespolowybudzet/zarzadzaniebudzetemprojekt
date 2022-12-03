@@ -207,7 +207,7 @@ header {
 
 #spendingBody,
 #billsBody {
-    background-color: var(--light-blue);
+    background-color: var(--white);
 }
 
 .date-text {

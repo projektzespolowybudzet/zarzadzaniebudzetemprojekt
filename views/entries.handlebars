@@ -1,11 +1,16 @@
 <body id="spendingBody">
     <div class="wrapper">
         <header>
-            <div class="container">
-                <h4 class="link-left"><a href="/" tabindex="0" class="dashboardLink">Panel</a></h4>
-                <h4 class="link-right"><a href="/profile" tabindex="0" class="profileLink">Profil</a></h4>
-                <h1 class="pageTitle">Wydatki</h1>
-            </div>
+            <img src="https://raw.githubusercontent.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/4f9fad34c7aafdbf90e5b59be81facc9d8327d36/public/assets/Style/dolarek-logo-zip-file/svg/logo-no-background.svg"
+                 width="230" height="150">
+            <h4 class="link-left"><a class="dashboardLink">Analiza</a></h4>
+            <h4 class="link-left"><a tabindex="0" class="budgetLink">Konta</a></h4>
+            <h4 class="link-left"><a class="entriesLink">Transakcje</a></h4>
+            <h4 class="link-left"><a tabindex="0" class="billsLink">Rachunki</a></h4>
+            <h4 class="link-left"><a tabindex="0" class="profileLink">Kategorie</a></h4>
+            <h4 class="link-left"><a class="profileLink">Profil</a></h4>
+            <h4 class="pageTitle">Witaj {{preferredName}}!</h4>
+            <div style="margin-top: 35px"><a class="logOut"><img src="https://raw.githubusercontent.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/77f8f006ff700acb535240bfb730014f75b2ac0c/public/assets/Style/logout_FILL0_wght400_GRAD0_opsz48.svg"></a></div>
         </header>
 
         <section>
@@ -29,12 +34,12 @@
                             <div class="input-field s12">
                                 <label for="desc" class="spending-label">Opis</label>
                                 <input type="text" id="desc" tabindex="0" class="spending-input"
-                                    placeholder="Enter purchase description">
+                                    placeholder="Podaj opis transakcji">
                             </div>
                             <div class="input-field s12">
                                 <label for="amount" class="spending-label">Kwota</label>
                                 <input type="text" id="amount" tabindex="0" class="spending-input"
-                                    placeholder="Enter purchase amount">
+                                    placeholder="Podaj kwote transakcji">
                             </div>
 
                             <div class="input-field s12">
@@ -56,7 +61,7 @@
                                 </p>
                             </div>
 
-                            <input type="text" class="datepicker" id="date" placeholder="Enter purchase date">
+                            <input type="text" class="datepicker" id="date" placeholder="Podaj datę transakcji">
                             <button type="submit" class="btn btn-large bigButton">Dodaj do wydatków</button>
                         </form>
                     </div>
