@@ -2,9 +2,9 @@
     <div class="wrapper">
         <header>
             <div class="container">
-                <h4 class="link-left"><a href="/" tabindex="0" class="dashboardLink">Dashboard</a></h4>
-                <h4 class="link-right"><a href="/profile" tabindex="0" class="profileLink">Profile</a></h4>
-                <h1 class="pageTitle">Spending</h1>
+                <h4 class="link-left"><a href="/" tabindex="0" class="dashboardLink">Panel</a></h4>
+                <h4 class="link-right"><a href="/profile" tabindex="0" class="profileLink">Profil</a></h4>
+                <h1 class="pageTitle">Wydatki</h1>
             </div>
         </header>
 
@@ -12,27 +12,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h3 class="pageSubTitle">View Spending</h3>
+                        <h3 class="pageSubTitle">Zobacz Wydatki</h3>
                         <div id="spendingSection">
                             {{#each events}}
                             <div class="spending-item">
                                 <p class="spending-text">{{description}}</p>
                                 <span>{{date}} | ${{amount}} </span>
-                                <button class="btn spending-delete" data-entryId="{{eventId}}">Delete</button>
+                                <button class="btn spending-delete" data-entryId="{{eventId}}">Skasuj</button>
                             </div>
                             {{/each}}
                         </div>
                     </div>
                     <div class="col l6 s12">
-                        <h3 class="pageSubTitle">Add to Spending</h3>
+                        <h3 class="pageSubTitle">Dodaj do Wydatków</h3>
                         <form id="spendingForm">
                             <div class="input-field s12">
-                                <label for="desc" class="spending-label">Description</label>
+                                <label for="desc" class="spending-label">Opis</label>
                                 <input type="text" id="desc" tabindex="0" class="spending-input"
                                     placeholder="Enter purchase description">
                             </div>
                             <div class="input-field s12">
-                                <label for="amount" class="spending-label">Amount</label>
+                                <label for="amount" class="spending-label">Kwota</label>
                                 <input type="text" id="amount" tabindex="0" class="spending-input"
                                     placeholder="Enter purchase amount">
                             </div>
@@ -40,7 +40,7 @@
                             <div class="input-field s12">
                                 <select name="categoryList" id="spendingList">
                                     {{!-- enter handlebars for this part --}}
-                                    <option value="" disabled selected>Choose your category</option>
+                                    <option value="" disabled selected>Wybierz kategorię</option>
                                     {{#each catNames}}
                                     <option value="{{@index}}">{{cat}}</option>
                                     {{/each}}
@@ -51,13 +51,13 @@
                                 <p>
                                     <label class="spending-label">
                                         <input type="checkbox" value="true" id="isBill" />
-                                        <span>Is This Recurring?</span>
+                                        <span>Potwarzający się wydatek?</span>
                                     </label>
                                 </p>
                             </div>
 
                             <input type="text" class="datepicker" id="date" placeholder="Enter purchase date">
-                            <button type="submit" class="btn btn-large bigButton">Add to Spending</button>
+                            <button type="submit" class="btn btn-large bigButton">Dodaj do wydatków</button>
                         </form>
                     </div>
                 </div>
@@ -69,9 +69,8 @@
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
-                <span class="date-text">© 2019 Copyright</span>
-                <a class="right btn footer-button logOut">Logout</a>
-                <a class="right btn footer-button" href="https://github.com/nikorasu-san/BudgetManager">Github</a>
+                <span class="date-text">© 2022 Copyright</span>
+                <a class="right btn footer-button logOut">Wyloguj</a>
             </div>
         </div>
     </footer>
