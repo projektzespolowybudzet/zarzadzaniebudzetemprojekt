@@ -302,7 +302,7 @@ function findRecipients() {
               }
             });
             var mailOptions = {
-              from: "budgetmanagerteam@gmail.com",
+              from: "projektzespolowybudzet@gmail.com",
               // to: `nhgroesch@gmx.com`,
               // lets insert the real email when we're done testing- hopefully on heroku/jaws they're not all fake and crash it
               to: `${a.email}`,
