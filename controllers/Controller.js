@@ -31,7 +31,7 @@ module.exports = function (app) {
     // Route 3
     var queryObject = {
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.password
     };
     post3(queryObject, function (response) {
       console.log(response);
@@ -52,11 +52,11 @@ module.exports = function (app) {
       preferredName: req.body.preferredName,
       email: req.body.email,
       phone: req.body.phoneNumber,
-      password: req.body.password,
+      password: req.body.password
     };
     post5(queryObject, function (response) {
       res.json({
-        id: response,
+        id: response
       });
     });
   });
@@ -64,7 +64,7 @@ module.exports = function (app) {
   app.get("/profile/:id", function (req, res) {
     // Route 6
     var queryObject = {
-      uid: parseInt(req.params.id),
+      uid: parseInt(req.params.id)
     };
     get6(queryObject, function (data) {
       res.render("profile", data);
@@ -82,7 +82,7 @@ module.exports = function (app) {
       emailFlag: req.body.emailFlag,
       phone: req.body.phoneNumber,
       phoneFlag: req.body.phoneFlag,
-      catNames: req.body.catNames,
+      catNames: req.body.catNames
     };
     // console.log(queryObject)
     put7(queryObject, function (response) {
@@ -103,7 +103,7 @@ module.exports = function (app) {
       billFlag: req.isBill,
       date: req.date,
       recurringFlag: req.isRecurring,
-      activeFlag: true,
+      activeFlag: true
     };
     get8(queryObject, function (response) {
       res.render("entries", response);
@@ -122,7 +122,7 @@ module.exports = function (app) {
       amount: req.amount,
       date: req.date,
       recurringFlag: req.isRecurring,
-      billFlag: req.billFlag,
+      billFlag: req.billFlag
 
       // Bill flag only means that it hasn't happened yet, perhaps we need to generate this from the date
       // billFlag: REVISIT
@@ -136,7 +136,7 @@ module.exports = function (app) {
     // Route 10
     var uid = req.params.id;
     queryObject = {
-      uid: parseInt(uid),
+      uid: parseInt(uid)
     };
     get10(queryObject, function (response) {
       console.log("get10:", response);
@@ -153,7 +153,7 @@ module.exports = function (app) {
       category: req.category,
       amount: req.amount,
       date: req.date,
-      eid: req.eventId,
+      eid: req.eventId
     };
   });
 
@@ -165,7 +165,7 @@ module.exports = function (app) {
     // var req = req.body;
     var queryObject = {
       // uid:uid,
-      eid: parseInt(eid),
+      eid: parseInt(eid)
     };
 
     put12(queryObject, function (response) {
@@ -177,7 +177,7 @@ module.exports = function (app) {
     // Route 13
     var uid = req.params.id;
     var queryObject = {
-      uid: parseInt(uid),
+      uid: parseInt(uid)
     };
     get13(queryObject, function (response) {
       console.log("get13", response);
@@ -219,7 +219,7 @@ module.exports = function (app) {
       // description: req.description,
       category: req.categoryId,
       capAmount: req.capAmount,
-      warnAmount: req.warnAmount,
+      warnAmount: req.warnAmount
     };
     put14(queryObject, function (response) {
       res.send(response);
@@ -231,7 +231,7 @@ module.exports = function (app) {
     // making the UID a number seemed to resolve query issues
     var uid = parseInt(req.params.id);
     var queryObject = {
-      uid: uid,
+      uid: uid
     };
 
     // temporarily commented to allow server to load dashboard page
@@ -247,7 +247,7 @@ module.exports = function (app) {
     // making the UID a number seemed to resolve query issues
     var uid = parseInt(req.params.id);
     var queryObject = {
-      uid: uid,
+      uid: uid
     };
 
     // temporarily commented to allow server to load dashboard page
@@ -299,7 +299,7 @@ module.exports = function (app) {
   app.put("/profile/delete/:id", function (req, res) {
     //Route 16
     var queryObject = {
-      uid: parseInt(req.params.id),
+      uid: parseInt(req.params.id)
     };
 
     put16(queryObject, function (response) {
@@ -312,7 +312,7 @@ module.exports = function (app) {
     // Route 17
     let eid = req.params.eid;
     var queryObject = {
-      eid: parseInt(eid),
+      eid: parseInt(eid)
     };
     put17(queryObject, function (response) {
       // returns [1] if successful edit

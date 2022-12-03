@@ -7,14 +7,16 @@ $(document).ready(function () {
   $(".dashboardLink").attr("href", `/${uid}`);
   $(".profileLink").attr("href", `/profile/${uid}`);
 
-  // animacja skillbar
+  // skill bar animation
   $(".skillbar").each(function () {
-    var dataSplit = $(this).attr("data-percent").split("%");
+    var dataSplit = $(this)
+      .attr("data-percent")
+      .split("%");
     var number = parseInt(dataSplit[0]);
     //console.log(number);
     if (number >= 100) {
       $(this).css({
-        background: "#B40404",
+        background: "#B40404"
       });
     }
 
@@ -23,25 +25,27 @@ $(document).ready(function () {
         .find(".skillbar-bar")
         .animate(
           {
-            width: $(this).attr("data-percent"),
+            width: $(this).attr("data-percent")
           },
           2000
         );
 
-      // Drugi pasek do  poziomu ostrzeżeń w razie potrzeby
+      // Second bar for warning level if desired
 
       $(this)
         .find(".skillbar-bar2")
         .animate(
           {
-            width: $(this).attr("data-warn-percent"),
+            width: $(this).attr("data-warn-percent")
           },
           2000
         );
     }
+
+    //if the width of the
   });
 
-  // Dodaj dane kategorii do formularza budżetowego
+  // Add category data to budget form
   $(document).on("click", "#toBudgetForm", function () {
     // console.log(
     //   $(this)
@@ -91,24 +95,26 @@ $(document).ready(function () {
 
   $(document).on("click", "#updateBudget", function (event) {
     event.preventDefault();
-    // console.log("naciśnięto");
+    // console.log("clicked");
     let newTarget = $("#targetAmount").val();
     let newWarning = $("#warningAmount").val();
-    let categoryId = $("#categoryList").find(":selected").val();
+    let categoryId = $("#categoryList")
+      .find(":selected")
+      .val();
 
     let reqObj = {
       categoryId: categoryId,
       capAmount: newTarget,
-      warnAmount: newWarning,
+      warnAmount: newWarning
     };
     //console.log(reqObj);
     $.ajax({
       url: "/caps/" + uid,
       method: "PUT",
-      data: reqObj,
+      data: reqObj
     }).then(function (response) {
       if (response[0] === 1) {
-        // alert("Aktualizacja zapisana");
+        // alert("Updates saved.");
         location.reload();
       } else {
         alert("Data not saved.");

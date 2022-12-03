@@ -1,57 +1,57 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
-    // Jak aplikacja zwróci się do użytkownika
+    // how app will address the user
     description: {
       type: DataTypes.STRING,
       //   allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     },
     category: {
       type: DataTypes.INTEGER(2),
       allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     },
     amount: {
       type: DataTypes.DECIMAL(10, 2),
-      defaultValue: 1000,
+      defaultValue: 1000
     },
-    // Opcjonalne pole wejścia na przyszłe lub przeszłe wydarzenia, w przeciwnym razie weźmie CREATED AT
+    // optional entry field for future or past events, otherwise we will take CREATED AT
     date: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: false
     },
-    // is bill(true oznacza brak wydarzenia; brak transferów)
+    // is bill(true means event has not yet occured; funds not yet transferred)
     billFlag: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: false
     },
-    // dla opłat powtarzalnych
+    // if the Bill is recurring
     recurringFlag: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: false
     },
-    //** okres powtzarzalności
+    //** recurrence periodicity as string to parse
     periodicity: {
       type: DataTypes.STRING,
-      defaultValue: "Misięcznie",
+      defaultValue: "Monthly"
     },
 
-    // Jeśli użytkownik chce anulować zdarzenie, zostanie ono dezaktywowane
+    // should the user wish to cancel the event, it will be deactivated
     activeFlag: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true,
-    },
+      defaultValue: true
+    }
   });
-  // zdarzenia 1 to many
-  Event.associate = function (models) {
+  // 1 user to many events
+  Event.associate = function(models) {
     Event.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
   };
 

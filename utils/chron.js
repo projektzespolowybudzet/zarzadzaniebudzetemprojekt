@@ -1,6 +1,6 @@
-// Tworzy plik dziennika do aktualizacji, gdy zwykłe zadania były ostatnie uruchomione,
-// za każdym razem, gdy serwer pracuje, sprawdzamy, czy interwał był zbyt długi
-// użyj tego, aby uruchomić odpowiednie pliki w razie potrzeby
+// create a logfile to update when regular jobs were last ran,
+// every time server engages we check to see if the interval has been too long
+// use that to run appropriate files as needed
 let fs = require("fs");
 let moment = require("moment");
 var path = require("path");
@@ -15,11 +15,11 @@ function checkLog(callback) {
 }
 let logDate = moment().format("YYYY-MM-DD hh:mm:ss");
 function execute(callback) {
-  checkLog((x) => {
+  checkLog(x => {
     let lastLog = x.substr(0, 10);
     let now = logDate.substr(0, 10);
     if (now != lastLog) {
-      console.log("gotowe chronJobs pracuje");
+      console.log("running chron jobs");
       writeLog(logDate);
       callback();
     }
@@ -27,9 +27,9 @@ function execute(callback) {
 }
 
 function writeLog(logDate) {
-  fs.appendFile(`${logPath}`, `${logDate} \n`, (err) => {
+  fs.appendFile(`${logPath}`, `${logDate} \n`, err => {
     if (err) throw err;
-    console.log('"dane do dodania" dołączono do pliku');
+    console.log('The "data to append" was appended to file!');
   });
 }
 

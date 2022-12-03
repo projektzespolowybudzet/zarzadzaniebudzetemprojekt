@@ -16,12 +16,14 @@ $(document).ready(function () {
   $(".budgetLink").attr("tabindex", `0`);
 
   $(".skillbar").each(function () {
-    var dataSplit = $(this).attr("data-percent").split("%");
+    var dataSplit = $(this)
+      .attr("data-percent")
+      .split("%");
     var number = parseInt(dataSplit[0]);
     //console.log(number);
     if (number >= 100) {
       $(this).css({
-        background: "#B40404",
+        background: "#B40404"
       });
     }
 
@@ -30,13 +32,15 @@ $(document).ready(function () {
         .find(".skillbar-bar")
         .animate(
           {
-            width: $(this).attr("data-percent"),
+            width: $(this).attr("data-percent")
           },
           2000
         );
     }
+
+    //if the width of the
   });
-  // Uzyskaj informacje z interfejsu API do pulpitu nawigacyjnego
+  //get the information from the api to the dashboard
   $.get("/api/" + uid).then(function (data) {
     //console.log(two);
     pieChart(
@@ -61,7 +65,8 @@ $(document).ready(function () {
       [data.catTotalFloats[8].catTotalF],
       [data.catTotalFloats[9].catTotalF]
     );
-    // Wykonaj funkcję dla wykresu kołowego
+    //make a function for the pieChart
+
     // console.log(data);
   });
 
@@ -70,7 +75,7 @@ $(document).ready(function () {
     document.location.href = "/login";
   });
 });
-//podzielono na sekcje
+//split it up into sections
 
 function pieChart(
   cat0name,
@@ -103,9 +108,9 @@ function pieChart(
       position: "right",
       labels: {
         fontColor: "#586b8f",
-        fontSize: 20,
-      },
-    },
+        fontSize: 20
+      }
+    }
   };
 
   var data = {
@@ -119,7 +124,7 @@ function pieChart(
       cat6name,
       cat7name,
       cat8name,
-      cat9name,
+      cat9name
     ],
     datasets: [
       {
@@ -133,7 +138,7 @@ function pieChart(
           cat6value,
           cat7value,
           cat8value,
-          cat9value,
+          cat9value
         ],
         backgroundColor: [
           "#480032",
@@ -145,17 +150,17 @@ function pieChart(
           "#ffd6c2",
           "#692db7",
           "#ff5959",
-          "#3426a4",
+          "#3426a4"
         ],
-        borderWidth: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      },
-    ],
+        borderWidth: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      }
+    ]
   };
   var newDoughnut = new Chart(chart, {
     type: "doughnut",
     data: data,
-    options: options,
+    options: options
   });
 
-  //console.log("ok!");
+  //console.log("success!");
 }

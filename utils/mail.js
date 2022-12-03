@@ -1,136 +1,8 @@
-// dependencies
-var express = require("express");
-var exphbs = require("express-handlebars");
-var app = express();
-var PORT = process.env.PORT || 8080;
-// database requires all models in folder
-var db = require("./models");
-require("dotenv").config();
-
-// Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// Static Serve
-app.use(express.static("public"));
-
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Routes
-// e.g. require("./routes/html-routes.js")(app);
-// require("./controllers/Controller.js")(app);
-
-// //dev environment-----THIS IS WHERE WE WORK
-// //KEEP COMMENTS FOR TESTING CASES
-
-// // ROUTE 9
-// var queryObject = {
-//   UserId: 1,
-//   description: "zoomba",
-//   category: 9,
-//   amount: 45.4,
-//   date: "2019-4-13",
-//   billFlag: true,
-//   recurringFlag: true
-// };
-
-// var queryObject = {
-//   preferredName: "rocky2",
-//   email: "rockstar@grammy.com",
-//   phone: 4212322321,
-//   password: "musicm5~"
-// };
-// app.post("/login", function(req, res) {
-
-// // Route 3
-// var queryObject = {
-//   email: "star@star.com",
-//   password: "sugarrush"
-// };
-
-// // Route 7
-// var queryObject = {
-//   uid: 3,
-//   preferredName: "jimmyjohn",
-//   password: "freakyFAST",
-//   monthlyIncome: 10000000,
-//   email: "req@body.email",
-//   emailFlag: false,
-//   phone: 0987654321,
-//   phoneFlag: true,
-//   catNames: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
-// };
-
-// // Route 11
-// // var req = req.body
-// var queryObject = {
-//   uid: 1,
-//   description: "Party like Prince",
-//   category: 4,
-//   amount: 1999.99,
-//   date: "1999-12-31",
-//   eid: 1
-// };
-
-// // Route 12
-// // var uid = req.params.id
-// // var req = req.body;
-// var queryObject = {
-//   //   uid:uid,
-//   eid: 8
-// };
-
-// // Route 14
-// //   var uid = req.params.id;
-// //   req = req.body;
-// var queryObject = {
-//   // date:req.dueDate,
-//   uid: 5,
-//   //   description: req.description,
-//   category: 9,
-//   capAmount: 1000,
-//   warnAmount: 1000
-// };
-
-// // Route 13/16
-// //  var uid = req.params.id;
-// var queryObject = {
-//   uid: 5
-// };
-
-// // Route 17
-// //  var eid = req.params.id;
-// var queryObject = {
-//   eid: 1
-// };
-
-// // Route 8
-// var uid = 1;
-// //  var req = req.body;
-// //  var queryObject = {
-// //    uid: uid,
-// //    description: req.description,
-// //    category: req.category,
-// //    amount: req.amount,
-// //    billFlag: req.isBill,
-// //    date: req.date,
-// //    recurringFlag: req.isRecurring,
-// //    activeFlag: true
-// //  };
-
-// // // Route 10
-// var id = 4;
-// queryObject = {
-//   uid: id
-// };
-// // this file is for automatic email updates via nodemailer
-var db = require("./models");
-var thismonth = require("./utils/date");
+var db = require("../models");
+var thismonth = require("./date");
 const nodemailer = require("nodemailer");
-// let transporter = nodemailer.createTransport(options[ defaults])
-// findRecipients();
+// require("dotenv").config();
+
 function findRecipients() {
   db.User.findAll({
     where: {
@@ -141,7 +13,6 @@ function findRecipients() {
       // emailFlag:1
     }
   }).then(x => {
-    // console.log(x);
     // we need to got through each user and check if their spending is exceeding their expectations
     x.forEach((x, i) => {
       let name = x.dataValues.preferredName;
@@ -406,12 +277,12 @@ function findRecipients() {
           if (b[0] == "C") {
             let messagePlus = `<p>You are ${
               a.flags[flagArr[i]]
-            }% over budget for ${catNames[b[1]].cat}.</p>`;
+              }% over budget for ${catNames[b[1]].cat}.</p>`;
             message = message.concat(messagePlus);
           } else if (b[0] == "W") {
             let messagePlus = `<p>You are ${
               a.flags[flagArr[i]]
-            }% over your warning level for ${catNames[b[1]].cat}.</p>`;
+              }% over your warning level for ${catNames[b[1]].cat}.</p>`;
             message = message.concat(messagePlus);
           }
         });
@@ -422,6 +293,7 @@ function findRecipients() {
           // Michael Campbell of team SPATIFY was most helpful with issues we had implementing nodemailer
           // (which ended up being more on the google side than the javascript side)
           async function sendThatMail() {
+            console.log("user", process.env.GMAILUSER);
             let transporter = nodemailer.createTransport({
               service: "gmail",
               auth: {
@@ -431,19 +303,19 @@ function findRecipients() {
             });
             var mailOptions = {
               from: "budgetmanagerteam@gmail.com",
-              to: `nhgroesch@gmx.com`,
+              // to: `nhgroesch@gmx.com`,
               // lets insert the real email when we're done testing- hopefully on heroku/jaws they're not all fake and crash it
-              // to: `${a.email}`,
+              to: `${a.email}`,
               subject: "CHECK YOURSELF",
               text: `Look alive ${a.name}`,
               html: `${messageStart}${message}${messageEnd}`
             };
             transporter.sendMail(mailOptions, (err, info) => {
-              if (err) {
-                throw new Error("Uh-oh: Something Bad Happened");
-              } else {
-                console.log(info);
-              }
+              // if (err) {
+              //   throw new Error("Uh-oh: Something Bad Happened");
+              // } else {
+              console.log(info);
+              // }
             });
           }
           sendThatMail().catch(console.error);
@@ -453,76 +325,4 @@ function findRecipients() {
   });
 }
 
-// // we need to get the info from the database and create the actual mail content here
-// var name;
-// var email;
-// var message;
-
-// // this part will post from our send route
-// sendEmail (name, email, message) {
-//     fetch('/send', {
-//       method: 'POST',
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         name: name,
-//         email: email,
-//         message: message
-//       })
-//     })
-//     .then((res) => res.json())
-//     .then((res) => {
-//       console.log('here is the response: ', res);
-//     })
-//     .catch((err) => {
-//       console.error('here is the error: ', err);
-//     })
-//    }
-
-// //    i think we need to require this in the app on server
-
-// //   the transporter will actually send the emails from the service we set up
-// app.post('/send', function(req, res, next) {
-//     const transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         user: 'test-email@gmail.com',
-//         pass: 'test123'
-//       }
-//     })
-//   }
-//     const mailOptions = {
-//       from: `${req.body.email}`,
-//       to: 'test-email@gmail.com',
-//       subject: `${req.body.name}`,
-//       text: `${req.body.message}`,
-//       replyTo: `${req.body.email}`
-//     }
-//     transporter.sendMail(mailOptions, function(err, res) {
-//         if (err) {
-//           console.error('there was an error: ', err);
-//         } else {
-//           console.log('here is the res: ', res)
-//         }
-//       })
-
-// Route 15
-// var id = 1;
-// // We will need the main dashboard page to send across the id. This will likely be in local storage.
-// var queryObject = {
-//   uid: id
-// };
-
-// var get15 = require("./utils/get15.js");
-// get15(queryObject, function(res) {
-//   console.log("server", res);
-// });
-
-// Don't run app unless we have db sync
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    // console.log("App listening on PORT " + PORT);
-  });
-});
+module.exports = findRecipients;

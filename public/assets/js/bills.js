@@ -10,13 +10,13 @@ $(document).ready(function () {
   $(".buttonDelete").on("click", function () {
     var id = $(this).attr("data-billId");
     // console.log(id);
-    //tworzy ajax put
+    //make the ajax put
     $.ajax(`/bills/delete/${id}`, {
-      type: "PUT",
+      type: "PUT"
     }).then(function (data) {
       // console.log(data);
       if (data[0] === 1) {
-        // console.log('usunięto wydatek ' + id);
+        // console.log('deleted bill id ' + id);
         location.reload();
       }
     });

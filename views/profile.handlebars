@@ -1,0 +1,194 @@
+<body id="profileBody">
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <h4 class="link-left"><a href="/" tabindex="0" class="dashboardLink">Panel</a></h4>
+                <h4 class="link-right"><a href="/profile" tabindex="0" class="profileLink">Profil</a></h4>
+                <h1 class="pageTitle">Profil</h1>
+            </div>
+        </header>
+        <form>
+            <section id="profileInfo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l2"></div>
+
+                        <div class="col l8">
+                            <div class="row">
+                                <h4 class="b-text pageSubTitle">Informacje</h4>
+                            </div>
+                            <div class="card-panel profile-card">
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="preferredName" type="text" class="validate yellow-text"
+                                            value={{preferredName}}>
+                                        <label class="light-yellow-text" for="preferredName">Nazwa Użytkownika</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate yellow-text" value={{email}}>
+                                        <label class="light-yellow-text" for="email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="phone" type="text" class="validate yellow-text" value={{phone}}>
+                                        <label class="light-yellow-text" for="phone">Numer Telefonu (opcjolane)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="password" type="password" class="validate yellow-text"
+                                            value={{password}}>
+                                        <label class="light-yellow-text" for="password">Hasło</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l2"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="profileIncome">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l2"></div>
+                        <div class="col l8">
+                            <div class="row">
+                                <h4 class="pageSubTitle">Kategorie</h4>
+                            </div>
+                            <div class="card-panel income-card">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="income" type="text" class="validate yellow-text"
+                                            value={{monthlyIncome}}>
+                                        <label class="light-yellow-text" for="income">Miesięczny Przychód</label>
+                                    </div>
+                                </div>
+                                {{!-- <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat0name" type="text" class="validate yellow-text"
+                                        placeholder={{cat0name}}>
+                                    <label class="yellow-text" for="cat0name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat1name" type="text" class="validate yellow-text"
+                                        placeholder={{cat1name}}>
+                                    <label class="yellow-text" for="cat1name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat2name" type="text" class="validate yellow-text"
+                                        placeholder={{cat2name}}>
+                                    <label class="yellow-text" for="cat2name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat3name" type="text" class="validate yellow-text"
+                                        placeholder={{cat3name}}>
+                                    <label class="yellow-text" for="cat3name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat4name" type="text" class="validate yellow-text"
+                                        placeholder={{cat4name}}>
+                                    <label class="yellow-text" for="cat4name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat5name" type="text" class="validate yellow-text"
+                                        placeholder={{cat5name}}>
+                                    <label class="yellow-text" for="cat5name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat6name" type="text" class="validate yellow-text"
+                                        placeholder={{cat6name}}>
+                                    <label class="yellow-text" for="cat6name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat7name" type="text" class="validate yellow-text"
+                                        placeholder={{cat7name}}>
+                                    <label class="yellow-text" for="cat7name">Add Category</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="cat8name" type="text" class="validate yellow-text"
+                                        placeholder={{cat8name}}>
+                                    <label class="yellow-text" for="cat8name">Add Category</label>
+                                </div>
+                            </div> --}}
+                                {{#each catNames}}
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="cat{{@index}}name" type="text" class="validate yellow-text"
+                                            value="{{cat}}">
+                                        <label class="light-yellow-text" for="{{cat}}">Dodaj Kategorię</label>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l2"></div>
+
+            </section>
+            <div id="modal1" class="modal" style="bottom:10%;">
+                <div class="modal-content" id="error-content">
+                    <h4>Alert</h4>
+                </div>
+                <div id="error-body">
+                </div>
+                <div class="modal-footer">
+                    <a href="#close-modal" rel="modal:close" id="deleteConfirm" type="submit"
+                        class="modal-close btn btn-large b-text right-align deleteConfirm">Potwierdź</a>
+                </div>
+            </div>
+            <section id="bottom-buttons"><br>
+                <div class="row">
+                    <div class="col m5"></div>
+                    <div class="col m2">
+                        <button id="profileEdit" class="btn btn-large bigButton">Edytuj</button>
+                    </div>
+                    <div class="col m5"></div>
+                </div>
+            </section>
+            <section id="bottom-buttons">
+                <div class="row">
+                    <div class="col l5"></div>
+                    <div class="col l2">
+                        <button id="profileDelete" class="btn btn-large bigButton">Deaktywuj</button>
+                    </div>
+                    <div class="col l5"></div>
+                </div>
+            </section>
+        </form>
+    </div>
+    <div class="push"></div>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <span class="date-text">© 2022 Copyright</span>
+                <a class="right btn footer-button logOut">Wyloguj</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script src="/assets/js/profile.js"></script>
+</body>

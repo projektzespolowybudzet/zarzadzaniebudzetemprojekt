@@ -1,0 +1,51 @@
+<body id="billsBody">
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <h4 class="link-left"><a href="/" tabindex="0" class="dashboardLink">Panel</a></h4>
+                <h4 class="link-right"><a href="/profile" tabindex="0" class="profileLink">Profil</a></h4>
+                <h1 class="pageTitle">Wydatki</h1>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div class="col s12">
+                    <h3 class="pageSubTitle">Rachunki</h3>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    {{!-- handlebars goes here --}}
+                    {{#each events}}
+                    <div class="col l4 m6 s12">
+                        <div class="bill-entry">
+                            <div class="bill-entry-title">
+                                <h5>{{description}}</h5>
+                            </div>
+                            <div class="bill-body">
+                                <p class="bill-entry-text">Data: {{date}}</p>
+                                <p class="bill-entry-text">Kategoria: {{catName}}</p>
+                                <p class="bill-entry-text">Kwota: ${{amount}} </p>
+                                <button class="btn btn-large buttonDelete" data-billId="{{eventId}}">Usuń Rachunek</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- handlebars end --}}
+                    {{/each}}
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <div class="push"></div>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <span class="date-text">© 2022 Copyright</span>
+                <a class="right btn footer-button logOut">Wyloguj</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/bills.js"></script>
+</body>

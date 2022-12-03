@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   var uid = checkCookie();
   if (!uid) {
@@ -90,8 +91,9 @@ $(document).ready(function () {
         cat6name,
         cat7name,
         cat8name,
-        cat9name,
-      ],
+        cat9name
+      ]
+
     };
     // console.log(updateDetails.catNames);
     // console.log("email: ", email)
@@ -99,29 +101,29 @@ $(document).ready(function () {
     $.ajax({
       url: "/profile/" + uid,
       method: "PUT",
-      data: updateDetails,
+      data: updateDetails
     }).then(function (response) {
       if (response[0] === 1) {
-        // alert("Zapisane aktualizacje.");
+        // alert("Updates saved.");
         location.replace("/" + uid);
       } else {
-        // alert("Dane nie zostały zapisane.")
-        // Otwórz model błędu
+        // alert("Data not saved.")
+        // open error modal
         $(".modal").modal();
         $("#error-body").empty();
-        $("#error-body").append(
-          `<p class="modal-p">Aktualizacja nie została zapisana.</p>`
-        );
+        $("#error-body").append(`<p class="modal-p">Update not saved.</p>`);
       }
     });
+
+
   });
 
   $(document).on("click", "#profileDelete", function (event) {
     event.preventDefault();
-    let message = "Czy na pewno chcesz usunąć ten profil?";
+    let message = "Are you sure that you want to delete this profile?";
     // deleteConfirm
 
-    // otwórz modal błędu
+    // open error modal
     $(".modal").modal();
     $("#error-body").empty();
     $("#error-body").append(`<p class="modal-p">${message}</p>`);
@@ -129,24 +131,24 @@ $(document).ready(function () {
     $(document).on("click", "#deleteConfirm", function (event) {
       event.preventDefault();
       console.log("clicked");
-      // Wysła prośbę PUT z id.
+      // sent a put request with id.
 
       $.ajax({
         url: "/profile/delete/" + uid,
-        method: "PUT",
+        method: "PUT"
       }).then(function (response) {
-        //console.log("odpowiedź", response);
+        //console.log("response", response);
         if (response[0] === 1) {
-          // Zaloguj się, jeśli pomyślnie usuń
-          console.log("Profil deaktywowano.");
-          // Wyślij użytkownika do zalogowania się
+          // log if successful delete
+          console.log("Profile deactivated.");
+          // send user to login
           location.replace("/login");
         } else {
-          //alert("Profil nie został usunięty");
+          //alert("Profile was not deleted");
           $(".modal").modal();
           $("#error-body").empty();
           $("#error-body").append(
-            `<p class="modal-p">Ten profil nie został usunięty.</p>`
+            `<p class="modal-p">This profile was not deleted.</p>`
           );
         }
       });

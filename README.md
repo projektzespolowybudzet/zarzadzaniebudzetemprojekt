@@ -1,31 +1,63 @@
-# Projekt Zespołowy - aplikacja do zarządzania budżetem "Dolarek"
+# Check Yourself
 
-![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Style/dolarek-logo-zip-file/png/logo-no-background.png)
+**Live Link:**
+https://pacific-forest-78479.herokuapp.com/
 
-## Opis
+**Test Creds:**
+- user email: star@star.com
+- password: sugarrush
 
-Celem projektu jest stworzenie darmowej aplikacji webowej, dostępnej zarówno w przeglądarkach stacjonarnych oraz mobilnych, która pomoże użytkownikowi w analizie wydatków oraz wpływów. Użytkownik będzie mieć możliwość dodawania kont, kategorii oraz wydatków i wpływów, a następnie przeprowadzania analizy transakcji, sporządzania różnych bilansów, miesięcznych, kwartalnych, rocznych.
+## Overview
+Check Yourself is a web app that allows users to log and manage their spending habits. Users will be able to set custom categories, see upcoming bills, and set warning triggers to be notified when spending approaches their limit. 
 
-## Użyta technologia
+Presentation Slides - https://docs.google.com/presentation/d/1k6WAa7mlcXgiOvsaaa6LkA3QS1oS6d3zidRME61vciE/edit?usp=sharing
 
+## New User Instructions
+1. Go to Login/Sign Up to access the app
+2. Go to Profile (New users are redirected here. Existing users are directed to the Dashboard first)
+3. Confirm your monthly income
+4. Name your custom budget categories (Each user can use 10)
+5. Go to the bottom of the page and click ‘Submit Edit’
+6. Go to Dashboard 
+7. Go to Budgets 
+8. Use the dropdown on the form or go to your desired category and click ‘Add to Form’ 
+9. Enter the desired budget cap and warning amount
+10. After you’re finished with Budgets, return to Dashboard
+11. Click ‘Add Entries’
+12. Fill out the form to create a spending/purchase entry
+    * If it’s a bill, check ‘Is This Recurring?’ and select a future date
+    * Note that future bill entries will also be displayed on the Bills page
+13. Go back to Dashboard and see your progress
+
+## Team
+* Nick Groesch - https://github.com/NickGroesch
+* Ogechi Ike - https://github.com/BlackMG27
+* Chris Pete - https://github.com/neagtivefriction
+* Nick Williams - https://github.com/nikorasu-san
+
+## Technology Used
 **Front End:**
-* JavaScript
+* Materialize
+* Chart.js
+* Moment.js
+* Jquery
+* Handlebars
 
 **Back End:**
 * Node JS 
 * Express.js
 * Nodemailer
+* Sequelize (ORM)
 
-**Baza Danych:**
+**Database:**
 * MySql
 
 **Deployment**
 * Heroku
 
-## [Zobacz Wymagania](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Inzynieria%20wymagan/Wymagania.pdf)
-## [Zobacz Szkice wyglądu aplikacji](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Inzynieria%20wymagan/Projekt%20interfejsu%20u%C5%BCytkownika.pdf)
-### Przykład:
-![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Inzynieria%20wymagan/Interfejs%20png/Ekran%20logowania.png)
-![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Inzynieria%20wymagan/Interfejs%20png/Analiza%20-%20Wszystkie%20wydatki.png)
-![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Inzynieria%20wymagan/Interfejs%20png/Transakcje.png)
-![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Inzynieria%20wymagan/Interfejs%20png/Dodaj%20transakcje.png)
+## Future Development
+- Add a FAQ or documentation page to the app, consider a tour guide or UI changes to make the workflow more intuitive.
+- Strengthening Login features and password security. Passport.js was strongly considered in first build.
+- Cookie Encryption and advance cookie validation
+- Expand user notification functionality (unsubscribe, phone texts via Twilio)
+- Additional functionality like creating long-term goals for savings, automation with user bank account.

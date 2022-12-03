@@ -1,5 +1,5 @@
-// // To jest JS do tworzenia globalnych funkcji do zdefiniowania nowego pliku cookie na logowanie,
-// // lub pobieranie pliku cookie, jeśli użytkownik jest nadal zalogowany.
+// // This is the JS to create global functions for defining a new cookie on login,
+// // or retrieving a cookie if the user is still logged in.
 
 function checkCookie() {
   if (Cookies.get("id")) {

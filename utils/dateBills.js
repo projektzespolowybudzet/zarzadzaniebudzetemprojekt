@@ -1,4 +1,4 @@
-// Ten plik analizuje wszystkie zdarzenia Billflagged i odznacza je, gdy nadejdzie ich czas
+// this file examines all the billFlagged events and unflags them whenever their date arrives
 var db = require("../models");
 var moment = require("moment");
 let today = moment().format("YYYY-MM-DD");
@@ -7,30 +7,30 @@ function dateBills(callback) {
   db.Event.findAll({
     where: {
       billFlag: true,
-      // Do testów
+      // line 11 for testing
       // billFlag: false,
       date: {
-        [db.Op.lte]: today,
-      },
-    },
-  }).then((x) => {
+        [db.Op.lte]: today
+      }
+    }
+  }).then(x => {
     updateObject = {
-      billFlag: false,
-      // Do testów
+      billFlag: false
+      // for testing
       // billFlag: true
     };
 
-    // Do testów
+    // forTesting
     // reupdateObject = {
     //   // recurringFlag: true,
     //   billFlag: true
     // };
 
-    x.forEach((v) => {
-      // Jeśli płatność jest powtarzalna, najpierw utworzymy flagi w następnych miesiącach
+    x.forEach(v => {
+      // if the bill is recurring we will first create next months version
       if (v.dataValues.recurringFlag) {
-        // Data inspirowana (i przerobiona, aby dać koniec następnego miesiąca
-        // stworzono przez silentw ze stack overflow: https://stackoverflow.com/questions/33440646/how-to-properly-add-1-month-from-now-to-current-date-in-moment-js
+        // date logic inspired (and reworked to give end of next month rather than push, e.g. one month after 1/31 to 3/1)
+        // by silentw from stack overflow: https://stackoverflow.com/questions/33440646/how-to-properly-add-1-month-from-now-to-current-date-in-moment-js
         moment.addRealMonth = function addRealMonth(d) {
           var fm = moment(d).add(1, "M");
           var fmEnd = moment(fm).endOf("month");
@@ -39,7 +39,7 @@ function dateBills(callback) {
             : fm;
         };
         var nextMonth = moment.addRealMonth(moment()).format("YYYY-MM-DD");
-        // koniec kodu
+        // end of inspired code
 
         newBillObject = {
           description: v.dataValues.description,
@@ -50,38 +50,38 @@ function dateBills(callback) {
           periodicity: v.dataValues.periodicity,
           activeFlag: v.dataValues.activeFlag,
           UserId: v.dataValues.UserId,
-          date: nextMonth,
+          date: nextMonth
         };
-        db.Event.create(newBillObject).then((response) => {
-          console.log("dodano flagę powtarzalną");
+        db.Event.create(newBillObject).then(response => {
+          console.log("recurring bill added");
         });
       }
-      // Następnie aktualizujemy flagę rachunków, aby wskazać, że dzisiaj została zapłacona
+      // then we will update the bill flag to false to indicate that today it was paid
       db.Event.update(updateObject, {
         where: {
-          id: v.dataValues.id,
-        },
-      }).then((y) => {
-        console.log("Zaktualizowano billFlag", y);
-        // wyłączyć callbackdo testów
+          id: v.dataValues.id
+        }
+      }).then(y => {
+        console.log("bill flag updated", y);
+        // callback off for testing
         callback();
       });
 
-      // do testów
+      // for testing
       // db.Event.update(reupdateObject, {
       //   where: {
       //     id: v.dataValues.id
       //   }
       // }).then(y => {
-      //   // console.log("zaktualizowano flagę powtarzalną", y);
-      //   // wyłączyć callback do testów
+      //   // console.log("recurring flag updated", y);
+      //   // callback off for testing
       //   // callback();
       // });
     });
   });
 }
 
-// do testów
+// for testing
 // dateBills();
 
 module.exports = dateBills;

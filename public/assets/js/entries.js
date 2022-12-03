@@ -14,16 +14,16 @@ $(document).ready(function () {
     var category = $("#spendingList option:selected").val();
     var isBill = $("#isBill:checked").val();
     var date = $("#date").val();
-    // resetuje datę, aby było czytelnie dla bazy danych
+    //reset the date to make it readable by the database
     // console.log(date);
     // console.log(category);
     category = parseInt(category);
     amount = parseFloat(amount);
-    let formatDate = moment(date, "YYYY-MM-DD");
+    let formatDate = moment(date, "MMM-DD-YYYY");
     // console.log(formatDate);
     let newDate = formatDate.format("YYYY-MM-DD");
     // console.log(newDate);
-    // Sprawdź, czy w przyszłości
+    // check if in the future
     let today = moment().format("YYYY-MM-DD");
     let diff = moment(newDate).diff(today);
     let billFlag = false;
@@ -33,7 +33,7 @@ $(document).ready(function () {
     }
     // console.log("billFlag:", billFlag);
 
-    //Przechowuj wartości w obiekcie
+    //store the values into an object
     var data = {
       uid: parseInt(uid),
       description: description,
@@ -41,15 +41,15 @@ $(document).ready(function () {
       categoryId: category,
       isRecurring: isBill,
       date: newDate,
-      billFlag: billFlag,
+      billFlag: billFlag
     };
     e.preventDefault();
-    // console.log("działa");
+    // console.log("it works!");
     // console.log(data);
 
     $.post("/entry", data).then(function (data) {
       if (data.id) {
-        // console.log("ok!");
+        // console.log("success!");
         location.reload();
       }
     });
@@ -61,10 +61,10 @@ $(document).ready(function () {
 
     $.ajax({
       url: `/entry/delete/${id}`,
-      method: "PUT",
+      method: "PUT"
     }).then(function (data) {
       // console.log(data);
-      // console.log("usunięto rachunek " + id);
+      // console.log("deleted bill id " + id);
       location.reload();
     });
   });
