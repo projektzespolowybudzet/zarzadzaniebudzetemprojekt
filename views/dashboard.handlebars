@@ -1,47 +1,19 @@
 <body id="dashboardBody">
     <div class="wrapper">
         <header>
-            <div class="container">
-                <h4 class="link-left"><a class="dashboardLink">Panel</a></h4>
-                <h4 class="link-right"><a class="profileLink">Profil</a></h4>
-                <h1 class="pageTitle">Witaj {{preferredName}}!</h1>
-            </div>
+            <img src="https://raw.githubusercontent.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/4f9fad34c7aafdbf90e5b59be81facc9d8327d36/public/assets/Style/dolarek-logo-zip-file/svg/logo-no-background.svg"
+            width="230" height="150">
+            <h4 class="link-left"><a class="dashboardLink">Panel</a></h4>
+            <h4 class="link-left"><a tabindex="0" class="budgetLink">Budzet</a></h4>
+            <h4 class="link-left"><a tabindex="0" class="billsLink">Rachunki</a></h4>
+            <h4 class="link-left"><a class="entriesLink">Transakcje</a></h4>
+            <h4 class="link-left"><a class="profileLink">Profil</a></h4>
+            <h4 class="pageTitle">Witaj {{preferredName}}!</h4>
+            <h4 class="link-left"><a class="logOut">Wyloguj</a></h4><img src="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
         </header>
         <section>
             <div class="container">
                 <div class="row">
-                    {{!-- entries block --}}
-                    <div class="col l4 s12">
-                        <div class="dashboard-section">
-                            <h3 class="pageSubTitle">Rekordy</h3>
-                            <hr>
-                            <div id="entryInfo">
-                                {{#each entryArr}}
-                                <div class="dashboard-entry">
-                                    <p>{{description}} <br> <span>${{amount}}</span> <span
-                                            class="d-entry-date">{{date}}</span> </p>
-                                </div>
-                                {{/each}}
-                            </div>
-                            <a class=" btn btn-large bigButton entriesLink">Dodaj</a>
-                        </div>
-                    </div>
-                    {{!-- bills block --}}
-                    <div class="col l4 s12">
-                        <div class="dashboard-section">
-                            <h3 class="pageSubTitle">Rachunki</h3>
-                            <hr>
-                            <div id="billsInfo">
-                                {{#each billsArr}}
-                                <div class="dashboard-bills">
-                                    <p class="d-bills-text">{{description}} <br>
-                                        <span>$ {{amount}}</span> <span class="d-bills-date">{{date}}</span></p>
-                                </div>
-                                {{/each}}
-                            </div>
-                            <a tabindex="0" class="btn btn-large bigButton billsLink">Zarządzaj</a>
-                        </div>
-                    </div>
                     {{!-- budgets block --}}
                     <div class="col l4 s12">
                         <div class="dashboard-section">
@@ -50,28 +22,42 @@
                             <div id="capsInfo">
                                 <div class="row dash-catName">
                                     {{#each combinedData}}
-                                    <h5 class="b-text center-align">{{cat}}</h5>
-                                    {{!-- bar goes here --}}
+                                        <h5 class="b-text center-align">{{cat}}</h5>
+                                        {{!-- bar goes here --}}
 
-                                    <div class="skillbar clearfix " data-percent="{{catCapF}}%">
-                                        <div class="skillbar-title" style="background: #142d4c;"></div>
-                                        <div class="skillbar-bar" style="background: #ffed78; max-width: 100%;"></div>
-                                        <div class="skill-bar-percent">Całowite Wydatki{{catTotalF}}%</div>
-                                    </div>
+                                        <div class="skillbar clearfix " data-percent="{{catCapF}}%">
+                                            <div class="skillbar-title" style="background: #142d4c;"></div>
+                                            <div class="skillbar-bar" style="background: #ffed78; max-width: 100%;"></div>
+                                            <div class="skill-bar-percent">Całowite Wydatki{{catTotalF}}%</div>
+                                        </div>
                                     {{/each}}
                                 </div>
                             </div>
-                            <a tabindex="0" class="btn btn-large bigButton budgetLink">Zarządzaj</a>
+                        </div>
+                    </div>
+                    <div class="col l8 s12">
+                        <div class="dashboard-section">
+                            <h3 class="pageSubTitle">Pozostało ${{moneyLeft}} do końca miesiąca!</h3>
+                            <canvas id="pieChart"></canvas>
                         </div>
                     </div>
         </section>
         <section>
             <div class="container">
                 <div class="row">
+                    {{!-- entries block --}}
                     <div class="col s12">
                         <div class="dashboard-section">
-                            <h3 class="pageSubTitle">Pozostało ${{moneyLeft}} do końca miesiąca!</h3>
-                            <canvas id="pieChart"></canvas>
+                            <h3 class="pageSubTitle">Transakcje</h3>
+                            <hr>
+                            <div id="entryInfo">
+                                {{#each entryArr}}
+                                    <div class="dashboard-entry">
+                                        <p>{{description}} <br> <span>${{amount}}</span> <span
+                                                class="d-entry-date">{{date}}</span> </p>
+                                    </div>
+                                {{/each}}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,10 +67,7 @@
     <div class="push"></div>
     <footer class="page-footer">
         <div class="footer-copyright">
-            <div class="container">
                 <span class="date-text">© 2022 Copyright</span>
-                <a class="right btn footer-button logOut">Wyloguj</a>
-            </div>
         </div>
     </footer>
     <script src="/assets/js/dashboard.js"></script>

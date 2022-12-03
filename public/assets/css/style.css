@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-    color: var(--dark-blue);
+    color: var(--brand);
 }
 
 :root {
@@ -51,9 +51,9 @@ body {
 .pageTitle {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     font-weight: 700;
+    margin-top: 40px;
     text-align: center;
-    margin-top: 0;
-    color: var(--white);
+    color: var(--brand);
 }
 
 .pageSubTitle {
@@ -67,20 +67,22 @@ body {
 .link-left a {
     font-size: 1.75rem;
     text-decoration: none;
-    color: var(--light-yellow);
+    color: var(--brand);
     cursor: pointer;
     transition: .25s;
 }
 
 .link-right a:hover,
 .link-left a:hover {
-    border-bottom: 2px solid var(--light-yellow);
+    border-bottom: 2px solid var(--brand);
     padding-bottom: 2px;
     transition: .25s;
 }
 
 .link-left {
     float: left;
+    margin: 45px;
+    align-content: center;
 }
 
 .link-right {
@@ -142,13 +144,19 @@ body {
 }
 
 header {
-    background-color: var(--brand);
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    margin-bottom: 1rem;
-    -webkit-box-shadow: -1px 11px 17px -3px rgba(20, 45, 76, 1);
-    -moz-box-shadow: -1px 11px 17px -3px rgba(20, 45, 76, 1);
-    box-shadow: -1px 11px 17px -3px rgba(20, 45, 76, 1);
+    display: grid;
+    background-color: var(--white);
+    border-bottom: solid;
+    border-bottom-color: black;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.appName{
+    color: var(--brand);
+    text-align: center;
 }
 
 #spendingSection {
@@ -305,8 +313,6 @@ select {
     color: var(--light-yellow)!important;
 }
 
-
-
 .profile-card ::placeholder {
     color: var(--light-yellow) !important;
 }
@@ -404,14 +410,8 @@ select {
 }
 
 footer,.footer-copyright,.page-footer {
-    background-color: var(--dark-blue);
-    color: var(--light-yellow);
-}
-
-.footer-button {
-    background-color: var(--yellow);
-    color: var(--dark-blue);
-    margin: 4px;
+    background-color: var(--brand);
+    color: var(--white);
 }
 
 footer,.push {
