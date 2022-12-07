@@ -17,7 +17,6 @@ public class TransactionSearchQuery extends Query<TransactionListDTO> implements
     private long categoryId;
     private short transactionType;
     private short transactionSource;
-    private long contact;
     private Date startDate;
     private Date endDate;
     private long userId;
@@ -106,24 +105,6 @@ public class TransactionSearchQuery extends Query<TransactionListDTO> implements
      */
     public void setTransactionSource(short transactionSource) {
         this.transactionSource = transactionSource;
-    }
-
-    /**
-     * Gets contact.
-     *
-     * @return the contact
-     */
-    public long getContact() {
-        return contact;
-    }
-
-    /**
-     * Sets contact.
-     *
-     * @param contact the contact
-     */
-    public void setContact(long contact) {
-        this.contact = contact;
     }
 
     /**
@@ -218,7 +199,7 @@ public class TransactionSearchQuery extends Query<TransactionListDTO> implements
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, categoryId, transactionType, transactionSource, contact, startDate, endDate, userId, description);
+        return Objects.hash(accountId, categoryId, transactionType, transactionSource, startDate, endDate, userId, description);
     }
 
     @Override
@@ -234,7 +215,6 @@ public class TransactionSearchQuery extends Query<TransactionListDTO> implements
                 && Objects.equals(this.categoryId, other.categoryId)
                 && Objects.equals(this.transactionType, other.transactionType)
                 && Objects.equals(this.transactionSource, other.transactionSource)
-                && Objects.equals(this.contact, other.contact)
                 && Objects.equals(this.startDate, other.startDate)
                 && Objects.equals(this.endDate, other.endDate)
                 && Objects.equals(this.userId, other.userId)

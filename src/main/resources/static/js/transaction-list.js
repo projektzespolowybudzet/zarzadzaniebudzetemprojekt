@@ -167,27 +167,6 @@ function loadAccounts(callback) {
     accountsLoaded = true;
 }
 
-var contactsLoaded = false;
-
-/**
- * Loads html file containing contact options.
- * @param callback
- */
-function loadSearchContacts(callback) {
-    if (contactsLoaded) {
-        callback();
-        return;
-    }
-    // contacts
-    var $contact = $searchForm.find('#contact');
-    var contactUrl = ctx + '/userhtml/' + currentUserId + '/contact-lookup.html';
-    $contact.html('<i class="ace-icon fa fa-spinner fa-spin orange bigger-125"></i>').load(contactUrl, function () {
-        callback();
-    });
-
-    contactsLoaded = true;
-}
-
 /**
  * Toggles search form
  */
@@ -195,7 +174,6 @@ function toggleSearch() {
     $("#filterIcon").toggleClass('fa-chevron-down fa-chevron-up');
     loadCategories(function(){});
     loadAccounts(function(){});
-    loadSearchContacts(function(){});
 }
 
 /**

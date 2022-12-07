@@ -121,32 +121,10 @@
                 </div>
                 <div class="accordion-style1 panel-group" id="accordion">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false"
-                                    th:onclick="'loadContacts(' + ${transaction.contactId} + ');'">
-                                    <i data-icon-show="ace-icon fa fa-angle-right" data-icon-hide="ace-icon fa fa-angle-down" class="bigger-110 ace-icon fa fa-angle-right"></i>
-                                    &nbsp;<span th:text="#{common.advanced}"></span>
-                                </a>
-                            </h5>
-                        </div>
-
                         <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label" th:text="#{transaction.contact}">
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <select id="contact" th:field="*{contactId}" th:value="${contactId}">
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label class="col-sm-4 control-label" data-th-text="#{transaction.description}"></label>
-                                    <div class="col-sm-8">
-                                        <textarea class="form-control" id="description"  data-th-value="*{description}"
-                                                  data-th-field="*{description}"></textarea>
-                                    </div>
                                 </div>
                             </div>
                         </div>

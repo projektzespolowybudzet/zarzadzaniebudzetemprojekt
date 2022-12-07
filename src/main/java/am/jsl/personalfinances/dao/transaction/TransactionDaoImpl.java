@@ -179,11 +179,6 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
             params.put("endDate", searchQuery.getEndDate());
         }
 
-        if (searchQuery.getContact() != 0) {
-            where.append(" and t.contact_id = :contact_id");
-            params.put("contact_id", searchQuery.getContact());
-        }
-
         if (!TextUtils.isEmpty(searchQuery.getDescription())) {
             params.put("description", "%" + searchQuery.getDescription() + "%");
         }
@@ -226,9 +221,9 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
 
     private static final String createSql = "insert into transaction "
             + "(id, account_id, category_id, amount, status, " +
-            "transaction_type, transaction_source, transaction_date, contact_id, description, user_id) "
+            "transaction_type, transaction_source, transaction_date, description, user_id) "
             + "values(:id, :account_id, :category_id, :amount, :status, " +
-            ":transaction_type, :transaction_source, :transaction_date, :contact_id, :description, :user_id)";
+            ":transaction_type, :transaction_source, :transaction_date, :description, :user_id)";
 
     @Override
     public void create(Transaction transaction) {
@@ -244,7 +239,6 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
         params.put(DBUtils.transaction_type, transaction.getTransactionType());
         params.put(DBUtils.transaction_source, transaction.getTransactionSource());
         params.put(DBUtils.transaction_date, DateUtils.convert(transaction.getTransactionDate()));
-        params.put(DBUtils.contact_id, transaction.getContactId());
         params.put(DBUtils.description, transaction.getDescription());
         params.put(DBUtils.user_id, transaction.getUserId());
 
@@ -258,7 +252,7 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
 
     private static final String createBatchSql = "insert into transaction "
             + "(id,  account_id, category_id, amount, status, " +
-            "transaction_type, transaction_source, transaction_date, contact_id, description, user_id) "
+            "transaction_type, transaction_source, transaction_date, description, user_id) "
             + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     @Override
@@ -280,7 +274,6 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
                 ps.setByte(6, transaction.getTransactionType());
                 ps.setByte(7, transaction.getTransactionSource());
                 ps.setTimestamp(8, DateUtils.convert(transaction.getTransactionDate()));
-                ps.setLong(9, transaction.getContactId());
                 ps.setString(10, transaction.getDescription());
                 ps.setLong(11, transaction.getUserId());
             }
@@ -297,12 +290,10 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
             + "acc.name as account, acc.icon as account_icon, acc.color as account_color, acc.symbol, "
             + "cat.name as category, cat.icon as category_icon, cat.color as category_color, "
             + "pcat.name as parent_category, pcat.icon as parent_category_icon, pcat.color as parent_category_color, "
-            + "ct.name as contact, t.description "
             + "from transaction t "
             + "inner join account acc on acc.id = t.account_id "
             + "inner join category cat on cat.id = t.category_id "
             + "left join category pcat on pcat.id = cat.parent_id "
-            + "left join contact ct on ct.id = t.contact_id "
             + "where t.id = :id and t.user_id = :user_id";
 
     @Override
@@ -324,28 +315,7 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
         return detailsDTO;
     }
 
-    private static final String getReminderTransactionsSql = "select distinct t.id, acc.symbol,"
-            + "cat.name as category, cat.icon as category_icon, cat.color as category_color, "
-            + "pcat.name as parent_category, pcat.icon as parent_category_icon, pcat.color as parent_category_color, "
-            + "t.amount, t.transaction_type, t.transaction_date "
-            + "from transaction t "
-            + "inner join reminder_transaction rem on rem.transaction_id = t.id "
-            + "inner join account acc on acc.id = t.account_id "
-            + "inner join category cat on cat.id = t.category_id "
-            + "left join category pcat on pcat.id = cat.parent_id "
-            + "where rem.reminder_id = :reminder_id and t.user_id = :user_id " +
-            "order by t.transaction_date desc";
-
-    @Override
-    public List<TransactionListDTO> getReminderTransactions(long reminderId, long userId) {
-        Map<String, Object> params = new HashMap<>();
-        params.put(DBUtils.reminder_id, reminderId);
-        params.put(DBUtils.user_id, userId);
-
-        return parameterJdbcTemplate.query(getReminderTransactionsSql, params, listDTOMapper);
-    }
-
-    private static final String searchByCategorySql = "select * from (select cat.name as category, " +
+     private static final String searchByCategorySql = "select * from (select cat.name as category, " +
             "cat.icon as category_icon, cat.color as category_color, " +
             "pcat.name as parent_category, pcat.icon as parent_category_icon, " +
             "pcat.color as parent_category_color, acc.symbol, sum(t.amount) as total "
@@ -397,7 +367,7 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
 
     private static final String updateSql = "update transaction "
             + "set account_id = :account_id, category_id = :category_id, amount = :amount, status = :status, "
-            + "transaction_type = :transaction_type, transaction_date = :transaction_date, contact_id = :contact_id, description = :description "
+            + "transaction_type = :transaction_type, transaction_date = :transaction_date, description = :description "
             + "where user_id = :user_id and id = :id";
 
     @Override
@@ -421,7 +391,6 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
         params.put(DBUtils.status, transaction.getStatus());
         params.put(DBUtils.transaction_type, transaction.getTransactionType());
         params.put(DBUtils.transaction_date, DateUtils.convert(transaction.getTransactionDate()));
-        params.put(DBUtils.contact_id, transaction.getContactId());
         params.put(DBUtils.description, transaction.getDescription());
         params.put(DBUtils.user_id, transaction.getUserId());
 

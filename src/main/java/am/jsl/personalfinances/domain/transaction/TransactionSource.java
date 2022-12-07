@@ -12,12 +12,7 @@ public enum TransactionSource implements Serializable {
     /**
      * Manual source indicates user created transactions (income, expense, transfer)
      */
-    MANUAL((byte) 1),
-
-    /**
-     * Lend source indicates transactions created by reminder job
-     */
-    REMINDER((byte) 2);
+    MANUAL((byte) 1);
 
     private byte value;
 

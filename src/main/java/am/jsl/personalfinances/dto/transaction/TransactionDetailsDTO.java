@@ -23,16 +23,6 @@ public class TransactionDetailsDTO extends BaseTransactionDTO implements Seriali
     private String accountColor;
 
     /**
-     * The contact id
-     */
-    private long contactId = 0;
-
-    /**
-     * The contact name
-     */
-    private String contact;
-
-    /**
      * The transaction status
      */
     private byte status;
@@ -124,42 +114,6 @@ public class TransactionDetailsDTO extends BaseTransactionDTO implements Seriali
      */
     public void setAccountColor(String accountColor) {
         this.accountColor = accountColor;
-    }
-
-    /**
-     * Getter for property 'contactId'.
-     *
-     * @return Value for property 'contactId'.
-     */
-    public long getContactId() {
-        return contactId;
-    }
-
-    /**
-     * Setter for property 'contactId'.
-     *
-     * @param contactId Value to set for property 'contactId'.
-     */
-    public void setContactId(long contactId) {
-        this.contactId = contactId;
-    }
-
-    /**
-     * Getter for property 'contact'.
-     *
-     * @return Value for property 'contact'.
-     */
-    public String getContact() {
-        return contact;
-    }
-
-    /**
-     * Setter for property 'contact'.
-     *
-     * @param contact Value to set for property 'contact'.
-     */
-    public void setContact(String contact) {
-        this.contact = contact;
     }
 
     /**

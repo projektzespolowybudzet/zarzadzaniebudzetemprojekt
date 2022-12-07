@@ -31,7 +31,6 @@ public class I18n {
 	public static final String KEY_ERROR_ROLE_DELETE = "role.delete.error";
 	public static final String KEY_ERROR_CATEGORY_DELETE = "category.delete.error";
 	public static final String KEY_ERROR_ACCOUNT_DELETE = "account.delete.error";
-	public static final String KEY_ERROR_CONTACT_DELETE = "contact.delete.error";
 	public static final String KEY_ERROR_INVALID_EMAIL = "error.enter.valid.email";
 	public static final String KEY_MSG_RESET_PASSWORD_MAIL_SENT = "user.reset.password.mail.sent";
 	public static final String KEY_ERROR_PASSWORDS_DONT_MATCH = "user.password.doesnt.match.confirm.password";

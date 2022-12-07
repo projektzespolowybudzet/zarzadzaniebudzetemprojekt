@@ -29,7 +29,6 @@ public class TransactionDetailsMapper implements RowMapper<TransactionDetailsDTO
 		dto.setParentCategory(rs.getString(DBUtils.parent_category));
 		dto.setParentCategoryIcon(rs.getString(DBUtils.parent_category_icon));
 		dto.setParentCategoryColor(rs.getString(DBUtils.parent_category_color));
-		dto.setContact(rs.getString(DBUtils.contact));
 		dto.setAmount(rs.getDouble(DBUtils.amount));
 		dto.setTransactionType(rs.getByte(DBUtils.transaction_type));
 		dto.setTransactionDate(rs.getTimestamp(DBUtils.transaction_date));

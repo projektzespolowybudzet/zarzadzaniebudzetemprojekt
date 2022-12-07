@@ -3,7 +3,7 @@ package am.jsl.personalfinances.web.form;
 import java.io.Serializable;
 
 /**
- * The BaseSearchForm defines common fields for searching transactions, reminders via web page.
+ * The BaseSearchForm defines common fields for searching transactions via web page.
  *
  * @author hamlet
  */
@@ -22,11 +22,6 @@ public class BaseSearchForm implements Serializable {
      * Total elements in page
      */
     private int size;
-
-    /**
-     * The contact
-     */
-    private long contact;
 
     /**
      * The category
@@ -120,24 +115,6 @@ public class BaseSearchForm implements Serializable {
      */
     public void setSize(int size) {
         this.size = size;
-    }
-
-    /**
-     * Gets contact.
-     *
-     * @return the contact
-     */
-    public long getContact() {
-        return contact;
-    }
-
-    /**
-     * Sets contact.
-     *
-     * @param contact the contact
-     */
-    public void setContact(long contact) {
-        this.contact = contact;
     }
 
     /**

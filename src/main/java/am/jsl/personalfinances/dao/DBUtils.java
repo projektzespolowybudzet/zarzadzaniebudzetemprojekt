@@ -31,7 +31,6 @@ public class DBUtils {
 	public static final String sort_order = "sort_order";
 	public static final String account_id = "account_id";
 	public static final String category_id = "category_id";
-	public static final String contact_id = "contact_id";
 	public static final String contact = "contact";
 	public static final String amount = "amount";
 	public static final String paid = "paid";
@@ -56,12 +55,7 @@ public class DBUtils {
 	public static final String email = "email";
 	public static final String total = "total";
 
-	public static final String reminder_date = "reminder_date";
-	public static final String due_date = "due_date";
-	public static final String auto_charge = "auto_charge";
-	public static final String reminder_repeat = "reminder_repeat";
 	public static final String user_status = "user_status";
-	public static final String reminder_id = "reminder_id";
 	public static final String transaction_id = "transaction_id";
 
 	public static final String token = "token";

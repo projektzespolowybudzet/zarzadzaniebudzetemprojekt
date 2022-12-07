@@ -77,21 +77,6 @@
                 </small>
             </a>
         </div>
-
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-                <li id="reminderAlerts" style="color: #D15B47 !important;" class="dropdown-modal">
-                </li>
-
-                <li class="light-blue dropdown-modal">
-                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <span class="user-info">
-                            <span sec:authentication="name"></span>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div><!-- /.navbar-container -->
 </div>
 
@@ -109,14 +94,6 @@
                 <a href="#" data-th-href="@{/transaction/list}">
                     <i class="menu-icon glyphicon glyphicon-list-alt"></i>
                     <span class="menu-text" th:text="#{menu.transactions}">transactions</span>
-                </a>
-                <b class="arrow"></b>
-            </li>
-
-            <li id="reminderLi">
-                <a href="#" data-th-href="@{/reminder/list}">
-                    <i class="menu-icon fa fa-bell"></i>
-                    <span class="menu-text" th:text="#{menu.reminders}">reminders</span>
                 </a>
                 <b class="arrow"></b>
             </li>
@@ -140,13 +117,6 @@
                         <a href="#" data-th-href="@{/category/list}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             <span th:text="#{menu.categories}"></span>
-                        </a>
-                        <b class="arrow"></b>
-                    </li>
-                    <li id="contactLi">
-                        <a href="#" data-th-href="@{/contact/list}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            <span th:text="#{menu.contacts}"></span>
                         </a>
                         <b class="arrow"></b>
                     </li>
@@ -291,28 +261,19 @@
 
                     if(loc.indexOf("/transaction/") > -1) {
                         $('#transactionLi').addClass('active open');
-                    } else if(loc.indexOf("/reminder/") > -1) {
-                        $('#reminderLi').addClass('active open');
                     } else if(loc.indexOf("/account/") > -1) {
                         $('#settingsLi').addClass('active open');
                         $('#accountLi').addClass('active');
                     } else if(loc.indexOf("/category/") > -1) {
                         $('#settingsLi').addClass('active open');
                         $('#categoryLi').addClass('active');
-                    } else if(loc.indexOf("/contact/") > -1) {
-                        $('#settingsLi').addClass('active open');
-                        $('#contactLi').addClass('active');
                     } else if(loc.indexOf("/profile/") > -1) {
                         $('#settingsLi').addClass('active open');
                         $('#profileLi').addClass('active');
                     } else {
                         $('#homeLi').addClass('active open');
                     }
-                    loadReminderAlerts();
                 });
-                function loadReminder(id) {
-                    document.location.href = ctx + "/reminder/list?id=" + id;
-                }
             </script>
 
         </div>

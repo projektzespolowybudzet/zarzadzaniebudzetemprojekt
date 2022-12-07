@@ -4,7 +4,6 @@ import am.jsl.personalfinances.dao.BaseDao;
 import am.jsl.personalfinances.domain.transaction.Transaction;
 import am.jsl.personalfinances.dto.transaction.TransactionByCategoryDTO;
 import am.jsl.personalfinances.dto.transaction.TransactionDetailsDTO;
-import am.jsl.personalfinances.dto.transaction.TransactionListDTO;
 import am.jsl.personalfinances.dto.transaction.TransactionSearchResult;
 import am.jsl.personalfinances.search.transaction.TransactionByCategorySearchQuery;
 import am.jsl.personalfinances.search.transaction.TransactionSearchQuery;
@@ -36,14 +35,6 @@ public interface TransactionDao extends BaseDao<Transaction> {
      * @return the {@link TransactionDetailsDTO} containing transaction details
      */
     TransactionDetailsDTO getDetails(long id, long userId);
-
-    /**
-     * Returns transactions with the given reminder id and user id.
-     * @param reminderId the reminder id
-     * @param userId the user id
-     * @return the list of {@link TransactionListDTO} items
-     */
-    List<TransactionListDTO> getReminderTransactions(long reminderId, long userId);
 
     /**
      * Retrieves paginated result of transactions for the given search query.

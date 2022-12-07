@@ -45,11 +45,6 @@ public class Transaction extends Descriptive implements Serializable {
     private byte transactionSource = TransactionSource.MANUAL.getValue();
 
     /**
-     * The contact id
-     */
-    private long contactId = 0;
-
-    /**
      * The transaction date
      */
     private LocalDateTime transactionDate;
@@ -212,24 +207,6 @@ public class Transaction extends Descriptive implements Serializable {
      */
     public void setTransactionSource(byte transactionSource) {
         this.transactionSource = transactionSource;
-    }
-
-    /**
-     * Gets contact id.
-     *
-     * @return the contact id
-     */
-    public long getContactId() {
-        return contactId;
-    }
-
-    /**
-     * Sets contact id.
-     *
-     * @param contactId the contact id
-     */
-    public void setContactId(long contactId) {
-        this.contactId = contactId;
     }
 
     @Override

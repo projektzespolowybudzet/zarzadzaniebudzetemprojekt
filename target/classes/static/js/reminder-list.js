@@ -79,8 +79,6 @@ function sortBy(col) {
     $prevSortCol = $sortCol;
     prevSortBy = sortBy;
     prevSortClass = sortClassNew;
-
-    loadReminders(1);
 }
 
 /**
@@ -95,7 +93,6 @@ function search() {
     $prevSortCol = null;
     prevSortBy = null;
     prevSortClass = null;
-    loadReminders(1);
 }
 
 /**
@@ -119,8 +116,6 @@ function resetSearch() {
     $pageSize.find("option:first").prop("selected", "selected");
 
     initDaterangepicker();
-
-    loadReminders(1);
 }
 
 /**
@@ -128,53 +123,4 @@ function resetSearch() {
  */
 function toggleIcon() {
     $("#filterIcon").toggleClass('fa-chevron-down fa-chevron-up');
-}
-
-/**
- * Loads remidners by page.
- * @param page the page
- */
-function loadReminders(page) {
-    var data = $searchForm.serializeArray();
-    data.push( { "name" : "page", "value" : page } );
-    data.push( { "name" : "size", "value" : $pageSize.find('option:selected').val() } );
-
-    $("#resultsBlock").html('<tr><td align="center" colspan="5"><div class="cp-spinner cp-skeleton"></div></td></tr>').load('loadReminders', data);
-}
-
-/**
- * Loads a single reminder by id into reminder list.
- * @param id the reminder id
- */
-function reminderPageLoaded(id) {
-    var data = $searchForm.serializeArray();
-    data.push( { "name" : "page", "value" : '1' } );
-    data.push( { "name" : "size", "value" : $pageSize.find('option:selected').val() } );
-
-    if (id) {
-        data.push( { "name" : "id", "value" : id} );
-    }
-
-    $("#resultsBlock").html('<tr><td align="center" colspan="5"><div class="cp-spinner cp-skeleton"></div></td></tr>').load('loadReminders', data);
-}
-
-/**
- * Loads add reminder template.
- */
-function addReminder() {
-    $('#remDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('add');
-}
-
-/**
- * Loads view reminder template.
- */
-function viewReminder(reminderId) {
-    $('#remDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('view?id=' + reminderId);
-}
-
-/**
- * Loads edit reminder template.
- */
-function editReminder(reminderId) {
-    $('#remDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('edit?id=' + reminderId);
 }

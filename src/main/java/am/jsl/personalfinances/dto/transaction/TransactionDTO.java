@@ -62,11 +62,6 @@ public class TransactionDTO implements Serializable {
     private byte transactionSource = TransactionSource.MANUAL.getValue();
 
     /**
-     * The contact id
-     */
-    private long contactId;
-
-    /**
      * The exchange rate
      */
     private double exchangeRate;
@@ -188,24 +183,6 @@ public class TransactionDTO implements Serializable {
      */
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
-    }
-
-    /**
-     * Getter for property 'contactId'.
-     *
-     * @return Value for property 'contactId'.
-     */
-    public long getContactId() {
-        return contactId;
-    }
-
-    /**
-     * Setter for property 'contactId'.
-     *
-     * @param contactId Value to set for property 'contactId'.
-     */
-    public void setContactId(long contactId) {
-        this.contactId = contactId;
     }
 
     /**
@@ -393,7 +370,6 @@ public class TransactionDTO implements Serializable {
         transaction.setStatus(getStatus());
         transaction.setTransactionType(getTransactionType());
         transaction.setTransactionDate(getTransactionLocalDateTime());
-        transaction.setContactId(getContactId());
         transaction.setDescription(getDescription());
 
         // transfer
@@ -423,7 +399,6 @@ public class TransactionDTO implements Serializable {
         transactionDTO.setStatus(transaction.getStatus());
         transactionDTO.setTransactionType(transaction.getTransactionType());
         transactionDTO.setTransactionDate(DateUtils.format(transaction.getTransactionDate()));
-        transactionDTO.setContactId(transaction.getContactId());
         transactionDTO.setUserId(transaction.getUserId());
         transactionDTO.setDescription(transaction.getDescription());
 
