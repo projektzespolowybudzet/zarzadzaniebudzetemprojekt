@@ -97,19 +97,12 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         StringBuilder html = new StringBuilder();
         html.append("<option value='0'></option>");
         long id;
-        String icon;
-        String color;
+
 
         for (CategoryDTO category : categories) {
             id = category.getId();
-            icon = category.getIcon();
-            icon = icon == null ? "" : icon;
-            color = category.getColor();
-            color = color == null ? "" : color;
 
             html.append("<option value='").append(id).append("'>");
-            html.append("<span class=\"categoryCircle\"").append(" style=\"background-color:").append(color).append("\">");
-            html.append("<span>").append(icon).append("</span></span>").append("&nbsp;");
             html.append("<span>").append(category.getName());
             html.append("</span></option>");
 
@@ -121,11 +114,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
 
             for (CategoryDTO child : childs) {
                 id = child.getId();
-                icon = child.getIcon();
-                icon = icon == null ? "" : icon;
 
                 html.append("<option value='").append(id).append("'>").append("&nbsp;&nbsp;&nbsp;");
-                html.append("<span>").append(icon).append("</span>").append("&nbsp;");
                 html.append("<span>").append(child.getName());
                 html.append("</span></option>");
             }
