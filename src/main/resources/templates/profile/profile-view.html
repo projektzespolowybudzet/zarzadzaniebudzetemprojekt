@@ -39,38 +39,6 @@
                                 <h4 data-th-text="${message}">Success!</h4>
                             </div>
                             <div class="user-profile row" id="user-profile-1">
-                                <div class="col-xs-12 col-sm-4 center">
-                                    <div>
-                                        <span class="profile-picture">
-                                            <img th:src="@{${user.iconPath}}" th:alt="${user.login}"
-                                                 class="editable img-responsive editable-click editable-empty" id="avatar"/>
-                                        </span>
-
-                                        <div class="space-4"></div>
-
-                                        <div class="center">
-                                            <div class="col-xs-12 col-sm-8">
-                                                <form id="uploadImageForm" action="#" data-th-action="@{/profile/uploadImage}"
-                                                      method="POST" enctype="multipart/form-data">
-                                                    <label class="btn btn-xs btn-primary btn-file">
-                                                        Browse <input type="file" name="file" id="file" style="display: none;">
-                                                    </label>
-                                                    <a href="#" onclick="document.getElementById('uploadImageForm').submit()"
-                                                       class="btn btn-xs btn-success" th:title="#{button.upload.image}">
-                                                        <i class="ace-icon fa fa-cloud-upload icon-only "></i>
-                                                    </a>
-                                                </form>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-4">
-                                                <a href="#" class="btn btn-xs btn-grey" th:title="#{button.remove.image}"
-                                                   data-toggle="modal" data-target="#confirmDelete">
-                                                    <i class="ace-icon fa fa-trash-o icon-only"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <!-- Delete Dialog -->
                                 <div class="modal" id="confirmDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
                                     <div class="modal-dialog">
