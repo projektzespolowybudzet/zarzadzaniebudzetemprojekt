@@ -19,7 +19,6 @@ public class TransactionMapper implements RowMapper<Transaction> {
 		transaction.setId(rs.getLong(DBUtils.id));
 		transaction.setAccountId(rs.getLong(DBUtils.account_id));
 		transaction.setCategoryId(rs.getLong(DBUtils.category_id));
-		transaction.setContactId(rs.getLong(DBUtils.contact_id));
 		transaction.setAmount(rs.getDouble(DBUtils.amount));
 		transaction.setStatus(rs.getByte(DBUtils.status));
 		transaction.setTransactionType(rs.getByte(DBUtils.transaction_type));

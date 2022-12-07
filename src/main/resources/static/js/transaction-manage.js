@@ -118,24 +118,6 @@ function setCurrency(radio) {
 var contcatsLoaded = false;
 
 /**
- * Loads the contacts
- * @param contactId the contact to be selected
- */
-function loadContacts(contactId) {
-    if (!contcatsLoaded) {
-        loadSearchContacts(function(){
-            var $contact = $manageForm.find('#contact');
-            $contact.html($searchForm.find("#contact").html());
-            if (contactId != 0) {
-                $contact.find('option[value=' + contactId + ']').attr('selected', 'selected');
-            }
-        });
-
-        contcatsLoaded = true;
-    }
-}
-
-/**
  * Saves transaction data via ajax post.
  */
 function saveTransaction() {

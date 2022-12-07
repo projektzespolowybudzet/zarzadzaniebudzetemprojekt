@@ -113,7 +113,6 @@ public class TransactionController extends BaseController {
         query.setTransactionType(searchForm.getType());
         query.setAccountId(searchForm.getAccount());
         query.setCategoryId(searchForm.getCategory());
-        query.setContact(searchForm.getContact());
         query.setDescription(searchForm.getDescription());
         query.setSortBy(searchForm.getSortBy());
         query.setAsc(searchForm.isAsc());

@@ -35,12 +35,7 @@ public class AddTransactionsDTO implements Serializable {
      */
     private String transactionDate;
 
-    /**
-     * The contact id
-     */
-    private long contactId;
-
-    /**
+        /**
      * The user id
      */
     private long userId;
@@ -143,24 +138,6 @@ public class AddTransactionsDTO implements Serializable {
      */
     public void setTransactionDate(String transactionDate) {
         this.transactionDate = transactionDate;
-    }
-
-    /**
-     * Getter for property 'contactId'.
-     *
-     * @return Value for property 'contactId'.
-     */
-    public long getContactId() {
-        return contactId;
-    }
-
-    /**
-     * Setter for property 'contactId'.
-     *
-     * @param contactId Value to set for property 'contactId'.
-     */
-    public void setContactId(long contactId) {
-        this.contactId = contactId;
     }
 
     /**

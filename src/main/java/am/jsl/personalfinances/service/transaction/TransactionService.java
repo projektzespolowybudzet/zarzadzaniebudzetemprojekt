@@ -6,8 +6,6 @@ import am.jsl.personalfinances.search.transaction.TransactionByCategorySearchQue
 import am.jsl.personalfinances.search.transaction.TransactionSearchQuery;
 import am.jsl.personalfinances.service.BaseService;
 
-import java.util.List;
-
 /**
  * Service interface which defines all the methods for working with {@link Transaction} domain object.
  * @author hamlet
@@ -35,14 +33,6 @@ public interface TransactionService extends BaseService<Transaction> {
      * @return the {@link TransactionDetailsDTO} containing transaction details
      */
     TransactionDetailsDTO getDetails(long id, long userId);
-
-    /**
-     * Returns transactions with the given reminder id and user id.
-     * @param reminderId the reminder id
-     * @param userId the user id
-     * @return the list of {@link TransactionListDTO} items
-     */
-    List<TransactionListDTO> getReminderTransactions(long reminderId, long userId);
 
     /**
      * Retrieves paginated result of transactions for the given search query.

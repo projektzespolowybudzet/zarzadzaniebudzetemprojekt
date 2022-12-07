@@ -111,7 +111,6 @@ CREATE TABLE `transaction` (
   `transaction_type` TINYINT        NOT NULL,
   `transaction_source` TINYINT        NOT NULL,
   `transaction_date` DATETIME       NOT NULL,
-  `contact_id`      INT(12) ,
   `description`       VARCHAR(255) COLLATE 'utf8_unicode_ci',
   `user_id`          INT(12)        NOT NULL,
   PRIMARY KEY (`id`),
@@ -144,64 +143,12 @@ CREATE TABLE `transfer` (
   COLLATE = 'utf8_unicode_ci'
   ENGINE = InnoDB;
 
-# -------------- reminder -----------------
-DROP TABLE IF EXISTS `reminder`;
-CREATE TABLE `reminder` (
-  `id`               INT(12)        NOT NULL,
-  `status`           TINYINT        NOT NULL,
-  `due_date`   DATETIME       NOT NULL,
-  `account_id`       INT(12)        NOT NULL,
-  `category_id`      INT(12)        NOT NULL,
-  `amount`           DECIMAL(12, 2) NOT NULL,
-  `transaction_type` TINYINT        NOT NULL,
-  `auto_charge`      TINYINT(1)     NOT NULL,
-  `reminder_repeat`           TINYINT     NOT NULL,
-  `contact_id`      INT(12) ,
-  `description`       VARCHAR(255) COLLATE 'utf8_unicode_ci',
-  `user_id`          INT(12)        NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `reminder_status_idx` (`status`),
-  INDEX `reminder_due_date_idx` (`due_date`),
-  INDEX `reminder_account_id_idx` (`account_id`),
-  INDEX `reminder_category_id_idx` (`category_id`),
-  INDEX `reminder_transaction_type_idx` (`transaction_type`),
-  INDEX `reminder_auto_charge_idx` (`auto_charge`),
-  INDEX `reminder_repeat_idx` (`reminder_repeat`),
-  INDEX `reminder_user_idx` (`user_id`),
-  CONSTRAINT `reminder_account_id_fk` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`),
-  CONSTRAINT `reminder_category_id_fk` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
-  CONSTRAINT `reminder_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `pf_user` (`id`)
-)
   COLLATE = 'utf8_unicode_ci'
   ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `reminder_transfer`;
-CREATE TABLE `reminder_transfer` (
-  `id`               INT(12)        NOT NULL,
-  `reminder_id`      INT(12)        NOT NULL,
-  `target_account_id`       INT(12)        NOT NULL,
-  `rate`           DECIMAL(12, 4) NOT NULL,
-  `converted_amount`           DECIMAL(12, 2) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `transfer_id_idx` (`id`),
-  INDEX `reminder_transfer_reminder_id_idx` (`reminder_id`),
-  INDEX `reminder_transfer_account_id_idx` (`target_account_id`),
-  CONSTRAINT `reminder_transfer_reminder_id_fk` FOREIGN KEY (`reminder_id`) REFERENCES `reminder` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `reminder_transfer_target_account_id_fk` FOREIGN KEY (`target_account_id`) REFERENCES `account` (`id`) ON DELETE CASCADE
-)
   COLLATE = 'utf8_unicode_ci'
   ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `reminder_transaction`;
-CREATE TABLE `reminder_transaction` (
-  `reminder_id`      INT(12)        NOT NULL,
-  `transaction_id`      INT(12)        NOT NULL,
-  PRIMARY KEY (`reminder_id`, `transaction_id`),
-  INDEX `reminder_transaction_reminder_id_idx` (`reminder_id`),
-  INDEX `reminder_transaction_transaction_id_idx` (`transaction_id`),
-  CONSTRAINT `reminder_transaction_reminder_id_fk` FOREIGN KEY (`reminder_id`) REFERENCES `reminder` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `reminder_transaction_transaction_id_fk` FOREIGN KEY (`transaction_id`) REFERENCES `transaction` (`id`) ON DELETE CASCADE
-)
   ENGINE = InnoDB;
 
 # -------------- Events -----------------
@@ -233,23 +180,7 @@ CREATE TABLE `currency` (
 COLLATE = 'utf8_unicode_ci'
 ENGINE = InnoDB;
 
-# -------------- contact -----------------
 
-DROP TABLE IF EXISTS `contact`;
-CREATE TABLE `contact` (
-  `id`         INT(12)      NOT NULL,
-  `name` VARCHAR(255) NULL COLLATE 'utf8_unicode_ci',
-  `email`      VARCHAR(128) DEFAULT NULL,
-  `phone`      VARCHAR(128) NULL     DEFAULT NULL,
-  `description`       VARCHAR(255) COLLATE 'utf8_unicode_ci',
-  `user_id`          INT(12)        NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `contact_name_idx` (`name`),
-  INDEX `contact_user_id_idx` (`user_id`),
-  CONSTRAINT `contact_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `pf_user` (`id`)
-)
-COLLATE = 'utf8_unicode_ci'
-ENGINE = InnoDB;
 
 /*!40101 SET SQL_MODE = @OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS */;

@@ -125,15 +125,6 @@
                     </div>
                 </div>
 
-                <div class="profile-info-row" th:if="${transaction.contact != null}">
-                    <div class="profile-info-name">
-                        <span th:text="#{transaction.contact}"></span>
-                    </div>
-                    <div class="profile-info-value">
-                        <span id="contactName" th:text="${transaction.contact}"></span>
-                    </div>
-                </div>
-
                 <div class="profile-info-row" th:if="${!#strings.isEmpty(transaction.description)}">
                     <div class="profile-info-name">
                         <span th:text="#{transaction.description}"></span>

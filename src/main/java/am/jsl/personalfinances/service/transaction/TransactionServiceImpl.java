@@ -232,7 +232,6 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
             transaction.setTransactionType(addTransactionsDTO.getTransactionType());
             transaction.setUserId(addTransactionsDTO.getUserId());
             transaction.setTransactionDate(transactionDate);
-            transaction.setContactId(addTransactionsDTO.getContactId());
             transaction.setDescription(addTransactionsDTO.getDescription());
 
             // update account balance
@@ -257,11 +256,6 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
             }
         }
         return detailsDTO;
-    }
-
-    @Override
-    public List<TransactionListDTO> getReminderTransactions(long reminderId, long userId) {
-        return transactionDao.getReminderTransactions(reminderId, userId);
     }
 
     @Override

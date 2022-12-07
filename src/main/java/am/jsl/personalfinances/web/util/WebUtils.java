@@ -14,14 +14,9 @@ public class WebUtils {
     public static String TRANSACTION = "transaction";
     public static String ACCOUNTS = "accounts";
     public static String ACCOUNT = "account";
-    public static String CONTACTS = "contacts";
-    public static String CONTACT = "contact";
     public static String CATEGORIES = "categories";
     public static String CATEGORY = "category";
     public static String CURRENCIES = "currencies";
-
-    public static final String REMINDER = "reminder";
-    public static final String REMINDERS = "reminders";
 
     public static final String USER = "user";
     public static final String USERS = "users";

@@ -12,19 +12,3 @@ $.urlParam = function(name){
         return results[1] || 0;
     }
 };
-
-/**
- * Loads reminders for current user id.
- */
-function loadReminderAlerts() {
-    try {
-        var url = ctx + '/userhtml/' + currentUserId + '/reminder-alert.html';
-        $('#reminderAlerts').html('<i class="ace-icon fa fa-spinner fa-spin orange bigger-125"></i>').load(url, "",
-            function(responseText, textStatus, XMLHttpRequest) {
-                if(textStatus === 'error') {
-                    $('#reminderAlerts').html('');
-                }
-            });
-    } catch (e) {
-    }
-}
