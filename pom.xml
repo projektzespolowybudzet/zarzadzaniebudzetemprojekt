@@ -8,18 +8,15 @@
     <packaging>jar</packaging>
     <version>1.0.0-BUILD-SNAPSHOT</version>
 
-    <url>www.personalfinances.am</url>
-    <description>Personal Finances Tracker</description>
+    <url>dolarek.herokuapp.com</url>
+    <description>Dolarek</description>
 
     <developers>
         <developer>
-            <id>hamlet</id>
-            <name>Hamlet Barsamyan</name>
-            <email>hamletbarsamyan@gmail.com</email>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
+            <id>projektzespolowy</id>
+            <name>Grupa 3</name>
+            <email>projektzespolowybudzet@gmail.com</email>
+
         </developer>
     </developers>
 
@@ -73,7 +70,7 @@
         <quartz.version>2.3.2</quartz.version>
         <jsoup.version>1.14.2</jsoup.version>
         <unirest.java.version>1.4.9</unirest.java.version>
-        <mail.version>1.4.7</mail.version>
+        <mail.version>1.6.3</mail.version>
 
         <start-class>am.jsl.personalfinances.PersonalFinancesApplication</start-class>
     </properties>
@@ -294,9 +291,9 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>${mail.version}</version>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
         </dependency>
 
         <dependency>
