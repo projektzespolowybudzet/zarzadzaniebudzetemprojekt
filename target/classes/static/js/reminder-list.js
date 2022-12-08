@@ -19,11 +19,11 @@ $daterangepicker.daterangepicker({
     startDate: start,
     endDate: end,
     ranges: {
-        'Today': [moment(), moment()],
-        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-        'This Month': [moment().startOf('month'), moment().endOf('month')],
-        'This Year': [moment().startOf('year').startOf('month'), moment().endOf('year').endOf('month')]
+        'Dziś': [moment(), moment()],
+        'Wczoraj': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Ostatnie 7 dni': [moment().subtract(6, 'days'), moment()],
+        'Bieżący miesiąc': [moment().startOf('month'), moment().endOf('month')],
+        'Bieżący rok': [moment().startOf('year').startOf('month'), moment()]
     }
 }, cb);
 
