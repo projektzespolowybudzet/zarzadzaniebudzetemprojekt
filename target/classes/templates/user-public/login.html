@@ -48,16 +48,14 @@
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
                     <div class="login-container">
-                        <div class="center">
-                            <h4 class="blue" id="id-company-text" th:text="#{common.company}"></h4>
-                        </div>
                         <div class="space-6"></div>
                         <div class="position-relative">
                             <div id="login-box" class="login-box visible widget-box no-border" style="border: 1px solid #AAAAAA;">
                                 <div class="widget-body">
                                     <div class="widget-main">
-                                        <h4 class="header blue lighter bigger">
-                                            <i class="ace-icon fa fa-coffee green"></i>
+                                        <div align="center"><img src="https://raw.githubusercontent.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/4f9fad34c7aafdbf90e5b59be81facc9d8327d36/public/assets/Style/dolarek-logo-zip-file/svg/logo-no-background.svg"
+                                                                 width="250" height="50" ></div>
+                                        <h4 class="header green lighter bigger center">
                                             <span th:text="#{user.enter.information.msg}"></span>
                                         </h4>
 
@@ -73,10 +71,10 @@
                                                     <span th:text="#{user.logged.out.msg}"></span>
                                                 </div>
                                                 <div class="alert alert-danger alert-dismissable" th:if="${error != null}">
-                                                    <h4 data-th-text="${error}">Error!</h4>
+                                                    <h4 data-th-text="${error}">Błąd!</h4>
                                                 </div>
                                                 <div class="alert alert-success alert-dismissable" th:if="${message != null}">
-                                                    <h4 data-th-text="${message}">Success!</h4>
+                                                    <h4 data-th-text="${message}">Sukces!</h4>
                                                 </div>
                                                 <label class="block clearfix">
                                                     <div class="input-group">
@@ -101,7 +99,7 @@
                                                 <div class="clearfix">
                                                     <button type="submit" class="width-35 pull-right btn btn-xs btn-primary">
                                                         <i class="ace-icon fa fa-key"></i>
-                                                        <span class="bigger-110" th:text="#{user.login}">Login</span>
+                                                        <span class="bigger-110" th:text="#{user.login.button}">Zaloguj</span>
                                                     </button>
                                                 </div>
 

@@ -8,15 +8,15 @@ import java.util.Arrays;
  * @author hamlet
  */
 public enum EventType {
-	LOGIN((byte)1, "Login"),
-	CREATE_ROLE((byte)2, "Create role"),
-	UPDATE_ROLE((byte)3, "Update role"),
-	DELETE_ROLE((byte)4, "Delete role"),
-	CREATE_USER((byte)5, "Create user"),
-	UPDATE_USER((byte)6, "Update user"),
-	DELETE_USER((byte)7, "Delete user"),
-	CHANGE_PASSWORD((byte)8, "Change password"),
-	REGISTER_USER((byte)9, "Register user");
+	LOGIN((byte)1, "Logowanie"),
+	CREATE_ROLE((byte)2, "Nadanie dostpępu"),
+	UPDATE_ROLE((byte)3, "Edycja dostępu"),
+	DELETE_ROLE((byte)4, "Usunięcie dostępu"),
+	CREATE_USER((byte)5, "Tworzenie użytkownika"),
+	UPDATE_USER((byte)6, "Edycja użytkownika"),
+	DELETE_USER((byte)7, "Usunięcie użytkownika"),
+	CHANGE_PASSWORD((byte)8, "Zmiana hasła"),
+	REGISTER_USER((byte)9, "Rejestracja użytkownika");
 
 	private byte value;
 	private String operation;
