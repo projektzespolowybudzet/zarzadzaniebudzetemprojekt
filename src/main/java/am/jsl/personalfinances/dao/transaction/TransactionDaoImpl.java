@@ -26,9 +26,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The implementation of Dao interface for accessing {@link Transaction} domain object.
- * @author hamlet
- */
+*Implementacja interfejsu Dao do uzyskiwania dostępu do obiektu domeny {@link Transaction}.
+*/
 @Repository("transactionDao")
 @Lazy
 public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements TransactionDao {

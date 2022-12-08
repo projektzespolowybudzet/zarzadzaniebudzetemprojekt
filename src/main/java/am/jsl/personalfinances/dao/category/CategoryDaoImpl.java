@@ -16,9 +16,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The implementation of Dao interface for accessing {@link Category} domain object.
- * @author hamlet
- */
+*Implementacja interfejsu Dao do uzyskiwania dostępu do obiektu domeny {@link Category}.
+*/
 @Repository("categoryDao")
 @Lazy
 public class CategoryDaoImpl extends BaseDaoImpl<Category> implements CategoryDao {

@@ -7,9 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new NamedEntity instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję NamedEntity.
+*/
 public class NamedEntityMapper implements RowMapper<NamedEntity> {
 
 	@Override

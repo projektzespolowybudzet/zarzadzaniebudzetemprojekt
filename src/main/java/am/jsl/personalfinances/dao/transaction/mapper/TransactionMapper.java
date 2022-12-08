@@ -9,9 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new Transaction instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję Transaction.
+*/
 public class TransactionMapper implements RowMapper<Transaction> {
 
 	public Transaction mapRow(ResultSet rs, int rowNum) throws SQLException {

@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The user details contains user information which will be stored in session.
- * @author hamlet
- */
+*Dane użytkownika zawierają informacje o użytkowniku, które będą przechowywane w sesji.
+*/
 @Component("userDetails")
 @Scope("session")
 public class UserDetails implements Serializable {

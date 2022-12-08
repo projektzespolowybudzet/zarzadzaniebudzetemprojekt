@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Custom exception handler for {@link AccessDeniedException} class.
- * Handles the AccessDeniedException and forwards to error page.
- * @author hamlet
- */
+*Niestandardowa obsługa wyjątków dla klasy {@link AccessDeniedException}.
+*Obsługuje AccessDeniedException i przekazuje do strony błędu.
+*@autor Hamlet
+*/
 public class AccessDeniedExceptionHandler implements AccessDeniedHandler {
     private static AppLogger logger = new AppLogger(AccessDeniedExceptionHandler.class);
     

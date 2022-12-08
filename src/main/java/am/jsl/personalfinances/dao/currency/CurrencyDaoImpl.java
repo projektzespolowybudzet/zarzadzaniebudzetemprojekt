@@ -14,10 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The implementation of Dao interface for accessing {@link Currency} domain object.
- *
- * @author hamlet
- */
+*Implementacja interfejsu Dao do uzyskiwania dostępu do obiektu domeny {@link Currency}.
+*/
 @Repository("currencyDao")
 @Lazy
 public class CurrencyDaoImpl extends BaseDaoImpl<Currency> implements CurrencyDao {

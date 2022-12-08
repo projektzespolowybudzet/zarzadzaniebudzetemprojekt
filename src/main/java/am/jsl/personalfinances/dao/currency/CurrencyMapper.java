@@ -8,9 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new Currency instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję Currency.
+*/
 public class CurrencyMapper implements RowMapper<Currency> {
 
 	public Currency mapRow(ResultSet rs, int rowNum) throws SQLException {

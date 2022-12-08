@@ -17,10 +17,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Custom {@link SimpleUrlAuthenticationSuccessHandler} that redirects to
- * user role specific url where users should be sent after successful authentication.
- * @author hamlet
- */
+*Niestandardowy {@link SimpleUrlAuthenticationSuccessHandler}, który przekierowuje do
+*Adres URL specyficzny dla roli użytkownika, do którego użytkownicy powinni zostać wysłani po pomyślnym uwierzytelnieniu.
+*/
 @Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private static AppLogger logger = new AppLogger(AccessDeniedExceptionHandler.class);
@@ -43,13 +42,13 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
 
-    /**
-     * Determines url for the given Authentication.
-     * The url will be "/home" for USER roles, "/admin" for ADMIN roles,
-     * otherwise "/accessDenied".
-     * @param authentication the Authentication
-     * @return the success url
-     */
+/**
+*Określa adres URL dla danego uwierzytelnienia.
+*Adres URL będzie miał postać „/home” dla ról UŻYTKOWNIKA, „/admin” dla ról ADMINISTRATORA,
+*w przeciwnym razie „/odmowa dostępu”.
+*Uwierzytelnianie @param Uwierzytelnianie
+*@return pomyślny adres URL
+*/
     protected String determineTargetUrl(Authentication authentication) {
         String url = "";
 
@@ -68,11 +67,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         return url;
     }
 
-    /**
-     * Checks whether the given list contains USER role.
-     * @param roles the role list
-     * @return true if roles contains USER role
-     */
+/**
+*Sprawdza, czy dana lista zawiera rolę UŻYTKOWNIKA.
+*@param role na liście ról
+*@return true, jeśli role zawierają rolę UŻYTKOWNIKA
+*/
     private boolean isUser(List<String> roles) {
         if (roles.contains(Role.USER.name())) {
             return true;
@@ -80,11 +79,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         return false;
     }
 
-    /**
-     * Checks whether the given list contains ADMIN role.
-     * @param roles the role list
-     * @return true if roles contains ADMIN role
-     */
+/**
+*Sprawdza, czy dana lista zawiera rolę ADMIN.
+*@param role na liście ról
+*@return true, jeśli role zawierają rolę ADMIN
+*/
     private boolean isAdmin(List<String> roles) {
         if (roles.contains(Role.ADMIN.name())) {
             return true;

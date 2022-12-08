@@ -21,9 +21,8 @@ import java.util.Collections;
 import java.util.Properties;
 
 /**
- * The spring managed email configuration.
- * @author hamlet
- */
+*Konfiguracja poczty e-mail zarządzanej przez Spring.
+*/
 @Configuration
 @ConfigurationProperties(prefix = "personalfinances.mail")
 public class SpringMailConfig implements ApplicationContextAware {
@@ -40,11 +39,11 @@ public class SpringMailConfig implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
-    /**
-     * Creates {@link JavaMailSenderImpl} and configures email settings.
-     * @return the JavaMailSender
-     * @throws IOException if error occurs
-     */
+/**
+*Tworzy {@link JavaMailSenderImpl} i konfiguruje ustawienia poczty e-mail.
+*@return JavaMailSender
+*@throws IOException, jeśli wystąpi błąd
+*/
     @Bean
     public JavaMailSender mailSender() throws IOException {
 
@@ -56,7 +55,7 @@ public class SpringMailConfig implements ApplicationContextAware {
         mailSender.setUsername(username);
         mailSender.setPassword(password);
 
-        // JavaMail-specific mail sender configuration, based on javamail.properties
+        //Konfiguracja nadawcy poczty specyficzna dla JavaMail, oparta na javamail.properties
         final Properties javaMailProperties = new Properties();
         javaMailProperties.load(this.applicationContext.getResource(JAVA_MAIL_FILE).getInputStream());
         mailSender.setJavaMailProperties(javaMailProperties);
@@ -64,10 +63,10 @@ public class SpringMailConfig implements ApplicationContextAware {
         return mailSender;
     }
 
-    /**
-     *  Creates {@link ResourceBundleMessageSource} for loading email messages from properties file.
-     * @return the ResourceBundleMessageSource
-     */
+/**
+*Tworzy {@link ResourceBundleMessageSource} do ładowania wiadomości e-mail z pliku właściwości.
+*@return źródło wiadomości ResourceBundleMessageSource
+*/
     @Bean
     public ResourceBundleMessageSource emailMessageSource() {
         final ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
@@ -75,23 +74,23 @@ public class SpringMailConfig implements ApplicationContextAware {
         return messageSource;
     }
 
-    /**
-     * Creates Thymeleaf's {@link TemplateEngine} for generating emails from html template.
-     * @return the TemplateEngine
-     */
+/**
+*Tworzy {@link TemplateEngine} Thymeleaf do generowania e-maili z szablonu HTML.
+*@return TemplateEngine
+*/
     @Bean(name = "emailTemplateEngine")
     public TemplateEngine emailTemplateEngine() {
         final SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.addTemplateResolver(htmlTemplateResolver());
-        // Message source, internationalization specific to emails
+        //Źródło wiadomości, internacjonalizacja specyficzna dla e-maili
         templateEngine.setTemplateEngineMessageSource(emailMessageSource());
         return templateEngine;
     }
 
-    /**
-     * Creates Thymeleaf's {@link ITemplateResolver} for resolving email templates.
-     * @return the ITemplateResolver
-     */
+/**
+*Tworzy {@link ITemplateResolver} Thymeleaf do rozwiązywania szablonów wiadomości e-mail.
+*@return ITemplateResolver
+*/
     private ITemplateResolver htmlTemplateResolver() {
         final ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
         templateResolver.setOrder(2);

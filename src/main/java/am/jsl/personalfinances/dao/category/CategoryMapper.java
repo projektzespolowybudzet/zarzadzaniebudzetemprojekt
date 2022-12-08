@@ -8,9 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new Category instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję Category.
+*/
 public class CategoryMapper implements RowMapper<Category> {
 
 	public Category mapRow(ResultSet rs, int rowNum) throws SQLException {

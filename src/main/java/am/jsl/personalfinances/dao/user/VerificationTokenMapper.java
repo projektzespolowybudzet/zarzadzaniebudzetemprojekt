@@ -8,9 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new VerificationToken instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję VerificationToken.
+*/
 public class VerificationTokenMapper implements RowMapper<VerificationToken> {
 
 	public VerificationToken mapRow(ResultSet rs, int rowNum) throws SQLException {

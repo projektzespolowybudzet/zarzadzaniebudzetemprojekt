@@ -5,76 +5,69 @@ import org.springframework.format.annotation.NumberFormat;
 import java.io.Serializable;
 
 /**
- * Used for transferring adjust account balance from web.
- * @author hamlet
- */
+*Używany do przenoszenia wyrównania salda konta z sieci.
+*/
 public class AdjustBalanceDTO implements Serializable {
-    /**
-     * The account id
-     */
+/**
+*Identyfikator konta
+*/
     private long id;
 
-    /**
-     * The balance to be set
-     */
+/**
+*Saldo do ustalenia
+*/
     @NumberFormat(pattern = "#,##0.00")
     private double balance;
 
-    /**
-     * The account's user id
-     */
+/**
+*Identyfikator użytkownika konta
+*/
     private long userId;
 
-    /**
-     * Getter for property 'id'.
-     *
-     * @return Value for property 'id'.
-     */
+/**
+*Getter dla właściwości id.
+*@return Wartość dla właściwości id.
+*/
     public long getId() {
         return id;
     }
 
-    /**
-     * Setter for property 'id'.
-     *
-     * @param id Value to set for property 'id'.
-     */
+/**
+*Seter dla właściwości id.
+*@param id Wartość do ustawienia dla właściwości id.
+*/
     public void setId(long id) {
         this.id = id;
     }
 
-    /**
-     * Getter for property 'balance'.
-     *
-     * @return Value for property 'balance'.
-     */
+/**
+*Getter dla właściwości balance.
+*@return Wartość dla właściwości balance.
+*/
     public double getBalance() {
         return balance;
     }
 
-    /**
-     * Setter for property 'balance'.
-     *
-     * @param balance Value to set for property 'balance'.
-     */
+/**
+*Seter dla właściwości balance.
+*@param balance Wartość do ustawienia dla właściwości balance.
+*/
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    /**
-     * Getter for property 'userId'.
-     *
-     * @return Value for property 'userId'.
-     */
+/**
+*Getter dla właściwości userId.
+*@return Wartość dla właściwości userId.
+*/
     public long getUserId() {
         return userId;
     }
 
-    /**
-     * Setter for property 'userId'.
-     *
-     * @param userId Value to set for property 'userId'.
-     */
+/**
+*Seter dla właściwości userId.
+*@param userId Wartość do ustawienia dla właściwości userId.
+*/
     public void setUserId(long userId) {
         this.userId = userId;
     }

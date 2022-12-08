@@ -8,10 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new CategoryDTO instance.
- *
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję CategoryDTO.
+*/
 public class CategoryDTOMapper implements RowMapper<CategoryDTO> {
 
 	public CategoryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {

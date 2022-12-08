@@ -8,21 +8,20 @@ import am.jsl.personalfinances.dto.CategoryDTO;
 import java.util.List;
 
 /**
- * The Dao interface for accessing {@link Category} domain object.
- * @author hamlet
- */
+*Interfejs Dao do uzyskiwania dostępu do obiektu domeny {@link Category}.
+*/
 public interface CategoryDao extends BaseDao<Category> {
-    /**
-     * Returns categories for the given user id.
-     * @param userId the user id
-     * @return the categories
-     */
+/**
+*Zwraca kategorie dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*@return kategorie
+*/
     List<CategoryDTO> getCategories(long userId);
 
-    /**
-     * Returns parent categories for the given user id.
-     * @param userId the user id
-     * @return the categories
-     */
+/**
+*Zwraca kategorie nadrzędne dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*@return kategorie
+*/
     List<CategoryDTO> lookupParentCategories(long userId);
 }

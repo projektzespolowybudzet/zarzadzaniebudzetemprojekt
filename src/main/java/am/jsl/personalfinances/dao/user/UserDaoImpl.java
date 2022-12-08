@@ -24,9 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The implementation of Dao interface for accessing {@link User} domain object.
- * @author hamlet
- */
+*Implementacja interfejsu Dao do uzyskiwania dostępu do obiektu domeny {@link User}.
+*/
 @Repository("userDao")
 @Lazy
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
@@ -282,6 +281,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
     private static final String updateVerificationTokenSql = "update verification_token "
             + "set token = :token, expiry_date = :expiry_date, expired = :expired where id = :id";
+
+    private static final String deleteVerificationTokenSql = "delete from verification_token where id = :id";
     @Override
     public void updateVerificationToken(VerificationToken verificationToken) {
         Map<String, Object> params = new HashMap<>();
@@ -290,6 +291,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         params.put(DBUtils.expiry_date, verificationToken.getExpiryDate());
         params.put(DBUtils.expired, verificationToken.isExpired());
         parameterJdbcTemplate.update(updateVerificationTokenSql, params);
+        parameterJdbcTemplate.update(deleteVerificationTokenSql, params);
     }
 
     private static final String getTokenSql = "select * from verification_token where user_id = :user_id and token_type = :token_type";

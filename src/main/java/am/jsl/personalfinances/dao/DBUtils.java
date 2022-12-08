@@ -3,9 +3,8 @@ package am.jsl.personalfinances.dao;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * Contains constants and utility methods used in dao classes.
- * @author hamlet
- */
+*Zawiera stałe i metody użytkowe używane w klasach dao.
+*/
 public class DBUtils {
 
 	// common
@@ -70,12 +69,12 @@ public class DBUtils {
 
 	private static final String SELECT_MAX_INDEX_PREFIX = "select max(id) from ";
 
-	/**
-	 * Returns max identifier plus 1 from the given database table.
-	 * @param jdbcTemplate the JdbcTemplate
-	 * @param tableName the table name
-	 * @return the next identifier
-	 */
+/**
+*Zwraca maks id+1 z podanej tabeli bazy danych.
+*@param jdbcTemplate Szablon Jdbc
+*@param tableNazwij nazwę tabeli
+*@return następny identyfikator
+*/
     public static synchronized long getNextId(JdbcTemplate jdbcTemplate,
 											  String tableName) {
         Long result = jdbcTemplate.queryForObject(SELECT_MAX_INDEX_PREFIX + tableName, Long.class);

@@ -8,9 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new TransactionListDTO instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję TransactionListDTO.
+*/
 public class TransactionListDTOMapper implements RowMapper<TransactionListDTO> {
 
 	public TransactionListDTO mapRow(ResultSet rs, int rowNum) throws SQLException {

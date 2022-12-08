@@ -18,9 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The implementation of Dao interface for accessing {@link Account} domain object.
- * @author hamlet
- */
+*Implementacja interfejsu Dao do uzyskiwania dostępu do obiektu domeny {@link Account}.
+*/
 @Repository("accountDao")
 @Lazy
 public class AccountDaoImpl extends BaseDaoImpl<Account> implements AccountDao {

@@ -9,9 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new User instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję użytkownika.
+*/
 public class UserMapper implements RowMapper<User> {
 	public static final String LOGIN = "login";
 	public static final String PASSWORD = "password";

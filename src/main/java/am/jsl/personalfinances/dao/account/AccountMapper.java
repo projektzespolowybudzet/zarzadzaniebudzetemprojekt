@@ -10,10 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *{@link RowMapper} implementation that converts a row into a new Account instance.
- *
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję konta.
+*/
 public class AccountMapper implements RowMapper<Account> {
 
 	public Account mapRow(ResultSet rs, int rowNum) throws SQLException {

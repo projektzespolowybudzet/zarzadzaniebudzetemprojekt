@@ -6,21 +6,20 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import javax.sql.DataSource;
 
 /**
- * Base class with Springframework's JDBC Dao support.
- * <p>Requires a {@link javax.sql.DataSource} to be set.
- * @author hamlet
- */
+*Klasa podstawowa z obsługą JDBC Dao Springframework.
+*<p>Wymaga ustawienia {@link javax.sql.DataSource}.
+*/
 public class AbstractDaoImpl extends JdbcDaoSupport {
 
-	/**
-	 * Allowing the use of named parameters
-	 */
+/**
+*Zezwolenie na użycie nazwanych parametrów
+*/
 	protected NamedParameterJdbcTemplate parameterJdbcTemplate;
 
-	/**
-	 * Creates a new AbstractDaoImpl for the given {@link DataSource}.
-	 * @param dataSource the JDBC DataSource to access
-	 */
+/**
+*Tworzy nowy Abstract Dao Impl dla danego {@link Data Source}.
+*@param dataSource źródło danych JDBC, aby uzyskać dostęp
+*/
 	public AbstractDaoImpl(DataSource dataSource) {
 		super();
 		setDataSource(dataSource);

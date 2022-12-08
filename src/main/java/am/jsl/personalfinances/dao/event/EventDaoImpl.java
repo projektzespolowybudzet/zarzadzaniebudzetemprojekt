@@ -17,9 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The implementation of Dao interface for accessing {@link Event} domain object.
- * @author hamlet
- */
+*Implementacja interfejsu Dao do uzyskiwania dostępu do obiektu domeny {@link Event}.
+*/
 @Repository("eventDao")
 @Lazy
 public class EventDaoImpl extends AbstractDaoImpl implements EventDao {

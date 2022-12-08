@@ -10,24 +10,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Implementation of BaseDao interface with Springframework's JDBC Dao support.
- * <p>Requires a {@link javax.sql.DataSource} to be set.
- *
- * @param <T> the type parameter
- * @author hamlet
- */
+*Implementacja interfejsu BaseDao z obsługą JDBC Dao Springframework.
+*<p>Wymaga ustawienia {@link javax.sql.DataSource}.
+*
+*@param <T> parametr typu
+*/
 public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
 
-    /**
-     * The row mapper for generic {@link NamedEntity} type.
-     */
+/**
+*Narzędzie do mapowania wierszy dla ogólnego typu {@link NamedEntity}.
+*/
     protected NamedEntityMapper namedMapper = new NamedEntityMapper();
 
-    /**
-     * Creates a new BaseDaoImpl for the given {@link DataSource}.
-     *
-     * @param dataSource the JDBC DataSource to access
-     */
+/**
+*Tworzy nowy BaseDaoImpl dla danego {@link DataSource}.
+*
+*@param dataSource źródło danych JDBC, aby uzyskać dostęp
+*/
     public BaseDaoImpl(DataSource dataSource) {
         super(dataSource);
     }
@@ -37,14 +36,14 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         return null;
     }
 
-    /**
-     * List list.
-     *
-     * @param userId    the user id
-     * @param sql       the sql
-     * @param rowMapper the row mapper
-     * @return the list
-     */
+/**
+*Lista list.
+*
+*@param userId identyfikator użytkownika
+*@param sql plik sql
+*@param rowMapper mapowanie wierszy
+*@return listę
+*/
     protected List<T> list(long userId, String sql, RowMapper<T> rowMapper) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.user_id, userId);
@@ -87,14 +86,14 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         return null;
     }
 
-    /**
-     * Retrieves an entity by its id, user id and sql.
-     * @param id     the entity id
-     * @param userId the user id associated with the entity
-     * @param sql    the sql for querying the entity
-     * @param mapper the mapper for mapping entity from a {@link java.sql.ResultSet}
-     * @return the entity
-     */
+/**
+*Pobiera podmiot według jego identyfikatora, identyfikatora użytkownika i sql.
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@param sql sql do wysyłania zapytań do jednostki
+*@param mapper program odwzorowujący obiekt mapujący z {@link java.sql.ResultSet}
+*@return obiekt
+*/
     protected T get(long id, long userId, String sql, RowMapper<T> mapper) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.id, id);
@@ -107,12 +106,12 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         }
     }
 
-    /**
-     * Returns all instances of the NamedEntity for the given user.
-     * @param userId the user id associated with the entity
-     * @param sql    the sql for querying entities
-     * @return the list
-     */
+/**
+*Zwraca wszystkie wystąpienia NamedEntity dla danego użytkownika.
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@param sql sql do wysyłania zapytań do jednostek
+*@return listę
+*/
     protected List<NamedEntity> lookup(long userId, String sql) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.user_id, userId);
@@ -120,13 +119,13 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         return parameterJdbcTemplate.query(sql, params, namedMapper);
     }
 
-    /**
-     * Returns all instances of the type for the given user.
-     * @param userId    the user id associated with the entity
-     * @param sql       the sql for querying entities
-     * @param rowMapper the mapper for mapping entities from a {@link java.sql.ResultSet}
-     * @return the list
-     */
+/**
+*Zwraca wszystkie wystąpienia typu dla danego użytkownika.
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@param sql sql do wysyłania zapytań do jednostek
+*@param rowMapper mapowanie do mapowania jednostek z {@link java.sql.ResultSet}
+*@return listę
+*/
     protected List<T> lookup(long userId, String sql, RowMapper<T> rowMapper) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.user_id, userId);
@@ -134,13 +133,13 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         return parameterJdbcTemplate.query(sql, params, rowMapper);
     }
 
-    /**
-     * Returns a string from the given entity.
-     * @param id     the entity id
-     * @param userId the user id associated with the entity
-     * @param sql    the sql for querying string
-     * @return the string
-     */
+/**
+*Zwraca ciąg znaków z podanej jednostki.
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@param sql sql do wysyłania zapytań o łańcuch
+*@return ciąg znaków
+*/
     protected String getString(long id, long userId, String sql) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.id, id);
@@ -149,12 +148,12 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         return parameterJdbcTemplate.queryForObject(sql, params, String.class);
     }
 
-    /**
-     * Deletes the entity with the given id and user id.
-     * @param id     the entity id
-     * @param userId the user id associated with the entity
-     * @param sql    the sql for deleting the entity
-     */
+/**
+*Usuwa podmiot o podanym identyfikatorze i identyfikatorze użytkownika.
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@param sql sql do usunięcia jednostki
+*/
     protected void delete(long id, long userId, String sql) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.id, id);
@@ -162,14 +161,14 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         parameterJdbcTemplate.update(sql, params);
     }
 
-    /**
-     * Returns whether string exists in entity with the given id and user id exists.
-     * @param name   the entity name
-     * @param id     the entity id
-     * @param userId the user id associated with the entity
-     * @param sql    the sql for querying the entity
-     * @return the boolean
-     */
+/**
+*Zwraca czy string istnieje w encji o podanym id i czy istnieje id użytkownika.
+*@param nazwa nazwa jednostki
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@param sql sql do wysyłania zapytań do jednostki
+*@return wartość logiczną
+*/
     protected boolean exists(String name, long id, long userId, String sql) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.name, name);
@@ -180,14 +179,14 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
         return list.size() > 0;
     }
 
-    /**
-     * Returns whether an entity with the given id and user id can be deleted.
-     *
-     * @param id     the user id associated with the entity
-     * @param userId the user id
-     * @param query  the sql for querying the entity
-     * @return the boolean
-     */
+/**
+*Zwraca, czy podmiot o podanym identyfikatorze i identyfikatorze użytkownika może zostać usunięty.
+*
+*@param id identyfikator użytkownika powiązany z jednostką
+*@param userId identyfikator użytkownika
+*@param wysyła zapytanie do sql w celu zapytania o jednostkę
+*@return wartość logiczną
+*/
     protected boolean canDelete(long id, long userId, String query) {
         Map<String, Object> params = new HashMap<>();
         params.put(DBUtils.id, id);

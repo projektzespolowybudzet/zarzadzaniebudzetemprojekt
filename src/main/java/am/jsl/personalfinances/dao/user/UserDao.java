@@ -9,15 +9,14 @@ import am.jsl.personalfinances.search.ListPaginatedResult;
 import am.jsl.personalfinances.search.user.UserSearchQuery;
 
 /**
- * The Dao interface for accessing {@link User} domain object.
- * @author hamlet
- */
+*Interfejs Dao do uzyskiwania dostępu do obiektu domeny {@link User}.
+*/
 public interface UserDao extends BaseDao<User> {
-    /**
-     * Retrieves paginated result of users for the given search query.
-     * @param userSearchQuery the {@link UserSearchQuery} containing query options
-     * @return the {@link ListPaginatedResult} object containing paged result
-     */
+/**
+*Pobiera podzielone na strony wyniki użytkowników dla danego zapytania.
+*@param userSearchQuery {@link UserSearchQuery} zawierający opcje zapytania
+*@return obiekt {@link ListPaginatedResult} zawierający wynik stronicowania
+*/
     ListPaginatedResult<User> search(UserSearchQuery userSearchQuery);
 
     /**
@@ -26,101 +25,101 @@ public interface UserDao extends BaseDao<User> {
      */
     void login(long userId);
 
-    /**
-     * Deletes an user with the given user id
-     * @param id the user id
-     */
+/**
+*Usuwa użytkownika o podanym identyfikatorze użytkownika
+*@param id identyfikator użytkownika
+*/
     void deleteUser(long id);
 
-    /**
-     * Checks whether an user with the given login and id exists.
-     * @param login the login
-     * @param id user id
-     * @return true if user login exists
-     */
+/**
+*Sprawdza, czy istnieje użytkownik o podanym loginie i id.
+*@param zaloguj login
+*@param id identyfikator użytkownika
+*@return prawda, jeśli istnieje login użytkownika
+*/
     boolean loginExists(String login, long id);
 
-    /**
-     * Checks whether an user with the given email and id exists.
-     * @param email the emails
-     * @param id the user id
-     * @return true if user email exists
-     */
+/**
+*Sprawdza, czy istnieje użytkownik o podanym adresie e-mail i identyfikatorze.
+*@param wyślij e-maile
+*@param id identyfikator użytkownika
+*@return prawda, jeśli istnieje adres e-mail użytkownika
+*/
     boolean emailExists(String email, long id);
 
-    /**
-     * Creates an user with the given user.
-     * @param user the user
-     */
+/**
+*Tworzy użytkownika z podanym użytkownikiem.
+*@param użytkownik użytkownik
+*/
     void create(User user);
 
-    /**
-     * Updates an user with the given user.
-     * @param user the user
-     */
+/**
+*Aktualizuje użytkownika o podanego użytkownika.
+*@param użytkownik użytkownik
+*/
     void update(User user);
 
-    /**
-     * Returns an user with the given id.
-     * Will throw {@link UserNotFoundException} if user not found.
-     * @param userId the user id
-     * @return the user
-     * @throws UserNotFoundException if user not found
-     */
+/**
+*Zwraca użytkownika o podanym id.
+*Wyrzuci {@link UserNotFoundException}, jeśli użytkownik nie zostanie znaleziony.
+*@param userId identyfikator użytkownika
+*@return użytkownika
+*@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
+*/
     User getUser(long userId) throws UserNotFoundException;
 
-    /**
-     * Changes user password with the given encryptedPassword.
-     * @param encryptedPassword the encrypted password
-     * @param userId the user id
-     */
+/**
+*Zmienia hasło użytkownika z podanym encryptedPassword.
+*@param encryptedPassword zaszyfrowane hasło
+*@param userId identyfikator użytkownika
+*/
     void changePassword(String encryptedPassword, long userId);
 
-    /**
-     * Returns an user with the given user name.
-     * Will throw {@link UserNotFoundException} if user not found.
-     * @param username the user name
-     * @return the user
-     * @throws UserNotFoundException if user not found
-     */
+/**
+*Zwraca użytkownika o podanej nazwie użytkownika.
+*Wyrzuci {@link UserNotFoundException}, jeśli użytkownik nie zostanie znaleziony.
+*@param nazwa użytkownika nazwa użytkownika
+*@return użytkownika
+*@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
+*/
     User getUser(String username) throws UserNotFoundException;
 
-    /**
-     * Updates the icon for the given user.
-     * @param user the user
-     */
+/**
+*Aktualizuje ikonę dla danego użytkownika.
+*@param użytkownik użytkownik
+*/
     void updateIcon(User user);
 
-    /**
-     * Updates the profile of the given user.
-     * @param user the user
-     */
+/**
+*Aktualizuje profil danego użytkownika.
+*@param użytkownik użytkownik
+*/
     void updateProfile(User user) throws Exception;
 
-    /**
-     * Returns an user with the given email.
-     * @param email the emails
-     * @return the user
-     */
+/**
+*Zwraca użytkownika z podanym e-mailem.
+*@param wyślij e-maile
+*@return użytkownika
+*/
     User getUserByEmail(String email);
 
-    /**
-     * Creates the given {@link VerificationToken}
-     * @param verificationToken the VerificationToken
-     */
+/**
+*Tworzy podany {@link VerificationToken}
+*@param weryfikacjaToken tokenu weryfikacyjnego
+*/
     void createVerificationToken(VerificationToken verificationToken);
 
-    /**
-     * Updates the given {@link VerificationToken}
-     * @param verificationToken the VerificationToken
-     */
+/**
+*Aktualizuje podany {@link VerificationToken}
+*@param weryfikacjaToken tokenu weryfikacyjnego
+*/
     void updateVerificationToken(VerificationToken verificationToken);
 
-    /**
-     * Returns the VerificationToken with the user id and tokenType.
-     * @param userId the user id
-     * @param tokenType the token type
-     * @return the VerificationToken
-     */
+/**
+*Zwraca VerificationToken z identyfikatorem użytkownika i tokenType.
+*@param userId identyfikator użytkownika
+*@param token Wpisz typ tokena
+*@return token weryfikacyjny
+*/
     VerificationToken getToken(long userId, VerificationTokenType tokenType);
 }

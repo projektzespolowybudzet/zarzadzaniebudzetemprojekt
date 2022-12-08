@@ -9,45 +9,44 @@ import am.jsl.personalfinances.dto.account.AdjustBalanceDTO;
 import java.util.List;
 
 /**
- * The Dao interface for accessing {@link Account} domain object.
- * @author hamlet
+ * Interfejs Dao do uzyskiwania dostępu do obiektu domeny {@link Account}.
  */
 public interface AccountDao extends BaseDao<Account> {
 
-    /**
-     * Returns all accounts for the given user.
-     * @param userId the user id
-     * @return the list of accounts
-     */
+/**
+*Zwraca wszystkie konta dla danego użytkownika.
+*@param userId identyfikator użytkownika
+*@return listę rachunków
+*/
     List<AccountListDTO> getAccounts(long userId);
 
-    /**
-     * Returns active accounts for the given user.
-     * @param userId the user id associated with account
-     * @return the list of active accounts
-     */
+/**
+*Zwraca aktywne konta dla danego użytkownika.
+*@param userId identyfikator użytkownika powiązany z kontem
+*@return listę aktywnych kont
+*/
     List<AccountListDTO> getActiveAccounts(long userId);
 
-    /**
-     * Updates account's balance based on the given AdjustBalanceDTO object.
-     * @param adjustBalance the AdjustBalanceDTO object
-     * @see AdjustBalanceDTO
-     */
+/**
+*Aktualizuje stan konta na podstawie podanego obiektu AdjustBalanceDTO.
+*@param AdjustBalance obiektu AdjustBalanceDTO
+*@zobacz AdjustBalanceDTO
+*/
     void updateBalance(AdjustBalanceDTO adjustBalance);
 
-    /**
-     * Decreases the balance of the given account.
-     * @param id the account id
-     * @param userId the user id associated with account
-     * @param amount the amount to subtract from balance
-     */
+/**
+*Zmniejsza saldo danego konta.
+*@param id identyfikator konta
+*@param userId identyfikator użytkownika powiązany z kontem
+*@param kwota kwota do odjęcia od salda
+*/
     void decreaseBalance(long id, long userId, double amount);
 
-    /**
-     * Increases the balance of the given account.
-     * @param id  the account id
-     * @param userId the user id associated with account
-     * @param amount the amount to add to balance
-     */
+/**
+*Zwiększa saldo danego konta.
+*@param id identyfikator konta
+*@param userId identyfikator użytkownika powiązany z kontem
+*@param kwota kwota do dodania do salda
+*/
     void increaseBalance(long id, long userId, double amount);
 }

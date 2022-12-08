@@ -3,67 +3,66 @@ package am.jsl.personalfinances.dao;
 import java.util.List;
 
 /**
- * Base DAO interface for of interacting with the domain Entity objects with generic way.
- * @author hamlet
- * @param <T> the parametrisation entity type.
- */
+*Podstawowy interfejs DAO do interakcji z obiektami domeny Entity w sposób ogólny.
+*@param <T> typ jednostki parametryzacji.
+*/
 public interface BaseDao<T> {
-    /**
-     * Returns all instances of the type for the given user.
-     * @param userId the user id associated with entity
-     * @return the results
-     */
+/**
+*Zwraca wszystkie wystąpienia typu dla danego użytkownika.
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@return wyniki
+*/
     List<T> list(long userId);
 
-    /**
-     * Returns whether an entity with the given id and user id can be deleted.
-     * @param id the entity id
-     * @param userId the user id associated with entity
-     * @return true if an entity with the given id and user id can be deleted
-     */
+/**
+*Zwraca, czy podmiot o podanym identyfikatorze i identyfikatorze użytkownika może zostać usunięty.
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@return true, jeśli obiekt o podanym identyfikatorze i identyfikatorze użytkownika może zostać usunięty
+*/
     boolean canDelete(long id, long userId);
 
-    /**
-     * Deletes the entity with the given id and user id.
-     * @param id the entity id
-     * @param userId the user id associated with entity
-     */
+/**
+*Usuwa podmiot o podanym identyfikatorze i identyfikatorze użytkownika.
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*/
     void delete(long id, long userId);
 
-    /**
-     * Returns whether an entity with the given id and user id exists.
-     * @param name the entity name
-     * @param id the entity id
-     * @param userId the user id associated with entity
-     * @return true if an entity with the given id and user id exists
-     */
+/**
+*Zwraca, czy istnieje podmiot o podanym identyfikatorze i identyfikatorze użytkownika.
+*@param nazwa nazwa jednostki
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@return true jeśli jednostka o podanym identyfikatorze i identyfikatorze użytkownika istnieje
+*/
     boolean exists(String name, long id, long userId);
 
-    /**
-     * Creates the given entity.
-     * @param object the entity
-     */
+/**
+*Tworzy dany podmiot.
+*@param obiekt obiekt
+*/
     void create(T object);
 
-    /**
-     * Updates the given entity.
-     * @param object the entity
-     */
+/**
+*Aktualizuje daną jednostkę.
+*@param obiekt obiekt
+*/
     void update(T object);
 
-    /**
-     * Retrieves an entity by its id and user id.
-     * @param id the entity id
-     * @param userId the user id associated with entity
-     * @return the entity
-     */
+/**
+*Pobiera podmiot według jego identyfikatora i identyfikatora użytkownika.
+*@param id identyfikator jednostki
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@return obiekt
+*/
     T get(long id, long userId);
 
-    /**
-     * Returns all instances of the type associated with the given user id.
-     * Will be queried instance id and name.
-     * @param userId the user id associated with entity
-     * @return the result
-     */
+/**
+*Zwraca wszystkie wystąpienia typu powiązanego z podanym identyfikatorem użytkownika.
+*Zostanie zapytany o identyfikator i nazwę instancji.
+*@param userId identyfikator użytkownika powiązany z jednostką
+*@return wynik
+*/
     List<T> lookup(long userId);
 }

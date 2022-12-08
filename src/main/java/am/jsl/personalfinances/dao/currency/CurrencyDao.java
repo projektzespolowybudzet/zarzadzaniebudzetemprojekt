@@ -6,25 +6,24 @@ import am.jsl.personalfinances.domain.Currency;
 import java.util.List;
 
 /**
- * The Dao interface for accessing {@link Currency} domain object.
- * @author hamlet
- */
+*Interfejs Dao do uzyskiwania dostępu do obiektu domeny {@link Currency}.
+*/
 public interface CurrencyDao extends BaseDao<Currency> {
-    /**
-     * Returns a currency by code.
-     * @return the currency
-     */
+/**
+*Zwraca walutę według kodu.
+*@return walutę
+*/
     Currency getByCode(String isoCode);
 
-    /**
-     * Returns all currencies.
-     * @return list of currencies
-     */
+/**
+*Zwraca wszystkie waluty.
+*@return lista walut
+*/
     List<Currency> list();
 
-    /**
-     * Deletes a currency with the given code.
-     * @param code the currency code
-     */
+/**
+*Usuwa walutę z podanym kodem.
+*@param code kod waluty
+*/
     void delete(String code);
 }

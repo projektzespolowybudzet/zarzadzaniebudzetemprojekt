@@ -24,74 +24,72 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import static am.jsl.personalfinances.web.util.WebUtils.TARGET_URL;
 
 /**
- * The spring managed spring security configuration.
- *
- * @author hamlet
- */
+*Konfiguracja zabezpieczeń Spring.
+*/
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /**
-     * the CustomSuccessHandler.
-     */
+/**
+*CustomSuccessHandler.
+*/
     @Autowired
     private CustomSuccessHandler customSuccessHandler;
 
-    /**
-     * The AccessDeniedExceptionHandler.
-     */
+/**
+*AccessDeniedExceptionHandler.
+*/
     @Autowired
     private AccessDeniedExceptionHandler accessDeniedExceptionHandler;
 
-    /**
-     * The default constructor.
-     */
+/**
+*Domyślny konstruktor.
+*/
     public SpringSecurityConfig() {
         super();
     }
 
-    /**
-     * Creates the {@link PasswordEncoder} backed by {@link BCryptPasswordEncoder}.
-     *
-     * @return the PasswordEncoder
-     */
+/**
+*Tworzy {@link PasswordEncoder} wspierany przez {@link BCryptPasswordEncoder}.
+*
+*@return koder hasła
+*/
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * Configures the {@link UserDetailsService} with passwordEncoder.
-     *
-     * @param userDetailsService the UserDetailsService
-     * @param auth               the AuthenticationManagerBuilder
-     * @throws Exception if exception occurs
-     */
+/**
+*Konfiguruje {@link UserDetailsService} z passwordEncoder.
+*
+*@param userDetailsService usługę UserDetails
+*@param uwierzytelnia AuthenticationManagerBuilder
+*@throws Wyjątek, jeśli wystąpi wyjątek
+*/
     @Autowired
     public void configureGlobal(UserDetailsService userDetailsService, AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    /**
-     * Configures the {@link WebSecurity} for ignoring static resources.
-     *
-     * @param web the WebSecurity
-     * @throws Exception if exception occurs
-     */
+/**
+*Konfiguruje {@link WebSecurity} do ignorowania zasobów statycznych.
+*
+*@param web WebSecurity
+*@throws Wyjątek, jeśli wystąpi wyjątek
+*/
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/font-awesome/**", "/fonts/**", "/img/**", "/js/**");
     }
 
-    /**
-     * Configures the {@link HttpSecurity}.
-     *
-     * @param http the HttpSecurity
-     * @throws Exception if exception occurs
-     */
+/**
+*Konfiguruje {@link HttpSecurity}.
+*
+*@param http HttpSecurity
+*@throws Wyjątek, jeśli wystąpi wyjątek
+*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
@@ -122,11 +120,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(accessDeniedExceptionHandler);
     }
 
-    /**
-     * Creates the {@link SavedRequestAwareAuthenticationSuccessHandler}.
-     *
-     * @return the SavedRequestAwareAuthenticationSuccessHandler
-     */
+/**
+*Tworzy {@link SavedRequestAwareAuthenticationSuccessHandler}.
+*
+*@return SavedRequestAwareAuthenticationSuccessHandler
+*/
     @Bean
     public SavedRequestAwareAuthenticationSuccessHandler
     savedRequestAwareAuthenticationSuccessHandler() {
@@ -137,11 +135,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         return auth;
     }
 
-    /**
-     * Creates the {@link AccessDeniedExceptionHandler}.
-     *
-     * @return the AccessDeniedExceptionHandler
-     */
+/**
+*Tworzy {@link AccessDeniedExceptionHandler}.
+*
+*@return AccessDeniedExceptionHandler
+*/
     @Bean
     AccessDeniedExceptionHandler accessDeniedExceptionHandler() {
         AccessDeniedExceptionHandler accessDeniedExceptionHandler = new AccessDeniedExceptionHandler();

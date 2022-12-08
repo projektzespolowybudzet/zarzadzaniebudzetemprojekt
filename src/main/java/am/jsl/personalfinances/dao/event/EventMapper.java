@@ -8,9 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link RowMapper} implementation that converts a row into a new Event instance.
- * @author hamlet
- */
+*Implementacja {@link RowMapper}, która konwertuje wiersz na nową instancję zdarzenia.
+*/
 public class EventMapper implements RowMapper<Event> {
 	public static final String EVENT_TYPE = "event_type";
 	public static final String MESSAGE = "message";

@@ -16,16 +16,16 @@ import org.springframework.context.annotation.Configuration;
 @EnableCaching
 public class EhCacheConfig {
 
-	/**
-	 * Creates {@link Ehcache}s cacheManager with appropriate cache configurations.
-	 * Used for storing the results from queries userByName, currencies, transaction search.
-	 * @return the CacheManager
-	 */
+/**
+*Tworzy menedżera pamięci podręcznej {@link Ehcache} z odpowiednimi konfiguracjami pamięci podręcznej.
+*Służy do przechowywania wyników zapytań userByName, walut, wyszukiwania transakcji.
+*@return CacheManager
+*/
 	@Bean(destroyMethod = "shutdown")
 	public net.sf.ehcache.CacheManager ehCacheManager() {
 		System.setProperty("net.sf.ehcache.skipUpdateCheck", "false");
 
-		// user by name cache
+		//pamięć podręczna użytkownika według nazwy
 		net.sf.ehcache.CacheManager manager = net.sf.ehcache.CacheManager.create();
 
 		CacheConfiguration cacheConfig = new CacheConfiguration();
@@ -37,7 +37,7 @@ public class EhCacheConfig {
 		Cache cache = new Cache(cacheConfig);
 		manager.addCache(cache);
 
-		// currencies cache
+		//pamięć podręczna walut
 		cacheConfig = new CacheConfiguration();
 		cacheConfig.setName("currencies");
 		cacheConfig.maxEntriesLocalHeap(200);
@@ -45,7 +45,7 @@ public class EhCacheConfig {
 		cache = new Cache(cacheConfig);
 		manager.addCache(cache);
 
-		// exchange rates cache
+		//pamięć podręczna kursów walut
 		cacheConfig = new CacheConfiguration();
 		cacheConfig.setName("rates");
 		cacheConfig.maxEntriesLocalHeap(200);
@@ -53,7 +53,7 @@ public class EhCacheConfig {
 		cache = new Cache(cacheConfig);
 		manager.addCache(cache);
 
-		// Transactions Search cache
+		//Pamięć podręczna wyszukiwania transakcji
 		cacheConfig = new CacheConfiguration();
 		cacheConfig.setName("transactionSearch");
 		cacheConfig.maxEntriesLocalHeap(200);
@@ -64,10 +64,10 @@ public class EhCacheConfig {
 		return manager;
 	}
 
-	/**
-	 * Creates CacheManager backed by EhCache manager.
-	 * @return the CacheManager backed by EhCache manager.
-	 */
+/**
+*Tworzy CacheManager wspierany przez menedżera EhCache.
+*@return CacheManager wspierany przez menedżera EhCache.
+*/
 	@Bean
 	public CacheManager cacheManager() {
 		return new EhCacheCacheManager(ehCacheManager());
