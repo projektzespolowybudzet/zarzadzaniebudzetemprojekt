@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>am.jsl.personalfinances</groupId>
-    <artifactId>personalfinances</artifactId>
-    <name>Personal Finances</name>
+    <groupId>am.jsl.dolarek</groupId>
+    <artifactId>dolarek</artifactId>
+    <name>Dolarek</name>
     <packaging>jar</packaging>
     <version>1.0.0-BUILD-SNAPSHOT</version>
 
@@ -72,7 +72,7 @@
         <unirest.java.version>1.4.9</unirest.java.version>
         <mail.version>1.6.3</mail.version>
 
-        <start-class>am.jsl.personalfinances.PersonalFinancesApplication</start-class>
+        <start-class>am.jsl.dolarek.DolarekApplication</start-class>
     </properties>
 
     <dependencies>
@@ -331,7 +331,7 @@
     </dependencies>
 
     <build>
-        <finalName>personalfinances</finalName>
+        <finalName>dolarek</finalName>
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
