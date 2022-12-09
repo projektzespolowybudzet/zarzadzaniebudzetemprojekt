@@ -2,7 +2,6 @@ package am.jsl.personalfinances.ex;
 
 /**
  * Will be thrown if an object cannot be deleted.
- * @author hamlet
  */
 public class CannotDeleteException extends Exception {
 

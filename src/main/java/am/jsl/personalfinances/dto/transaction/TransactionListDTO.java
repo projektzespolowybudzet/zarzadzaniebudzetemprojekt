@@ -3,9 +3,7 @@ package am.jsl.personalfinances.dto.transaction;
 import java.io.Serializable;
 
 /**
- * The TransactionListDTO is used for displaying transaction in transaction list page.
- *
- * @author hamlet
+ *TransactionListDTO służy do wyświetlania transakcji na stronie z listą transakcji.
  */
 public class TransactionListDTO extends BaseTransactionDTO implements Serializable {
 

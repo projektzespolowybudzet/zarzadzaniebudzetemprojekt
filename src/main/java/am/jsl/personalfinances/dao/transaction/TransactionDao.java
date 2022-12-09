@@ -11,43 +11,42 @@ import am.jsl.personalfinances.search.transaction.TransactionSearchQuery;
 import java.util.List;
 
 /**
- * The Dao interface for accessing {@link Transaction} domain object.
- * @author hamlet
- */
+*Interfejs Dao do uzyskiwania dostępu do obiektu domeny {@link Transaction}.
+*/
 public interface TransactionDao extends BaseDao<Transaction> {
-    /**
-     * Retrieves paginated result of transactions for the given search query.
-     * @param searchQuery the {@link TransactionSearchQuery} containing query options
-     * @return the {@link TransactionSearchResult} containing paged result
-     */
+/**
+*Pobiera wyniki transakcji z podziałem na strony dla danego zapytania wyszukiwania.
+*@param searchQuery {@link TransactionSearchQuery} zawierający opcje zapytania
+*@zwróć {@link TransactionSearchResult} zawierający wynik stronicowania
+*/
     TransactionSearchResult search(TransactionSearchQuery searchQuery);
 
-    /**
-     * Creates the given list of transactions.
-     * @param transactions the list of transactions
-     */
+/**
+*Tworzy zadaną listę transakcji.
+*Transakcje @param lista transakcji
+*/
     void createBatch(List<Transaction> transactions);
 
-    /**
-     * Returns a transaction details with the given id and user id.
-     * @param id the transaction id
-     * @param userId the user id
-     * @return the {@link TransactionDetailsDTO} containing transaction details
-     */
+/**
+*Zwraca szczegóły transakcji z podanym identyfikatorem i identyfikatorem użytkownika.
+*@param id identyfikator transakcji
+*@param userId identyfikator użytkownika
+*@zwróć {@link TransactionDetailsDTO} zawierający szczegóły transakcji
+*/
     TransactionDetailsDTO getDetails(long id, long userId);
 
-    /**
-     * Retrieves paginated result of transactions for the given search query.
-     * @param query the {@link TransactionByCategorySearchQuery} query containing search options
-     * @return the list of {@link TransactionByCategoryDTO} items
-     */
+/**
+*Pobiera wyniki transakcji z podziałem na strony dla danego zapytania wyszukiwania.
+*@param zapytanie o zapytanie {@link TransactionByCategorySearchQuery} zawierające opcje wyszukiwania
+*@zwróć listę pozycji {@link TransactionByCategoryDTO}
+*/
     List<TransactionByCategoryDTO> search(TransactionByCategorySearchQuery query);
 
-    /**
-     * Returns transaction amount with the given transaction id and user id
-     * @param id the transaction id
-     * @param userId the user id
-     * @return the amount
-     */
+/**
+*Zwraca kwotę transakcji z podanym identyfikatorem transakcji i identyfikatorem użytkownika
+*@param id identyfikator transakcji
+*@param userId identyfikator użytkownika
+*@zwrot kwoty
+*/
     double getAmount(long id, long userId);
 }

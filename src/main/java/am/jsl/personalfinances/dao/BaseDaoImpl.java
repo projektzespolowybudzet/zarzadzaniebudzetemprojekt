@@ -12,7 +12,6 @@ import java.util.Map;
 /**
 *Implementacja interfejsu BaseDao z obsługą JDBC Dao Springframework.
 *<p>Wymaga ustawienia {@link javax.sql.DataSource}.
-*
 *@param <T> parametr typu
 */
 public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
@@ -24,7 +23,6 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
 
 /**
 *Tworzy nowy BaseDaoImpl dla danego {@link DataSource}.
-*
 *@param dataSource źródło danych JDBC, aby uzyskać dostęp
 */
     public BaseDaoImpl(DataSource dataSource) {
@@ -38,7 +36,6 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
 
 /**
 *Lista list.
-*
 *@param userId identyfikator użytkownika
 *@param sql plik sql
 *@param rowMapper mapowanie wierszy
@@ -181,7 +178,6 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
 
 /**
 *Zwraca, czy podmiot o podanym identyfikatorze i identyfikatorze użytkownika może zostać usunięty.
-*
 *@param id identyfikator użytkownika powiązany z jednostką
 *@param userId identyfikator użytkownika
 *@param wysyła zapytanie do sql w celu zapytania o jednostkę

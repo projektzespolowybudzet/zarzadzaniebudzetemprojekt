@@ -3,32 +3,16 @@ package am.jsl.personalfinances.domain;
 import java.util.Objects;
 
 /**
- * Domain object that extends BaseEntity and contains name field.
- * Used as a base class for objects needing these properties.
- *
- * @author hamlet
- */
+*Obiekt Domain, który rozszerza BaseEntity i zawiera pole name.
+*Używana jako klasa bazowa dla obiektów wymagających tych właściwości.
+*/
 public class NamedEntity extends BaseEntity {
 
-    /**
-     * The name
-     */
     private String name;
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
     public String getName() {
         return name;
     }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
     public void setName(String name) {
         this.name = name;
     }

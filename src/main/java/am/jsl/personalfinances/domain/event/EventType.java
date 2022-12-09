@@ -3,10 +3,8 @@ package am.jsl.personalfinances.domain.event;
 import java.util.Arrays;
 
 /**
- *  An enum containing possible event types.
- *
- * @author hamlet
- */
+*Wyliczenie zawierające możliwe typy zdarzeń.
+*/
 public enum EventType {
 	LOGIN((byte)1, "Logowanie"),
 	CREATE_ROLE((byte)2, "Nadanie dostpępu"),

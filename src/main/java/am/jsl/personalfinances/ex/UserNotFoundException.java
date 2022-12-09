@@ -2,7 +2,6 @@ package am.jsl.personalfinances.ex;
 
 /**
  * Will be thrown if an user not found exists during user retrieve.
- * @author hamlet
  */
 public class UserNotFoundException extends Exception {
     private static final long serialVersionUID = 2663040220470909688L;

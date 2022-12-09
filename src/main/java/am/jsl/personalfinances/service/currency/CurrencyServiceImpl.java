@@ -20,16 +20,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * The service implementation of the {@link CurrencyService}.
- * @author hamlet
- */
+*Implementacja usługi {@link CurrencyService}.
+*/
 @Service("currencyService")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class CurrencyServiceImpl extends BaseServiceImpl<Currency> implements CurrencyService {
 
-    /**
-     * The currency dao
-     */
+/**
+*Dao waluty
+*/
     @Autowired
     @Qualifier("currencyDao")
     private CurrencyDao currencyDao;

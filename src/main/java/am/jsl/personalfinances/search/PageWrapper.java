@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 /**
- * PageWrapper used in thymeleaf pages for displaying single page
- * with pagination support.
- * @author hamlet
- */
+*PageWrapper używany na stronach thymeaf do wyświetlania pojedynczej strony
+*z obsługą paginacji.
+*/
 public class PageWrapper<T> {
     public static final int MAX_PAGE_ITEM_DISPLAY = 5;
     private boolean firstPageEnabled;
@@ -149,56 +148,26 @@ public class PageWrapper<T> {
         this.items = items;
     }
 
-    /**
-     * Getter for property 'currentPage'.
-     *
-     * @return Value for property 'currentPage'.
-     */
     public int getCurrentPage() {
         return currentPage;
     }
 
-    /**
-     * Setter for property 'currentPage'.
-     *
-     * @param currentPage Value to set for property 'currentPage'.
-     */
     public void setCurrentPage(int currentPage) {
         this.currentPage = currentPage;
     }
 
-    /**
-     * Getter for property 'dataCount'.
-     *
-     * @return Value for property 'dataCount'.
-     */
     public long getDataCount() {
         return dataCount;
     }
 
-    /**
-     * Setter for property 'dataCount'.
-     *
-     * @param dataCount Value to set for property 'dataCount'.
-     */
     public void setDataCount(long dataCount) {
         this.dataCount = dataCount;
     }
 
-    /**
-     * Getter for property 'pageSize'.
-     *
-     * @return Value for property 'pageSize'.
-     */
     public int getPageSize() {
         return pageSize;
     }
 
-    /**
-     * Setter for property 'pageSize'.
-     *
-     * @param pageSize Value to set for property 'pageSize'.
-     */
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }

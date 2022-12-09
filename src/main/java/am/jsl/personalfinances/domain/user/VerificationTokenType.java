@@ -1,10 +1,8 @@
 package am.jsl.personalfinances.domain.user;
 
 /**
- * An enum containing possible verification token types.
- *
- * @author hamlet
- */
+*Wyliczenie zawierające możliwe typy tokenów weryfikacyjnych.
+*/
 public enum VerificationTokenType {
     NEW_ACCOUNT((byte) 1),
     PASSWORD_RESET ((byte) 2);
@@ -15,11 +13,6 @@ public enum VerificationTokenType {
         this.value = value;
     }
 
-    /**
-     * Getter for property 'value'.
-     *
-     * @return Value for property 'value'.
-     */
     public byte getValue() {
         return value;
     }

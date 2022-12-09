@@ -18,21 +18,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The service implementation of the {@link CategoryService}.
- * @author hamlet
- */
+*Implementacja usługi {@link CategoryService}.
+*/
 @Service("categoryService")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class CategoryServiceImpl extends BaseServiceImpl<Category> implements CategoryService {
 
-    /**
-     * The template file where is stored a html representation of categories.
-     */
+/**
+*Plik szablonu, w którym przechowywana jest reprezentacja kategorii w formacie HTML.
+*/
     private static final String CATEGORY_LOOKUP_HTML = "category-lookup.html";
 
-    /**
-     * The category dao.
-     */
+/**
+*Kategoria dao.
+*/
     private CategoryDao categoryDao;
 
     @Override
@@ -82,10 +81,10 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         publish(category.getUserId());
     }
 
-    /**
-     * Generates a html representation of categories for the given user id.
-     * @param userId the user id
-     */
+/**
+*Generuje reprezentację HTML kategorii dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*/
     private void publish(long userId) {
         if (!publishHtml) {
             log.info("Publish html is disabled");
@@ -129,11 +128,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         return categoryDao.lookupParentCategories(userId);
     }
 
-    /**
-     * Setter for property 'categoryDao'.
-     *
-     * @param categoryDao Value to set for property 'categoryDao'.
-     */
     @Autowired
     public void setCategoryDao(@Qualifier("categoryDao") CategoryDao categoryDao) {
         this.categoryDao = categoryDao;

@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 */
 public class DBUtils {
 
-	// common
+	// Wspólny
 	public static final String id = "id";
 	public static final String name = "name";
 	public static final String value = "value";

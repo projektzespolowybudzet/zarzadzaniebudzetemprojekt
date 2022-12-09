@@ -1,10 +1,8 @@
 package am.jsl.personalfinances.domain.transaction;
 
 /**
- * An enum containing possible transaction statuses.
- *
- * @author hamlet
- */
+*Wyliczenie zawierające możliwe statusy transakcji.
+*/
 public enum TransactionStatus {
     PENDING((byte) 1),
     DONE((byte) 2);

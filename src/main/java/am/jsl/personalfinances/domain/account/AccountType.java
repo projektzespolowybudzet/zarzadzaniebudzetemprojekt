@@ -1,10 +1,8 @@
 package am.jsl.personalfinances.domain.account;
 
 /**
- * An enum containing possible account types.
- *
- * @author hamlet
- */
+*Wyliczenie zawierające możliwe typy kont.
+*/
 public enum AccountType {
 
     CASH((byte) 1),

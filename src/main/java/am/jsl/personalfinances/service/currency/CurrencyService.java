@@ -6,20 +6,19 @@ import am.jsl.personalfinances.service.BaseService;
 import java.util.List;
 
 /**
- * Service interface which defines all the methods for working with {@link Currency} domain object.
- * @author hamlet
- */
+*Interfejs usługi, który definiuje wszystkie metody pracy z obiektem domeny {@link Currency}.
+*/
 public interface CurrencyService extends BaseService<Currency> {
-    /**
-     * Returns a currency by code.
-     * @return the currency
-     */
+/**
+*Zwraca walutę według kodu.
+*@zwróć walutę
+*/
     Currency getByCode(String isoCode);
 
-    /**
-     * Returns all currencies.
-     * @return list of currencies
-     */
+/**
+*Zwraca wszystkie waluty.
+*@return lista walut
+*/
     List<Currency> list();
 
     /**
@@ -28,16 +27,16 @@ public interface CurrencyService extends BaseService<Currency> {
      */
     void delete(String code);
 
-    /**
-     * Returns exchange rate for the given currencies.
-     * @param fromCurrency the source currency
-     * @param toCurrency the target currency
-     * @return the exchange rate
-     */
+/**
+*Zwraca kurs wymiany dla podanych walut.
+*@param fromCurrency waluta źródłowa
+*@param toCurrency waluta docelowa
+*@Zwróć kurs wymiany
+*/
     Double getRate(String fromCurrency, String toCurrency);
 
-    /**
-     * Clears rates cache.
-     */
+/**
+*Czyści pamięć podręczną stawek.
+*/
     void clearRatesCache();
 }

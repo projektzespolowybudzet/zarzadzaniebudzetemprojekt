@@ -4,32 +4,16 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Domain object that extends NamedEntity and contains description field.
- * Used as a base class for objects needing these properties.
- *
- * @author hamlet
- */
+*Obiekt Domain, który rozszerza NamedEntity i zawiera pole opisu.
+*Używana jako klasa bazowa dla obiektów wymagających tych właściwości.
+*/
 public class Descriptive extends NamedEntity implements Serializable {
 
-	/**
-	 * The description
-	 */
 	protected String description;
 
-	/**
-	 * Gets description.
-	 *
-	 * @return the description
-	 */
 	public String getDescription() {
 		return description;
 	}
-
-	/**
-	 * Sets description.
-	 *
-	 * @param description the description
-	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}

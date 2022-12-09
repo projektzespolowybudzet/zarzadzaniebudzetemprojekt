@@ -2,7 +2,6 @@ package am.jsl.personalfinances.ex;
 
 /**
  * Will be thrown if user token is invalid or expired.
- * @author hamlet
  */
 public class InvalidTokenException extends RuntimeException {
 	public static final String CODE = "error.invalid.token";

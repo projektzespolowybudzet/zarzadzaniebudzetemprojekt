@@ -4,18 +4,16 @@ import am.jsl.personalfinances.domain.user.User;
 import am.jsl.personalfinances.search.Query;
 
 /**
- * Custom {@link Query} for searching of {@link User} items.
- *
- * @author hamlet
- */
+*Niestandardowe {@link Query} do wyszukiwania elementów {@link User}.
+*/
 public class UserSearchQuery extends Query<User> {
 
-    /**
-     * Instantiates a new User search query.
-     *
-     * @param page     the page
-     * @param pageSize the page size
-     */
+/**
+*Tworzy instancję nowego zapytania wyszukiwania użytkownika.
+*
+*@param strona strona
+*@param pageSize rozmiar strony
+*/
     public UserSearchQuery(int page, int pageSize) {
         super(page, pageSize);
     }

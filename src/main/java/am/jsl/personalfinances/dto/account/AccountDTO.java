@@ -27,42 +27,49 @@ public class AccountDTO extends DescriptiveDTO implements Serializable {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+    
     public byte getAccountType() {
         return accountType;
     }
     public void setAccountType(byte accountType) {
         this.accountType = accountType;
     }
+    
     public String getCurrency() {
         return currency;
     }
     public void setCurrency(String currency) {
         this.currency = currency;
     }
+    
     public boolean isActive() {
         return active;
     }
     public void setActive(boolean active) {
         this.active = active;
     }
+    
     public String getIcon() {
         return icon;
     }
     public void setIcon(String icon) {
         this.icon = icon;
     }
+    
     public String getColor() {
         return color;
     }
     public void setColor(String color) {
         this.color = color;
     }
+    
     public int getSortOrder() {
         return sortOrder;
     }
     public void setSortOrder(int sortOrder) {
         this.sortOrder = sortOrder;
     }
+    
     public String getSymbol() {
         return symbol;
     }

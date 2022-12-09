@@ -16,34 +16,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Spring managed root configuration.
- * Configures applications jobs and PropertySourcesPlaceholderConfigurer.
- * @author hamlet
- */
+*Konfiguracja root zarządzana wiosną.
+*Konfiguruje zadania aplikacji i PropertySourcesPlaceholderConfigurer.
+*/
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = {"am.jsl.personalfinances"})
 public class RootConfig {
-    /**
-     * Cron expression for database dump job.
-     */
+/**
+*Wyrażenie Cron dla zadania zrzutu bazy danych.
+*/
     @Value("${personalfinances.db.export.cronExpression}")
     private String dbDumpCronExp;
 
-        /**
-     * The database dump service.
-     */
+/**
+*Usługa zrzutu bazy danych.
+*/
     @Autowired
     @Qualifier("databaseDumpService")
     private DatabaseDumpService databaseDumpService;
 
-    /**
-     * Creates Quartz {@link JobDetail} instance for executing database dump job.
-     * @return the JobDetail
-     */
+/**
+*Tworzy instancję Quartz {@link JobDetail} do wykonywania zadania zrzutu bazy danych.
+*@Zwróć szczegóły zadania
+*/
     @Bean
     public JobDetail databaseDumpJobDetail() {
-        // pass databaseDumpService
+        //przekaż usługę databaseDumpService
         Map<String, Object> jobDataAsMap = new HashMap<>();
         jobDataAsMap.put("databaseDumpService", databaseDumpService);
 
@@ -51,10 +50,10 @@ public class RootConfig {
                 .setJobData(new JobDataMap(jobDataAsMap)).storeDurably().build();
     }
 
-    /**
-     *  Creates with Quartz {@link Trigger} instance for scheduling databaseDumpJob.
-     * @return the Trigger
-     */
+/**
+*Tworzy instancję Quartz {@link Trigger} do planowania databaseDumpJob.
+*@zwróć wyzwalacz
+*/
     @Bean
     public Trigger databaseDumpJobTrigger() {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
@@ -64,12 +63,12 @@ public class RootConfig {
                 .withIdentity("databaseDumpJobTrigger").withSchedule(scheduleBuilder).build();
     }
 
-    /**
-     * Creates Springs {@link PropertySourcesPlaceholderConfigurer} for resolving ${...} placeholders
-     * within Spring bean definitions.
-     *
-     * @return the PropertySourcesPlaceholderConfigurer
-     */
+/**
+*Tworzy Springs {@link PropertySourcesPlaceholderConfigurer} do rozwiązywania symboli zastępczych ${...}
+*w ramach definicji Spring bean.
+*
+*@zwróć konfigurator PropertySourcesPlaceholder
+*/
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyPlaceHolderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();

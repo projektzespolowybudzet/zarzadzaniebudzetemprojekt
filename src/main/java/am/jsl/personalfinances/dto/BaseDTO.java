@@ -3,31 +3,16 @@ package am.jsl.personalfinances.dto;
 import java.util.Objects;
 
 /**
- * The BaseDTO is the root for DTO classes.
- * DTO classes are used to transfer objects between application layers.
- *
- * @author hamlet
- */
+*BaseDTO jest korzeniem klas DTO.
+*Klasy DTO służą do przenoszenia obiektów między warstwami aplikacji.
+*/
 public class BaseDTO {
-    /**
-     * The internal identifier.
-     */
+    
     private long id;
 
-    /**
-     * Getter for property 'id'.
-     *
-     * @return Value for property 'id'.
-     */
     public long getId() {
         return id;
     }
-
-    /**
-     * Setter for property 'id'.
-     *
-     * @param id Value to set for property 'id'.
-     */
     public void setId(long id) {
         this.id = id;
     }

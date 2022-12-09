@@ -16,21 +16,20 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * The service implementation of the {@link AccountService}.
- * @author hamlet
- */
+*Implementacja usługi {@link AccountService}.
+*/
 @Service("accountService")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class AccountServiceImpl extends BaseServiceImpl<Account> implements AccountService {
 
-    /**
-     * The template file where is stored a html representation of accounts.
-     */
+/**
+*Plik szablonu, w którym przechowywana jest reprezentacja rachunków w formacie HTML.
+*/
     private static final String ACCOUNT_LOOKUP_HTML = "account-lookup.html";
 
-    /**
-     * The account dao.
-     */
+/**
+*Dane konta.
+*/
     private AccountDao accountDao;
 
     @Override
@@ -70,21 +69,16 @@ public class AccountServiceImpl extends BaseServiceImpl<Account> implements Acco
         publish(account.getUserId());
     }
 
-    /**
-     * Setter for property 'accountDao'.
-     *
-     * @param accountDao Value to set for property 'accountDao'.
-     */
     @Autowired
     public void setAccountDao(@Qualifier("accountDao") AccountDao accountDao) {
         this.accountDao = accountDao;
         setBaseDao(accountDao);
     }
 
-    /**
-     * Generates a html representation of accounts for the given user id.
-     * @param userId the user id
-     */
+/**
+*Generuje reprezentację HTML kont dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*/
     private void publish(long userId) {
         if (!publishHtml) {
             log.info("Publish html is disabled");

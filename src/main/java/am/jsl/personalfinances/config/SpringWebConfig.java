@@ -26,50 +26,36 @@ import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Spring managed Spring MVC configuration.
- * @author hamlet
- */
+*Spring zarządzana konfiguracja Spring MVC.
+*/
 @Configuration
 @EnableWebMvc
 public class SpringWebConfig implements WebMvcConfigurer {
-    /**
-     * User image directory.
-     */
+
     @Value("${personalfinances.user.img.dir}")
     private String userImgDir;
-
-    /**
-     * User html directory.
-     */
     @Value("${personalfinances.user.html.dir}")
     private String userHtmlDir;
-
-    /**
-     * The roles formatter
-     */
     @Autowired
     private RoleFormatter roleFormatter;
-
-    /**
-     * The default constructor.
-     */
+    
     public SpringWebConfig() {
         super();
     }
 
-    /**
-     * Creates the {@link StandardServletMultipartResolver}
-     * @return the StandardServletMultipartResolver
-     */
+/**
+*Tworzy {@link StandardServletMultipartResolver}
+*@zwróć StandardServletMultipartResolver
+*/
     @Bean
     public StandardServletMultipartResolver multipartResolver() {
         return new StandardServletMultipartResolver();
     }
 
-    /**
-     * Maps view controllers to the url paths.
-     * @param registry the ViewControllerRegistry
-     */
+/**
+*Odwzorowuje kontrolery widoku na ścieżki URL.
+*@param rejestruj ViewControllerRegistry
+*/
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("user-public/login");
@@ -77,46 +63,46 @@ public class SpringWebConfig implements WebMvcConfigurer {
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
-    /**
-     *  Enables forwarding to the "default" Servlet.
-     * @param configurer the DefaultServletHandlerConfigurer
-     */
+/**
+*Włącza przekazywanie do 'domyślnego' Serwlet.
+*@param konfigurator DefaultServletHandlerConfigurer
+*/
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable("personalfinancesDefaultServlet");
     }
 
-    /**
-     * Creates the {@link Java8TimeDialect} for formatting Java 8 Time objects in thymeleaf pages.
-     * @return the Java8TimeDialect
-     */
+/**
+*Tworzy {@link Java8TimeDialect} do formatowania obiektów Java 8 Time na stronach thymleaf.
+*@zwróć Java8TimeDialect
+*/
     @Bean
     public Java8TimeDialect java8TimeDialect() {
         return new Java8TimeDialect();
     }
 
-    /**
-     * Creates the {@link SpringSecurityDialect} for using spring security tags in thymeleaf pages.
-     * @return the
-     */
+/**
+*Tworzy {@link SpringSecurityDialect} do używania wiosennych tagów bezpieczeństwa na stronach thymeaf.
+*@return SpringSecurityDialect
+*/
     @Bean
     public SpringSecurityDialect springSecurityDialect() {
         return new SpringSecurityDialect();
     }
 
-    /**
-     * Creates custom {@link PersonalFinancesDialect} that used in thymeleaf pages.
-     * @return the PersonalFinancesDialect
-     */
+/**
+*Tworzy niestandardowe {@link PersonalFinancesDialect} używane na stronach thymeleaf.
+*@zwróć Dialekt PersonalFinances
+*/
     @Bean
     public PersonalFinancesDialect personalFinancesDialect() {
         return new PersonalFinancesDialect();
     }
 
-    /**
-     *  Creates {@link ResourceBundleMessageSource} for accessing resource bundles using specified base names.
-     * @return the ResourceBundleMessageSource
-     */
+/**
+*Tworzy {@link ResourceBundleMessageSource} w celu uzyskania dostępu do pakietów zasobów przy użyciu określonych nazw podstawowych.
+*@zwróć źródło wiadomości ResourceBundleMessageSource
+*/
     @Bean
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
@@ -125,10 +111,10 @@ public class SpringWebConfig implements WebMvcConfigurer {
         return source;
     }
 
-    /**
-     * Creates the {@link I18n} instance wrapped with Spring MessagesSource.
-     * @return the I18n
-     */
+/**
+*Tworzy instancję {@link I18n} opakowaną w Spring MessagesSource.
+*@Zwróć I18n
+*/
     @Bean
     public I18n i18n() {
         I18n i18n = new I18n();
@@ -136,19 +122,19 @@ public class SpringWebConfig implements WebMvcConfigurer {
         return i18n;
     }
 
-    /**
-     * Creates new {@link StringToLocalDateTimeConverter}.
-     * @return the StringToLocalDateTimeConverter
-     */
+/**
+*Tworzy nowy {@link StringToLocalDateTimeConverter}.
+*@zwróć StringToLocalDateTimeConverter
+*/
     @Bean
     public StringToLocalDateTimeConverter stringToLocalDateTimeConverter(){
         return new StringToLocalDateTimeConverter();
     }
 
-    /**
-     * Dispatcher configuration for serving static resources.
-     * @param registry the ResourceHandlerRegistry
-     */
+/**
+*Konfiguracja dyspozytora do obsługi zasobów statycznych.
+*@param zarejestruj plik ResourceHandlerRegistry
+*/
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(
@@ -178,40 +164,40 @@ public class SpringWebConfig implements WebMvcConfigurer {
         registry.addResourceHandler(Constants.USER_HTML_PATHPATTERN).addResourceLocations("file:" + userHtmlDir);
     }
 
-    /**
-     * Creates the {@link UserInterceptor} isntance.
-     * @return the UserInterceptor
-     */
+/**
+*Tworzy instancję {@link User Interceptor}.
+*@zwróć przechwytywacz użytkowników
+*/
     @Bean
     public UserInterceptor userInterceptor() {
         UserInterceptor userInterceptor = new UserInterceptor();
         return userInterceptor;
     }
 
-    /**
-     * Registers the UserInterceptor for prehandling reqeusts for userhtml directory.
-     * @param registry the InterceptorRegistry
-     */
+/**
+*Rejestruje UserInterceptor do wstępnej obsługi żądań dla katalogu userhtml.
+*@param zarejestruj InterceptorRegistry
+*/
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // Register user interceptor for userhtml path
+        //Zarejestruj przechwytywacz użytkowników dla ścieżki userhtml
         registry.addInterceptor(userInterceptor()).addPathPatterns(Constants.USER_HTML_PATHPATTERN);
     }
 
-    /**
-     * Creates the {@link ResourceUrlEncodingFilter} instance.
-     * @return the ResourceUrlEncodingFilter
-     */
+/**
+*Tworzy instancję {@link ResourceUrlEncodingFilter}.
+*@zwróć filtr ResourceUrlEncodingFilter
+*/
     @Bean
     public ResourceUrlEncodingFilter resourceUrlEncodingFilter() {
         ResourceUrlEncodingFilter filter = new ResourceUrlEncodingFilter();
         return filter;
     }
 
-    /**
-     * Creates the {@link LocaleChangeInterceptor} instance.
-     * @return the LocaleChangeInterceptor
-     */
+/**
+*Tworzy instancję {@link LocaleChangeInterceptor}.
+*@zwróć LocaleChangeInterceptor
+*/
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -219,19 +205,19 @@ public class SpringWebConfig implements WebMvcConfigurer {
         return localeChangeInterceptor;
     }
 
-    /**
-     * Creates the {@link StringHttpMessageConverter} instance.
-     * @return the StringHttpMessageConverter
-     */
+/**
+*Tworzy instancję {@link StringHttpMessageConverter}.
+*@zwróć StringHttpMessageConverter
+*/
     @Bean
     public StringHttpMessageConverter stringHttpMessageConverter() {
         return new StringHttpMessageConverter(Charset.forName(Constants.UTF8));
     }
 
-    /**
-     * Registers the application formatters.
-     * @param registry the FormatterRegistry
-     */
+/**
+*Rejestruje FormatterRegistry.
+*@param zarejestruj plik FormatterRegistry
+*/
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(roleFormatter);

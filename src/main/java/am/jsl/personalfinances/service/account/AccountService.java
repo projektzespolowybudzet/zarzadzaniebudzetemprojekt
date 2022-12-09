@@ -8,28 +8,27 @@ import am.jsl.personalfinances.service.BaseService;
 import java.util.List;
 
 /**
- * Service interface which defines all the methods for working with {@link Account} domain object.
- * @author hamlet
- */
+*Interfejs usługi, który definiuje wszystkie metody pracy z obiektem domeny {@link Account}.
+*/
 public interface AccountService extends BaseService<Account> {
-    /**
-     * Returns all accounts for the given user.
-     * @param userId the user id
-     * @return the list of accounts
-     */
+/**
+*Zwraca wszystkie konta dla danego użytkownika.
+*@param userId identyfikator użytkownika
+*@zwróć listę kont
+*/
     List<AccountListDTO> getAccounts(long userId);
 
-    /**
-     * Updates account's balance based on the given AdjustBalanceDTO object.
-     * @param adjustBalance the AdjustBalanceDTO object
-     * @see AdjustBalanceDTO
-     */
+/**
+*Aktualizuje stan konta na podstawie podanego obiektu AdjustBalanceDTO.
+*@param AdjustBalance obiektu AdjustBalanceDTO
+*@zobacz AdjustBalanceDTO
+*/
     void updateBalance(AdjustBalanceDTO adjustBalance);
 
-    /**
-     * Returns active accounts for the given user.
-     * @param userId the user id
-     * @return the list of active accounts
-     */
+/**
+*Zwraca aktywne konta dla danego użytkownika.
+*@param userId identyfikator użytkownika
+*@zwróć listę aktywnych kont
+*/
     List<AccountListDTO> getActiveAccounts(long userId);
 }

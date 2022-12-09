@@ -2,7 +2,6 @@ package am.jsl.personalfinances.ex;
 
 /**
  * Will be thrown when a operation is denied based on users permission.
- * @author hamlet
  */
 public class AccessDeniedException extends RuntimeException {
 	private static final long serialVersionUID = -8821813744964271624L;

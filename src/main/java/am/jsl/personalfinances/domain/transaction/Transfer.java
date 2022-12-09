@@ -3,40 +3,19 @@ package am.jsl.personalfinances.domain.transaction;
 import java.io.Serializable;
 
 /**
- * The transfer domain object.
- *
- * @author hamlet
- */
+*Obiekt domeny transferu.
+*/
 public class Transfer  implements Serializable {
-    /**
-     * The internal identifier
-     */
+    
     private long id;
-
-    /**
-     * The transaction id
-     */
     private long transactionId;
-
-    /**
-     * The target account id
-     */
     private long targetAccountId = 0;
-
-    /**
-     * The converted amount that will be transferred to target account
-     */
     private double convertedAmount = 0;
-
-    /**
-     * The exchange rate
-     */
     private double rate = 0;
 
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -44,7 +23,6 @@ public class Transfer  implements Serializable {
     public long getTransactionId() {
         return transactionId;
     }
-
     public void setTransactionId(long transactionId) {
         this.transactionId = transactionId;
     }
@@ -52,7 +30,6 @@ public class Transfer  implements Serializable {
     public long getTargetAccountId() {
         return targetAccountId;
     }
-
     public void setTargetAccountId(long targetAccountId) {
         this.targetAccountId = targetAccountId;
     }
@@ -60,7 +37,6 @@ public class Transfer  implements Serializable {
     public double getConvertedAmount() {
         return convertedAmount;
     }
-
     public void setConvertedAmount(double convertedAmount) {
         this.convertedAmount = convertedAmount;
     }
@@ -68,7 +44,6 @@ public class Transfer  implements Serializable {
     public double getRate() {
         return rate;
     }
-
     public void setRate(double rate) {
         this.rate = rate;
     }

@@ -7,21 +7,20 @@ import am.jsl.personalfinances.service.BaseService;
 import java.util.List;
 
 /**
- * Service interface which defines all the methods for working with {@link Category} domain object.
- * @author hamlet
- */
+*Interfejs usługi, który definiuje wszystkie metody pracy z obiektem domeny {@link Category}.
+*/
 public interface CategoryService extends BaseService<Category> {
-	/**
-	 * Returns categories for the given user id.
-	 * @param userId the user id
-	 * @return the categories
-	 */
+/**
+*Zwraca kategorie dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*@zwróć kategorie
+*/
 	List<CategoryDTO> getCategories(long userId);
 
-	/**
-	 * Returns parent categories for the given user id.
-	 * @param userId the user id
-	 * @return the categories
-	 */
+/**
+*Zwraca kategorie nadrzędne dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*@zwróć kategorie
+*/
 	List<CategoryDTO> lookupParentCategories(long userId);
 }

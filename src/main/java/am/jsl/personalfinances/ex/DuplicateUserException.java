@@ -2,7 +2,6 @@ package am.jsl.personalfinances.ex;
 
 /**
  * Will be thrown if an user login already exists during user registration.
- * @author hamlet
  */
 public class DuplicateUserException extends Exception {
 

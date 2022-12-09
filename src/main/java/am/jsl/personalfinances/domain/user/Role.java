@@ -5,20 +5,11 @@ import org.springframework.security.core.GrantedAuthority;
 import java.io.Serializable;
 
 /**
- * Role enum containing possible roles.
- *
- * @author hamlet
- */
+*Wyliczenie ról zawierające możliwe role.
+*/
 public enum Role implements Serializable, GrantedAuthority {
 
-	/**
-	 * The user role
-	 */
 	USER,
-
-	/**
-	 * The admin role
-	 */
 	ADMIN;
 
 	@Override

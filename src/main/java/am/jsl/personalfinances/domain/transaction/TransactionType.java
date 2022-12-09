@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * An enum containing possible transaction types.
- * @author hamlet
- */
+*Wyliczenie zawierające możliwe typy transakcji.
+*/
 public enum TransactionType {
     EXPENSE((byte) 1),
     INCOME((byte) 2),
