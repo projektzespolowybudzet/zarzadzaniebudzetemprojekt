@@ -10,7 +10,6 @@ import java.util.Set;
 
 /**
  * Custom Thymeleaf expression factory.
- * @author hamlet
  */
 public class PersonalFinancesExpressionFactory implements IExpressionObjectFactory {
     private static final String PERSONAL_FINANCES_EVALUATION_VARIABLE_NAME = "personalfinances";

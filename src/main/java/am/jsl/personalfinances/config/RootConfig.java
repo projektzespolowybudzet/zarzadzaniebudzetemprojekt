@@ -38,7 +38,7 @@ public class RootConfig {
 
 /**
 *Tworzy instancję Quartz {@link JobDetail} do wykonywania zadania zrzutu bazy danych.
-*@Zwróć szczegóły zadania
+*@return szczegóły zadania
 */
     @Bean
     public JobDetail databaseDumpJobDetail() {
@@ -52,7 +52,7 @@ public class RootConfig {
 
 /**
 *Tworzy instancję Quartz {@link Trigger} do planowania databaseDumpJob.
-*@zwróć wyzwalacz
+*@return wyzwalacz
 */
     @Bean
     public Trigger databaseDumpJobTrigger() {
@@ -67,7 +67,7 @@ public class RootConfig {
 *Tworzy Springs {@link PropertySourcesPlaceholderConfigurer} do rozwiązywania symboli zastępczych ${...}
 *w ramach definicji Spring bean.
 *
-*@zwróć konfigurator PropertySourcesPlaceholder
+*@return konfigurator PropertySourcesPlaceholder
 */
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyPlaceHolderConfigurer() {

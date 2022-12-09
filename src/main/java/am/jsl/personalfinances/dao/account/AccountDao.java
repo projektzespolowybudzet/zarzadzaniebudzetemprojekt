@@ -16,7 +16,7 @@ public interface AccountDao extends BaseDao<Account> {
 /**
 *Zwraca wszystkie konta dla danego użytkownika.
 *@param userId identyfikator użytkownika
-*@return listę rachunków
+*@return listę wszystkich kont
 */
     List<AccountListDTO> getAccounts(long userId);
 
@@ -30,7 +30,7 @@ public interface AccountDao extends BaseDao<Account> {
 /**
 *Aktualizuje stan konta na podstawie podanego obiektu AdjustBalanceDTO.
 *@param AdjustBalance obiektu AdjustBalanceDTO
-*@zobacz AdjustBalanceDTO
+*@see AdjustBalanceDTO
 */
     void updateBalance(AdjustBalanceDTO adjustBalance);
 
@@ -38,7 +38,7 @@ public interface AccountDao extends BaseDao<Account> {
 *Zmniejsza saldo danego konta.
 *@param id identyfikator konta
 *@param userId identyfikator użytkownika powiązany z kontem
-*@param kwota kwota do odjęcia od salda
+*@param amount kwota do odjęcia od salda
 */
     void decreaseBalance(long id, long userId, double amount);
 
@@ -46,7 +46,7 @@ public interface AccountDao extends BaseDao<Account> {
 *Zwiększa saldo danego konta.
 *@param id identyfikator konta
 *@param userId identyfikator użytkownika powiązany z kontem
-*@param kwota kwota do dodania do salda
+*@param amount kwota do dodania do salda
 */
     void increaseBalance(long id, long userId, double amount);
 }

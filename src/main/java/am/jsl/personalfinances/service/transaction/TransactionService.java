@@ -7,45 +7,44 @@ import am.jsl.personalfinances.search.transaction.TransactionSearchQuery;
 import am.jsl.personalfinances.service.BaseService;
 
 /**
- * Service interface which defines all the methods for working with {@link Transaction} domain object.
- * @author hamlet
+ *Interfejs usługi, który definiuje wszystkie metody pracy z obiektem domeny {@link Transaction}.
  */
 public interface TransactionService extends BaseService<Transaction> {
 
     /**
-     * Retrieves paginated result of transactions for the given search query.
-     * @param searchQuery the {@link TransactionSearchQuery} containing query options
-     * @return the {@link TransactionSearchResult} containing paged result
+     *Pobiera wyniki transakcji z podziałem na strony dla danego zapytania wyszukiwania.
+     *@param searchQuery {@link TransactionSearchQuery} zawierający opcje zapytania
+     *return {@link TransactionSearchResult} zawierający wynik stronicowania
      */
     TransactionSearchResult search(TransactionSearchQuery searchQuery);
 
     /**
-     * Creates batch of transactions based on given AddTransactionsDTO object.
-     * @param addTransactionsDTO the AddTransactionsDTO
-     * @see AddTransactionsDTO
+     *Tworzy partię transakcji na podstawie podanego obiektu AddTransactionsDTO.
+     *@param addTransactionsDTO AddTransactionsDTO
+     *@see AddTransactionsDTO
      */
     void createBatch(AddTransactionsDTO addTransactionsDTO);
 
     /**
-     * Returns a transaction details with the given id and user id.
-     * @param id the transaction id
-     * @param userId the user id
-     * @return the {@link TransactionDetailsDTO} containing transaction details
+     *Zwraca szczegóły transakcji z podanym identyfikatorem i identyfikatorem użytkownika.
+     *@param id identyfikator transakcji
+     *@param userId identyfikator użytkownika
+     *return {@link TransactionDetailsDTO} zawierający szczegóły transakcji
      */
     TransactionDetailsDTO getDetails(long id, long userId);
 
     /**
-     * Retrieves paginated result of transactions for the given search query.
-     * @param query the {@link TransactionByCategorySearchQuery} query containing search options
-     * @return the list of {@link TransactionByCategoryDTO} items
+     *Pobiera wyniki transakcji z podziałem na strony dla danego zapytania wyszukiwania.
+     *@param query o zapytanie {@link TransactionByCategorySearchQuery} zawierające opcje wyszukiwania
+     *return listę pozycji {@link TransactionByCategoryDTO}
      */
     TransactionByCategoryResultDTO search(TransactionByCategorySearchQuery query);
 
     /**
-     * Returns transaction amount with the given transaction id and user id
-     * @param id the transaction id
-     * @param userId the user id
-     * @return the amount
+     *Zwraca kwotę transakcji z podanym identyfikatorem transakcji i identyfikatorem użytkownika
+     *@param id identyfikator transakcji
+     *@param userId identyfikator użytkownika
+     *@return kwota
      */
     double getAmount(long id, long userId);
 }

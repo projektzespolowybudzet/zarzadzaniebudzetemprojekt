@@ -19,10 +19,10 @@ public interface UserDao extends BaseDao<User> {
 */
     ListPaginatedResult<User> search(UserSearchQuery userSearchQuery);
 
-    /**
-     * Sets last_login field with current date for the given user id.
-     * @param userId the user id
-     */
+/**
+*Ustawia pole last_login z aktualną datą dla podanego identyfikatora użytkownika.
+*@param userId identyfikator użytkownika
+*/
     void login(long userId);
 
 /**
@@ -33,29 +33,29 @@ public interface UserDao extends BaseDao<User> {
 
 /**
 *Sprawdza, czy istnieje użytkownik o podanym loginie i id.
-*@param zaloguj login
+*@param login login
 *@param id identyfikator użytkownika
-*@return prawda, jeśli istnieje login użytkownika
+*@return true, jeśli istnieje login użytkownika
 */
     boolean loginExists(String login, long id);
 
 /**
 *Sprawdza, czy istnieje użytkownik o podanym adresie e-mail i identyfikatorze.
-*@param wyślij e-maile
+*@param email e-mail
 *@param id identyfikator użytkownika
-*@return prawda, jeśli istnieje adres e-mail użytkownika
+*@return true, jeśli istnieje adres e-mail użytkownika
 */
     boolean emailExists(String email, long id);
 
 /**
 *Tworzy użytkownika z podanym użytkownikiem.
-*@param użytkownik użytkownik
+*@param user użytkownik
 */
     void create(User user);
 
 /**
 *Aktualizuje użytkownika o podanego użytkownika.
-*@param użytkownik użytkownik
+*@param user użytkownik
 */
     void update(User user);
 
@@ -63,7 +63,7 @@ public interface UserDao extends BaseDao<User> {
 *Zwraca użytkownika o podanym id.
 *Wyrzuci {@link UserNotFoundException}, jeśli użytkownik nie zostanie znaleziony.
 *@param userId identyfikator użytkownika
-*@return użytkownika
+*@return użytkownik
 *@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
 */
     User getUser(long userId) throws UserNotFoundException;
@@ -78,47 +78,47 @@ public interface UserDao extends BaseDao<User> {
 /**
 *Zwraca użytkownika o podanej nazwie użytkownika.
 *Wyrzuci {@link UserNotFoundException}, jeśli użytkownik nie zostanie znaleziony.
-*@param nazwa użytkownika nazwa użytkownika
-*@return użytkownika
+*@param username użytkownika nazwa użytkownika
+*@return użytkownik
 *@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
 */
     User getUser(String username) throws UserNotFoundException;
 
 /**
 *Aktualizuje ikonę dla danego użytkownika.
-*@param użytkownik użytkownik
+*@param user użytkownik
 */
     void updateIcon(User user);
 
 /**
 *Aktualizuje profil danego użytkownika.
-*@param użytkownik użytkownik
+*@param user użytkownik
 */
     void updateProfile(User user) throws Exception;
 
 /**
 *Zwraca użytkownika z podanym e-mailem.
-*@param wyślij e-maile
-*@return użytkownika
+*@param email e-mail
+*@return użytkownik
 */
     User getUserByEmail(String email);
 
 /**
 *Tworzy podany {@link VerificationToken}
-*@param weryfikacjaToken tokenu weryfikacyjnego
+*@param verificationToken tokenu weryfikacyjnego
 */
     void createVerificationToken(VerificationToken verificationToken);
 
 /**
 *Aktualizuje podany {@link VerificationToken}
-*@param weryfikacjaToken tokenu weryfikacyjnego
+*@param verificationToken tokenu weryfikacyjnego
 */
     void updateVerificationToken(VerificationToken verificationToken);
 
 /**
 *Zwraca VerificationToken z identyfikatorem użytkownika i tokenType.
 *@param userId identyfikator użytkownika
-*@param token Wpisz typ tokena
+*@param tokenType Wpisz typ tokena
 *@return token weryfikacyjny
 */
     VerificationToken getToken(long userId, VerificationTokenType tokenType);

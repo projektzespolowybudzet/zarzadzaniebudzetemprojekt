@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
- * Defines methods utility methods for rounding, formatting numbers.
- * @author hamlet
+ * Definiuje metody metody użyteczności do zaokrąglania, formatowania liczb.
  */
 public class NumberUtils {
 	public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00");

@@ -27,17 +27,15 @@ import java.util.List;
 import static am.jsl.personalfinances.web.util.WebUtils.*;
 
 /**
- * The AccountController defines methods for account pages functionality
- * such as search, view, add, edit accounts.
- *
- * @author hamlet
+ * AccountController definiuje metody funkcjonalności stron konta
+ * takie jak wyszukiwanie, widok, dodaj, edytuj konta.
  */
 @Controller
 @RequestMapping(value = "/account")
 @Lazy
 public class AccountController extends BaseController {
     /**
-     * The account templates paths
+     * Ścieżki szablonów konta
      */
     public static final String REDIRECT_ACCOUNT_LIST = "redirect:list";
     public static final String FORWARD_ACCOUNT_LIST = "account/account-list";
@@ -45,23 +43,14 @@ public class AccountController extends BaseController {
     public static final String FORWARD_ACCOUNT_ADD = "account/account-add";
     public static final String FORWARD_ACCOUNT_LOOKUP_LIST = "account/account-lookup-result :: accountLookupList";
 
-    /**
-     * The AccountService
-     */
     @Autowired
     private transient AccountService accountService;
-
-    /**
-     * CurrencyService
-     */
     @Autowired
     private transient CurrencyService currencyService;
-
     /**
-     * Called when user opens account list.
-     *
-     * @param model the Model
-     * @return returns account list
+     * Wywołane, gdy użytkownik otwiera listę konta.
+     * @param model Model
+     * @return strona z szablonu FORWARD_ACCOUNT_LIST
      */
     @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
     public String list(Model model) {
@@ -72,10 +61,9 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called by ajax methods for retrieving account select options.
-     *
-     * @param model the Model
-     * @return return the account lookup template
+     * Wywołane metodami AJAX do pobierania opcji wybierania konta.
+     * @param model Model
+     * @return strona z szablonu FORWARD_ACCOUNT_LOOKUP_LIST
      */
     @RequestMapping(value = {"/lookup"}, method = RequestMethod.GET)
     public String lookup(Model model) {
@@ -85,10 +73,10 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called when user clicks on add link from accounts list page.
+     * Wywołane, gdy użytkownik kliknie na link z strony listy kont.
      *
-     * @param model the Model
-     * @return the add account page
+     * @param model Model
+     * @return strona z szablonu FORWARD_ACCOUNT_ADD
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage(Model model) {
@@ -100,13 +88,13 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called when user click on add link from add account page.
+     * Wywoła, gdy użytkownik kliknnie dodaj link na stronie dodaj konto.
      *
-     * @param request       the HttpServletRequest
-     * @param accountDTO    the AccountDTO
-     * @param redirectAttrs the RedirectAttributes
-     * @return the accounts list
-     * @throws Exception if exception occurs
+     * @param request o httpservletRequest
+     * @param accountDTO AccountDTO
+     * @param redirectAttrs atrybuty przekierowania
+     * @return strona z szablonu REDIRECT_ACCOUNT_LIST
+     * @throws Exception, jeśli wystąpi wyjątek
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(HttpServletRequest request, @ModelAttribute AccountDTO accountDTO,
@@ -125,11 +113,11 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called when user clicks on edit link from accounts page.
+     * Wywołane, gdy użytkownik kliknie na stronie edytuj link ze strony kont.
      *
-     * @param id    the account id
-     * @param model the Model
-     * @return the edit account page
+     * @param id Identyfikator konta
+     * @param model Model
+     * @return strona z szablonu FORWARD_ACCOUNT_EDIT
      */
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String editPage(@RequestParam(value = "id") long id, Model model) {
@@ -143,13 +131,13 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called when user clicks on edit link from edit account page.
+     * Wywołam, gdy użytkownik kliknie link edytuj na stronie edycja konta.
      *
-     * @param request       the HttpServletRequest
-     * @param accountDTO    the AccountDTO
-     * @param redirectAttrs the RedirectAttributes
-     * @return the accounts list page
-     * @throws Exception if exception occurs
+     * @param request o httpservletRequest
+     * @param accountDTO AccountDTO
+     * @param redirectAttrs atrybuty przekierowania
+     * @return strona z szablonu REDIRECT_ACCOUNT_LIST
+     * @throws Exception jeśli wystąpi wyjątek
      */
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String edit(HttpServletRequest request, @ModelAttribute AccountDTO accountDTO,
@@ -168,12 +156,12 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called when user clicks on delete account link.
+     * Wywołam, gdy użytkownik kliknie link do usuwania konta.
      *
-     * @param request       the HttpServletRequest
-     * @param id            the account id
-     * @param redirectAttrs the RedirectAttributes
-     * @return the accounts list page
+     * @param request  httpServletRequest
+     * @param id identyfikator konta
+     * @param redirectAttrs atrybuty przekierowania
+     * @return strona z szablonu REDIRECT_ACCOUNT_LIST
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(HttpServletRequest request, @RequestParam(value = "id") long id,
@@ -197,10 +185,10 @@ public class AccountController extends BaseController {
     }
 
     /**
-     * Called when user clicks on save link from adjust balance dialog.
+     * Wywołane, gdy użytkownik kliknie link Zapisz z okna dialogowego Dostosuj saldo.
      *
-     * @param adjustBalance the AdjustBalanceDTO
-     * @return the accounts list page
+     * @param adjustBalance AdjustBalance
+     * @return strona z szablonu REDIRECT_ACCOUNT_LIST
      */
     @RequestMapping(value = "/adjustBalance", method = RequestMethod.POST)
     public String adjustBalance(@ModelAttribute AdjustBalanceDTO adjustBalance) {

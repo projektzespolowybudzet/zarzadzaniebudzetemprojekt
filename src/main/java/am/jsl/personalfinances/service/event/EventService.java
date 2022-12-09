@@ -7,28 +7,27 @@ import am.jsl.personalfinances.search.EventSearchQuery;
 import am.jsl.personalfinances.search.ListPaginatedResult;
 
 /**
- * Service interface which defines all the methods for working with {@link Event} domain object.
- * @author hamlet
- */
+*Interfejs usługi, który definiuje wszystkie metody pracy z obiektem domeny {@link Event}.
+*/
 public interface EventService {
-    /**
-     * Saves the given event.
-     * @param event the event
-     */
+/**
+*Zapisuje podane zdarzenie.
+*@param event zdarzenie
+*/
     void saveEvent(Event event);
 
-    /**
-     * Creates an event with the given options.
-     * @param eventType the event type
-     * @param message the message
-     * @param performedBy the user id
-     */
+/**
+*Tworzy wydarzenie z podanymi opcjami.
+*@param eventType typ zdarzenia
+*@param message wiadomość
+*@param performedBy identyfikator użytkownika
+*/
     void saveEvent(EventType eventType, String message, long performedBy);
 
-    /**
-     * Retrieves paginated result for the given search query.
-     * @param searchQuery the {@link EventSearchQuery} containing query options
-     * @return the {@link ListPaginatedResult} result
-     */
+/**
+*Pobiera wynik podzielony na strony dla podanego zapytania.
+*@param searchQuery {@link EventSearchQuery} zawierający opcje zapytania
+*@return wynik {@link ListPaginatedResult}
+*/
     ListPaginatedResult<EventListDTO> search(EventSearchQuery searchQuery);
 }

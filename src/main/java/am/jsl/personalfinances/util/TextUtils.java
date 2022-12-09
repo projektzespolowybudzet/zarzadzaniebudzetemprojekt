@@ -1,8 +1,7 @@
 package am.jsl.personalfinances.util;
 
 /**
- * Defines methods for working with texts.
- * @author hamlet
+ * Definiuje metody pracy z tekstami.
  */
 public class TextUtils {
 

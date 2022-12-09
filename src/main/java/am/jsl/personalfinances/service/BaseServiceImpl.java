@@ -14,29 +14,23 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * The service implementation of the {@link BaseService}.
- * @author hamlet
- * @param <T> the parametrisation entity type.
+ *Implementacja usługi {@link BaseService}.
+ *@param <T> typ encji parametryzacji.
  */
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class BaseServiceImpl<T> implements BaseService<T> {
     protected static final AppLogger log = new AppLogger(BaseServiceImpl.class);
 
-    /**
-     * Flag indicating that user objects should be published as html files.
-     */
+
+    //Flaga wskazująca, że ​​obiekty użytkownika powinny być publikowane jako pliki html.
     @Value("${personalfinances.user.publish.html}")
     protected boolean publishHtml;
 
-    /**
-     * Folder where will be stored user html files.
-     */
+    
+    //Folder, w którym będą przechowywane pliki html użytkownika.
     @Value("${personalfinances.user.html.dir}")
     protected String userHtmlDir;
 
-    /**
-     * The base dao.
-     */
     private BaseDao<T> baseDao;
 
     @Override
@@ -120,11 +114,6 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         }
     }
 
-    /**
-     * Setter for property 'baseDao'.
-     *
-     * @param baseDao Value to set for property 'baseDao'.
-     */
     public void setBaseDao(BaseDao<T> baseDao) {
         this.baseDao = baseDao;
     }

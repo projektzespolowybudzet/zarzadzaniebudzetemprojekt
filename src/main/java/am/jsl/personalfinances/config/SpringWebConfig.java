@@ -45,7 +45,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy {@link StandardServletMultipartResolver}
-*@zwróć StandardServletMultipartResolver
+*@return StandardServletMultipartResolver
 */
     @Bean
     public StandardServletMultipartResolver multipartResolver() {
@@ -74,7 +74,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy {@link Java8TimeDialect} do formatowania obiektów Java 8 Time na stronach thymleaf.
-*@zwróć Java8TimeDialect
+*@return Java8TimeDialect
 */
     @Bean
     public Java8TimeDialect java8TimeDialect() {
@@ -82,7 +82,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
     }
 
 /**
-*Tworzy {@link SpringSecurityDialect} do używania wiosennych tagów bezpieczeństwa na stronach thymeaf.
+*Tworzy {@link SpringSecurityDialect} do używania wiosennych tagów bezpieczeństwa na stronach thymeleaf.
 *@return SpringSecurityDialect
 */
     @Bean
@@ -92,7 +92,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy niestandardowe {@link PersonalFinancesDialect} używane na stronach thymeleaf.
-*@zwróć Dialekt PersonalFinances
+*@return Dialekt PersonalFinances
 */
     @Bean
     public PersonalFinancesDialect personalFinancesDialect() {
@@ -101,7 +101,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy {@link ResourceBundleMessageSource} w celu uzyskania dostępu do pakietów zasobów przy użyciu określonych nazw podstawowych.
-*@zwróć źródło wiadomości ResourceBundleMessageSource
+*@return źródło wiadomości ResourceBundleMessageSource
 */
     @Bean
     public ResourceBundleMessageSource messageSource() {
@@ -113,7 +113,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy instancję {@link I18n} opakowaną w Spring MessagesSource.
-*@Zwróć I18n
+*@return I18n
 */
     @Bean
     public I18n i18n() {
@@ -124,7 +124,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy nowy {@link StringToLocalDateTimeConverter}.
-*@zwróć StringToLocalDateTimeConverter
+*@return StringToLocalDateTimeConverter
 */
     @Bean
     public StringToLocalDateTimeConverter stringToLocalDateTimeConverter(){
@@ -166,7 +166,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy instancję {@link User Interceptor}.
-*@zwróć przechwytywacz użytkowników
+*@return przechwytywacz użytkowników
 */
     @Bean
     public UserInterceptor userInterceptor() {
@@ -186,7 +186,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy instancję {@link ResourceUrlEncodingFilter}.
-*@zwróć filtr ResourceUrlEncodingFilter
+*@return filtr ResourceUrlEncodingFilter
 */
     @Bean
     public ResourceUrlEncodingFilter resourceUrlEncodingFilter() {
@@ -196,7 +196,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy instancję {@link LocaleChangeInterceptor}.
-*@zwróć LocaleChangeInterceptor
+*@return LocaleChangeInterceptor
 */
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
@@ -207,7 +207,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Tworzy instancję {@link StringHttpMessageConverter}.
-*@zwróć StringHttpMessageConverter
+*@return StringHttpMessageConverter
 */
     @Bean
     public StringHttpMessageConverter stringHttpMessageConverter() {
@@ -216,7 +216,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 /**
 *Rejestruje FormatterRegistry.
-*@param zarejestruj plik FormatterRegistry
+*@param registry plik FormatterRegistry
 */
     @Override
     public void addFormatters(FormatterRegistry registry) {

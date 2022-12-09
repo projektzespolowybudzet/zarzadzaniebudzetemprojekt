@@ -31,27 +31,15 @@ import java.time.LocalDateTime;
 import java.util.Locale;
 
 /**
- * The service implementation of the {@link UserService}.
- * @author hamlet
+ *Implementacja usługi {@link UserService}.
  */
 @Service("userService")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
-    /**
-     * The user dao.
-     */
     private UserDao userDao;
-
-    /**
-     * The password encoder.
-     */
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    /**
-     * The email service.
-     */
     @Autowired
     private EmailService emailService;
 
@@ -296,11 +284,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         }
     }
 
-    /**
-     * Setter for property 'userDao'.
-     *
-     * @param userDao Value to set for property 'userDao'.
-     */
     @Autowired
     public void setUserDao(@Qualifier("userDao") UserDao userDao) {
         this.userDao = userDao;

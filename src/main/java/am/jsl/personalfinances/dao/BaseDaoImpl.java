@@ -160,7 +160,7 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
 
 /**
 *Zwraca czy string istnieje w encji o podanym id i czy istnieje id użytkownika.
-*@param nazwa nazwa jednostki
+*@param name nazwa jednostki
 *@param id identyfikator jednostki
 *@param userId identyfikator użytkownika powiązany z jednostką
 *@param sql sql do wysyłania zapytań do jednostki
@@ -180,7 +180,7 @@ public class BaseDaoImpl<T> extends AbstractDaoImpl implements BaseDao<T> {
 *Zwraca, czy podmiot o podanym identyfikatorze i identyfikatorze użytkownika może zostać usunięty.
 *@param id identyfikator użytkownika powiązany z jednostką
 *@param userId identyfikator użytkownika
-*@param wysyła zapytanie do sql w celu zapytania o jednostkę
+*@param query zapytanie do sql w celu zapytania o jednostkę
 *@return wartość logiczną
 */
     protected boolean canDelete(long id, long userId, String query) {

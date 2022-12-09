@@ -1,13 +1,12 @@
 package am.jsl.personalfinances.service.databasedump;
 
 /**
- * Service interface which defines method for dumping database in the specified folder.
- * @author hamlet
- */
+*Interfejs serwisowy określający sposób usunięcia bazy danych do wskazanego folderu.
+*/
 public interface DatabaseDumpService {
 
-	/**
-	 * Dumps the database in the specified folder and compresses the dump file.
-	 */
+/**
+*Usówa bazę danych do określonego folderu i kompresuje plik zrzutu.
+*/
 	void dumpDatabase();
 }

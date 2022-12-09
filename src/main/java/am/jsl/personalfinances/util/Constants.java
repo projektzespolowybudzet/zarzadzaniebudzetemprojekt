@@ -3,8 +3,7 @@ package am.jsl.personalfinances.util;
 import java.text.DecimalFormat;
 
 /**
- * Defines constants.
- * @author hamlet
+ * Definiuje stałe.
  */
 public class Constants {
     public static final String SLASH = "/";
@@ -22,8 +21,8 @@ public class Constants {
     public static final String USER_PROFILE_DEFAULT_IMG = "/static/img/profile.jpg";
 
     /**
-     * User generated static resource paths.
-     * For each user will be created a separate folder with name consisting user id.
+     * Wygenerowane przez użytkownika ścieżki zasobów.
+     * Dla użytkownika Każdy zostanie utworzony osobny folder o nazwie składającej się z identyfikatora użytkownika.
      */
     public static final String USER_IMG_PATH = "/userimg/";
     public static final String USER_IMG_PATHPATTERN = "/userimg/**";

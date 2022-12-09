@@ -31,7 +31,7 @@ public interface BaseDao<T> {
 
 /**
 *Zwraca, czy istnieje podmiot o podanym identyfikatorze i identyfikatorze użytkownika.
-*@param nazwa nazwa jednostki
+*@param name nazwa jednostki
 *@param id identyfikator jednostki
 *@param userId identyfikator użytkownika powiązany z jednostką
 *@return true jeśli jednostka o podanym identyfikatorze i identyfikatorze użytkownika istnieje
@@ -40,13 +40,13 @@ public interface BaseDao<T> {
 
 /**
 *Tworzy dany podmiot.
-*@param obiekt obiekt
+*@param object obiekt
 */
     void create(T object);
 
 /**
 *Aktualizuje daną jednostkę.
-*@param obiekt obiekt
+*@param object obiekt
 */
     void update(T object);
 

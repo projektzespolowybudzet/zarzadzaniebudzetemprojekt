@@ -14,17 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Defines methods for redirecting users to home or admin page.
- * @author hamlet
+ * Definiuje metody przekierowywania użytkowników na stronę domową lub administracyjną.
  */
 @Controller
 public class IndexController {
 
     /**
-     * Mapping for home page.
-     * Sets the current user name in model and returns home page.
-     * @param model the ModelMap
-     * @return the home page
+     * Mapowanie na stronę główną.
+     * Ustawia bieżącą nazwę użytkownika w modelu i zwraca stronę główną.
+     * @param model ModelMap
+     * @return home page
      */
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
@@ -33,9 +32,9 @@ public class IndexController {
     }
 
     /**
-     * Mapping for admin home page.
-     * @param model  the ModelMap
-     * @return the admin home page
+     * Mapowanie strony głównej administratora.
+     * @param model ModelMap
+     * @return admin home page
      */
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap model) {
@@ -44,9 +43,9 @@ public class IndexController {
     }
 
     /**
-     * Mapping for access denied page.
-     * @param model the ModelMap
-     * @return the access denied page
+     * Mapowanie dla strony odmowy dostępu.
+     * @param model ModelMap
+     * @return strona odmowy dostępu
      */
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
@@ -55,10 +54,10 @@ public class IndexController {
     }
 
     /**
-     * Log outs the current user from Spring Security Context and redirects to logout page.
-     * @param request the HttpServletRequest
-     * @param response the HttpServletResponse
-     * @return the logout page
+    * Zaloguj się bieżącym użytkownikiem z kontekstu bezpieczeństwa Spring i przekierowuje na stronę wylogowania.
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @return strona wylogowania
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
@@ -70,8 +69,8 @@ public class IndexController {
     }
 
     /**
-     * Returns the current user name from Springs Security Context.
-     * @return the current user name
+     * Zwraca bieżącą nazwę użytkownika z kontekstu bezpieczeństwa Springs.
+     * @return bieżąca nazwa użytkownika
      */
     private String getCurrentUsername() {
         String userName = null;

@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
 /**
- * The I18n wraps Springs {@link MessageSource} and used in java classes.
- * Contains additional methods and message key constants.
- *
- * @author hamlet
+ * I18N wrapuje Springs {@link MessageSource} i używane w klasach Java.
+ * Zawiera dodatkowe metody i kluczowe stałe wiadomości.
  */
 public class I18n {
 	public static final String MESSAGE = "message";

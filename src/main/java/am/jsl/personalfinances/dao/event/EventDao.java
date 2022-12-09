@@ -11,7 +11,7 @@ import am.jsl.personalfinances.search.ListPaginatedResult;
 public interface EventDao {
 /**
 *Zapisuje podane zdarzenie.
-*@param zdarzenie zdarzenie
+*@param event zdarzenie
 */
 	void saveEvent(Event event);
 

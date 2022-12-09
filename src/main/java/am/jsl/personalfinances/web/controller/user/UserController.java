@@ -34,10 +34,8 @@ import static am.jsl.personalfinances.web.util.WebUtils.ROLES;
 import static am.jsl.personalfinances.web.util.WebUtils.USER;
 
 /**
- * The UserController defines methods for user pages functionality from admin part:
- * such as search, view, add, edit users.
- *
- * @author hamlet
+ * UserController definiuje metody funkcjonalności stron użytkowników 
+ * z części administratora takie jak wyszukiwanie, widok, dodaj, edytuj użytkowników.
  */
 @Controller
 @RequestMapping(value = "/user")
@@ -45,7 +43,7 @@ import static am.jsl.personalfinances.web.util.WebUtils.USER;
 @Lazy
 public class UserController extends BaseController {
     /**
-     * The user template paths
+     * Ścieżki szablonu użytkownika
      */
     public static final String REDIRECT_USER_LIST = "redirect:list";
     public static final String FORWARD_USER_LIST = "system/user/user-list";
@@ -55,23 +53,17 @@ public class UserController extends BaseController {
     public static final String REDIRECT_USER_ADD = "redirect:/user/add";
     public static final String FORWARD_USER_VIEW = "system/user/user-view";
 
-    /**
-     * The UserValidator
-     */
     @Autowired
     private transient UserValidator userFormValidator;
 
-    /**
-     * Default controller.
-     */
     public UserController() {
         super();
     }
 
     /**
-     * Registers the user validator.
+     * Rejestruje walidator użytkownika.
      *
-     * @param binder the WebDataBinder
+     * @param binder WebDataBinder
      */
     @InitBinder("userDTO")
     public void initUserBinder(WebDataBinder binder) {
@@ -79,9 +71,9 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called when user list opened.
+     * Wywołany po otwarciu listy użytkowników.
      *
-     * @return the user list
+     * @return user/user-list
      */
     @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
     public String list() {
@@ -89,11 +81,11 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called via ajax method for loading users from the give page.
+     * Wywołąny metodą AJAX do ładowania użytkowników ze strony Give.
      *
-     * @param model the Model
-     * @param page  the page
-     * @return the user list template
+     * @param model Model
+     * @param page  strona
+     * @return user/user-list
      */
     @RequestMapping(value = {"/loadUsers"}, method = RequestMethod.GET)
     public String loadUsers(Model model, @RequestParam int page) {
@@ -107,12 +99,12 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called when admin clicks on view user link.
+     * Wywołane, gdy administrator kliknie link użytkownika.
      *
-     * @param request the HttpServletRequest
-     * @param id      the user id
-     * @param model   the Model
-     * @return the view user template
+     * @param request   HttpServletRequest
+     * @param id        id użytkownika
+     * @param model     Model
+     * @return user/user-view
      */
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(HttpServletRequest request, @RequestParam(value = "id", required = true)
@@ -130,10 +122,10 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called when admin clicks on add link from user list page.
+     * Wywołane, gdy administrator kliknie na dodaj ze strony listy użytkowników.
      *
      * @param model the Model
-     * @return the add user page
+     * @return user/user-add
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage(Model model) {
@@ -145,13 +137,13 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called when admin clicks on add link from add user page.
+     * Wywołane, gdy administrator kliknie Dodaj ze strony dodania użytkownika.
      *
-     * @param request       the HttpServletRequest
-     * @param userDTO       the HttpServletRequest
-     * @param result        the BindingResult
-     * @param redirectAttrs the RedirectAttributes
-     * @return the user page
+     * @param request       HttpServletRequest
+     * @param userDTO       HttpServletRequest
+     * @param result        BindingResult
+     * @param redirectAttrs RedirectAttributes
+     * @return user/user/add
      * @throws Exception if exception occurs
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -193,12 +185,12 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called when user clicks on edit link from user list page.
+     * Wywołany, gdy użytkownik kliknie na edytuj ze strony listy użytkowników.
      *
-     * @param request the HttpServletRequest
-     * @param id      the user id
-     * @param model   the Model
-     * @return the user edit page
+     * @param request HttpServletRequest
+     * @param id      id użytkownika
+     * @param model   Model
+     * @return user/user-edit
      */
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String editPage(HttpServletRequest request, @RequestParam(value = "id", required = true)
@@ -217,14 +209,14 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called whens user clicks on save button from edit user page.
+     * Wywołany, gdy użytkownik kliknie zapisz ze strony użytkownika edytuj.
      *
-     * @param request       the HttpServletRequest
-     * @param userDTO       the UserDTO
-     * @param result        the BindingResult
-     * @param redirectAttrs the RedirectAttributes
-     * @return the user edit page
-     * @throws Exception if exception occurs
+     * @param request       HttpServletRequest
+     * @param userDTO       UserDTO
+     * @param result        BindingResult
+     * @param redirectAttrs RedirectAttributes
+     * @return user/user/edit?id=
+     * @throws Exception jeżeli wystąpił wyjątek
      */
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String edit(HttpServletRequest request, @Valid @ModelAttribute UserDTO userDTO,
@@ -263,13 +255,13 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Called when admin clicks on delete user link.
+     * Wywołane, gdy administrator kliknie usuń użytkownika.
      *
-     * @param request       the HttpServletRequest
-     * @param id            the user id
-     * @param model         the Model
-     * @param redirectAttrs the RedirectAttributes
-     * @return the user list
+     * @param request       HttpServletRequest
+     * @param id            id użytkownika
+     * @param model         Model
+     * @param redirectAttrs RedirectAttributes
+     * @return przekierowanie redirect:list
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(HttpServletRequest request, @RequestParam(value = "id", required = true) long id,

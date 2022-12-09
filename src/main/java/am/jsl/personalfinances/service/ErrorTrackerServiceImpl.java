@@ -14,8 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * The service implementation of the {@link ErrorTrackerService}.
- * @author hamlet
+ *Implementacja usługi {@link ErrorTrackerService}.
  */
 @Service
 public class ErrorTrackerServiceImpl implements ErrorTrackerService {
@@ -35,9 +34,6 @@ public class ErrorTrackerServiceImpl implements ErrorTrackerService {
 
     private Map<Integer, LocalDateTime> exceptionCache = new ConcurrentHashMap<>();
 
-    /**
-     * The email service.
-     */
     @Autowired
     private EmailService emailService;
 

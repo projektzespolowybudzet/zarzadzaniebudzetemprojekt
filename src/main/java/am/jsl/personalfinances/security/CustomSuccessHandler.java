@@ -46,7 +46,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 *Określa adres URL dla danego uwierzytelnienia.
 *Adres URL będzie miał postać „/home” dla ról UŻYTKOWNIKA, „/admin” dla ról ADMINISTRATORA,
 *w przeciwnym razie „/odmowa dostępu”.
-*Uwierzytelnianie @param Uwierzytelnianie
+*@param authentication uwierzytelnianie
 *@return pomyślny adres URL
 */
     protected String determineTargetUrl(Authentication authentication) {
@@ -69,7 +69,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
 /**
 *Sprawdza, czy dana lista zawiera rolę UŻYTKOWNIKA.
-*@param role na liście ról
+*@param roles na liście ról
 *@return true, jeśli role zawierają rolę UŻYTKOWNIKA
 */
     private boolean isUser(List<String> roles) {
@@ -81,7 +81,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
 /**
 *Sprawdza, czy dana lista zawiera rolę ADMIN.
-*@param role na liście ról
+*@param roles na liście ról
 *@return true, jeśli role zawierają rolę ADMIN
 */
     private boolean isAdmin(List<String> roles) {

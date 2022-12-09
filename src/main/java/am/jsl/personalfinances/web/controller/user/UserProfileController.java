@@ -35,17 +35,15 @@ import java.time.LocalDateTime;
 import static am.jsl.personalfinances.web.util.WebUtils.USER;
 
 /**
- * The UserProfileController defines methods for managing user profile:
- * viewing / editing profile data, changing password, attaching / detaching profile images.
- *
- * @author hamlet
+ * UserProfileController definiuje metody zarządzania profilem użytkownika:
+ * przeglądanie/edytowanie danych profilu, zmiana hasła, dołączanie/odłączanie obrazów profilowych.
  */
 @Controller
 @RequestMapping(value = "/profile")
 public class UserProfileController extends BaseController {
 
     /**
-     * The user profile templates
+     * Szablony profilu użytkownika
      */
     public static final String FORWARD_PROFILE_VIEW = "profile/profile-view";
     public static final String REDIRECT_PROFILE_VIEW = "redirect:view";
@@ -54,27 +52,21 @@ public class UserProfileController extends BaseController {
     public static final String PASSWORD_CHANGE_DTO = "passwordChangeDTO";
 
     /**
-     * The directory where user images are uploaded.
+     * Katalog, w którym przesyłane są obrazy użytkowników.
      */
     @Value("${personalfinances.user.img.dir}")
     private String userImgDir;
 
-    /**
-     * The password encoder
-     */
     @Autowired
     private transient PasswordEncoder passwordEncoder;
 
-    /**
-     * The user validator
-     */
     @Autowired
     private transient UserValidator userFormValidator;
 
     /**
-     * Registers the user validator.
+     * Rejestruje walidator użytkownika.
      *
-     * @param binder the WebDataBinder
+     * @param binder WebDataBinder
      */
     @InitBinder("userDTO")
     public void initUserBinder(WebDataBinder binder) {
@@ -82,10 +74,10 @@ public class UserProfileController extends BaseController {
     }
 
     /**
-     * Called when user opens user profile page.
+     * Nazywany, gdy użytkownik otwiera stronę profilu użytkownika.
      *
-     * @param model the Model
-     * @return the user profile page
+     * @param model Model
+     * @return profile/profile-view
      */
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(Model model) {
@@ -103,10 +95,10 @@ public class UserProfileController extends BaseController {
     }
 
     /**
-     * Called when user clicked on password change link from profile page.
+     * Wywołane, gdy użytkownik kliknął link do zmiany hasła ze strony profilu.
      *
-     * @param model the Model
-     * @return the password change page
+     * @param model Model
+     * @return profile/password-change
      */
     @RequestMapping(value = "/passwordchange", method = RequestMethod.GET)
     public String passwordChangePage(Model model) {
@@ -118,12 +110,12 @@ public class UserProfileController extends BaseController {
     }
 
     /**
-     * Called when users clicks on change button from password change page.
+     * Wywołane, gdy użytkownicy klikną przycisk Zmień ze strony zmiany hasła.
      *
-     * @param request           the HttpServletRequest
-     * @param passwordChangeDTO the PasswordChangeDTO
-     * @param redirectAttrs     the RedirectAttributes
-     * @return the user profile page
+     * @param request           HttpServletRequest
+     * @param passwordChangeDTO PasswordChangeDTO
+     * @param redirectAttrs     RedirectAttributes
+     * @return profile/passwordchange?id=
      */
     @RequestMapping(value = "/passwordchange", method = RequestMethod.POST)
     public String passwordChange(HttpServletRequest request,
@@ -164,13 +156,13 @@ public class UserProfileController extends BaseController {
     }
 
     /**
-     * Called from user profile page for attaching an image to the user profile.
+     * Wywołane ze strony profilu użytkownika do dołączania obrazu do profilu użytkownika.
      *
-     * @param request       the HttpServletRequest
-     * @param uploadedFile  the MultipartFile
-     * @param redirectAttrs the RedirectAttributes
-     * @return the user profile page
-     * @throws IOException if could not upload image
+     * @param request       HttpServletRequest
+     * @param uploadedFile  MultipartFile
+     * @param redirectAttrs RedirectAttributes
+     * @return przekierowanie redirect:view
+     * @throws IOException gdy nie przesyłano obrazu
      */
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
     public String uploadImage(HttpServletRequest request, @RequestParam("file") MultipartFile uploadedFile,
@@ -236,9 +228,9 @@ public class UserProfileController extends BaseController {
     }
 
     /**
-     * Called when user clicks on remove image link.
+     * Wywołał, gdy użytkownik kliknie usuń przy obrazie.
      *
-     * @return the user profile pae
+     * @return przekierowanie redirect:view
      */
     @RequestMapping(value = "/removeImage", method = RequestMethod.POST)
     public String removeImage() {
@@ -270,14 +262,14 @@ public class UserProfileController extends BaseController {
     }
 
     /**
-     * Called when user clicks on save button from user profile page.
+     * Wywołane, gdy użytkownik kliknie przycisk Zapisz ze strony profilu użytkownika.
      *
-     * @param request       the HttpServletRequest
-     * @param userDTO       the UserDTO
-     * @param result        the BindingResult
-     * @param redirectAttrs the RedirectAttributes
-     * @return the user profile page
-     * @throws Exception if exception occurs
+     * @param request       HttpServletRequest
+     * @param userDTO       UserDTO
+     * @param result        BindingResult
+     * @param redirectAttrs RedirectAttributes
+     * @return przekierowanie redirect:view
+     * @throws Exception jeżeli wystąpi wyjątek
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(HttpServletRequest request, @Valid @ModelAttribute UserDTO userDTO,

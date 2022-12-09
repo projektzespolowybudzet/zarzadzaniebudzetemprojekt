@@ -11,7 +11,7 @@ public class UserSearchQuery extends Query<User> {
 /**
 *Tworzy instancję nowego zapytania wyszukiwania użytkownika.
 *
-*@param strona strona
+*@param page strona
 *@param pageSize rozmiar strony
 */
     public UserSearchQuery(int page, int pageSize) {

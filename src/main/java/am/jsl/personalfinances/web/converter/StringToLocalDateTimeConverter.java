@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Sample LocalDateTime converter used in spring context.
- * @author hamlet
  */
 public class StringToLocalDateTimeConverter implements Converter<String, LocalDateTime> {
     public LocalDateTime convert(String source) {

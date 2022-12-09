@@ -11,13 +11,13 @@ import java.util.List;
 public interface CurrencyDao extends BaseDao<Currency> {
 /**
 *Zwraca walutę według kodu.
-*@return walutę
+*@return Currency
 */
     Currency getByCode(String isoCode);
 
 /**
 *Zwraca wszystkie waluty.
-*@return lista walut
+*@return lista Currency
 */
     List<Currency> list();
 

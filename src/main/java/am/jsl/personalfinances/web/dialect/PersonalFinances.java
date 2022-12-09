@@ -6,8 +6,6 @@ import java.util.Locale;
 
 /**
  * The PersonalFinances is custom Thymeleaf expression object for date time formatting purposes.
- *
- * @author hamlet
  */
 public final class PersonalFinances {
     /**

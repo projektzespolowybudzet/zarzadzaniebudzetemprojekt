@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.FileFilter;
 
 /**
- * Extended FileFilter for filtering image files.
- * @author hamlet
+ * Rozszerzone File Filter do filtrowania plików obrazów.
  */
 public class ImageFileFilter implements FileFilter {
 

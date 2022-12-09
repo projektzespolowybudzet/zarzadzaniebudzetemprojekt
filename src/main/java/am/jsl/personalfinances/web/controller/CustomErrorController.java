@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Custom ErrorController for rendering errors.
- * @author hamlet
  */
 @Controller
 public class CustomErrorController implements ErrorController {

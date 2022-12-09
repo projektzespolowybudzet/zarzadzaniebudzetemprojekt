@@ -4,40 +4,38 @@ import javax.mail.MessagingException;
 import java.util.Locale;
 
 /**
- * Service interface which defines all the methods for sending the emails.
- *
- * @author hamlet
+ *Interfejs usługi, który definiuje wszystkie metody wysyłania wiadomości e-mail.
  */
 public interface EmailService {
     /**
-     * Send password reset email to the given recipientEmail with password reset link.
+     *Wysyła wiadomość e-mail dotyczącą resetowania hasła do podanego odbiorcy E-mail z linkiem do resetowania hasła.
      *
-     * @param recipientEmail    the recipient email
-     * @param resetPasswordLink the reset password link
-     * @param locale            the locale
-     * @throws MessagingException if error occurs
+     *@param recipientEmail odbiorca e-mail
+     *@param resetPasswordLink link resetowania hasła
+     *@param locale regionalne ustawienia
+     *@throws MessagingException, jeśli wystąpi błąd
      */
     void sendPasswordResetMail(String recipientEmail, String resetPasswordLink, Locale locale)
             throws MessagingException;
 
     /**
-     * Send registration confirm email to the given recipientEmail with confirm link.
+     *Wysyła e-mail potwierdzający rejestrację do podanego odbiorcy E-mail z linkiem potwierdzającym.
      *
-     * @param recipientEmail          the recipient email
-     * @param registrationConfirmLink the registration confirm link
-     * @param locale                  the locale
-     * @throws MessagingException if error occurs
+     *@param recipientEmail odbiorca e-mail
+     *@param RegistrationConfirmLink link potwierdzający rejestrację
+     *@param locale regionalne ustawienia
+     *@throws MessagingException, jeśli wystąpi błąd
      */
     void sendRegistrationMail(String recipientEmail, String registrationConfirmLink, Locale locale)
             throws MessagingException;
 
     /**
-     * Sends a email with the given parameters.
+     *Wysyła email z podanymi parametrami.
      *
-     * @param email     the email address
-     * @param subject the email subject
-     * @param emailText the email text
-     * @throws MessagingException if error occurs
+     *@param email adres e-mail
+     *@param subject temat wiadomości e-mail
+     *@param emailText tekst wiadomości e-mail
+     *@throws MessagingException, jeśli wystąpi błąd
      */
     void sendEmail(String email, String subject, String emailText)
             throws MessagingException;

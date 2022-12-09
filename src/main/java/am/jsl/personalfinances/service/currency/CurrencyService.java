@@ -11,7 +11,7 @@ import java.util.List;
 public interface CurrencyService extends BaseService<Currency> {
 /**
 *Zwraca walutę według kodu.
-*@zwróć walutę
+*@return walutę
 */
     Currency getByCode(String isoCode);
 
@@ -31,7 +31,7 @@ public interface CurrencyService extends BaseService<Currency> {
 *Zwraca kurs wymiany dla podanych walut.
 *@param fromCurrency waluta źródłowa
 *@param toCurrency waluta docelowa
-*@Zwróć kurs wymiany
+*@return kurs wymiany
 */
     Double getRate(String fromCurrency, String toCurrency);
 

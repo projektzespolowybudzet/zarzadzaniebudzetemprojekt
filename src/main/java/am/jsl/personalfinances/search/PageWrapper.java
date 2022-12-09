@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 /**
-*PageWrapper używany na stronach thymeaf do wyświetlania pojedynczej strony
+*PageWrapper używany na stronach thymeleaf do wyświetlania pojedynczej strony
 *z obsługą paginacji.
 */
 public class PageWrapper<T> {

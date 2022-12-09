@@ -10,37 +10,17 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
 /**
- * A Singletone class for creating events.
- * @author hamlet
- */
+*Klasa do tworzenia zdarzeń.
+*/
 @Component
 public class EventLog implements Serializable, ApplicationContextAware {
 
-    /**
-     * The EventLog instance
-     */
     private static EventLog log = null;
-
-    /**
-     * The ApplicationContext
-     */
     private static ApplicationContext context;
-
-    /**
-     * the EventService
-     */
     private EventService eventService;
-
-    /**
-     * Private constructor
-     */
     private EventLog() {
     }
 
-    /**
-     * Returns the single instance of EventLog.
-     * @return the EventLog
-     */
     public static EventLog getInstance() {
         if (log == null) {
             log = new EventLog();
@@ -50,59 +30,38 @@ public class EventLog implements Serializable, ApplicationContextAware {
         return log;
     }
 
-    /**
-     * Sets the application context.
-     * @param ac the ApplicationContext
-     * @throws BeansException if thrown by application context methods
-     */
+/**
+*Ustawia kontekst aplikacji.
+*@param ac ApplicationContext
+*@throws BeansException, jeśli zostanie zgłoszony przez metody kontekstowe aplikacji
+*/
     @Override
     public void setApplicationContext(ApplicationContext ac)
             throws BeansException {
         context = ac;
     }
 
-    /**
-     * Creates an event with the given options.
-     * @param eventType the EventType
-     * @param message the message
-     * @param performedBy the user id
-     */
+/**
+*Tworzy wydarzenie z podanymi opcjami + przeładowania
+*@param eventType typu zdarzenia
+*@param message wiadomość
+*@param performedBy identyfikator użytkownika
+*@param user użytkownik
+*/
     public void write(EventType eventType, String message, long performedBy) {
         eventService.saveEvent(eventType, message, performedBy);
     }
 
-    /**
-     * Creates an event with the given options.
-     * @param eventType the EventType
-     * @param message the message
-     * @param user the user
-     */
     public void write(EventType eventType, String message, User user) {
         eventService.saveEvent(eventType, message, user.getId());
     }
-
-    /**
-     * Creates an event with the given options.
-     * @param eventType the EventType
-     * @param performedBy the user id
-     */
     public void write(EventType eventType, long performedBy) {
         eventService.saveEvent(eventType, "", performedBy);
     }
-
-    /**
-     * Creates an event with the given options.
-     * @param eventType the EventType
-     * @param user the user
-     */
     public void write(EventType eventType, User user) {
         eventService.saveEvent(eventType, "", user.getId());
     }
 
-    /**
-     * Sets the EventService
-     * @param eventService the EventService
-     */
     public void setEventService(EventService eventService) {
         this.eventService = eventService;
     }

@@ -13,7 +13,6 @@ import java.io.Serializable;
 /**
  * The base class for all controllers.
  * Contains common fields and methods.
- * @author hamlet
  */
 public class BaseController implements Serializable {
     protected static final AppLogger log = new AppLogger(BaseController.class);

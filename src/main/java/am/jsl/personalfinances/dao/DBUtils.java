@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 */
 public class DBUtils {
 
-	// Wspólny
+	// common
 	public static final String id = "id";
 	public static final String name = "name";
 	public static final String value = "value";
@@ -72,7 +72,7 @@ public class DBUtils {
 /**
 *Zwraca maks id+1 z podanej tabeli bazy danych.
 *@param jdbcTemplate Szablon Jdbc
-*@param tableNazwij nazwę tabeli
+*@param tableName nazwę tabeli
 *@return następny identyfikator
 */
     public static synchronized long getNextId(JdbcTemplate jdbcTemplate,

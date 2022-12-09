@@ -18,9 +18,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * The service implementation of the {@link DatabaseDumpService}.
- * @author hamlet
- */
+*Implementacja usługi {@link DatabaseDumpService}.
+*/
 @Service("databaseDumpService")
 public class DatabaseDumpServiceImpl implements DatabaseDumpService {
     private static final AppLogger log = new AppLogger(DatabaseDumpServiceImpl.class);

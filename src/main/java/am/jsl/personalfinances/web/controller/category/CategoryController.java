@@ -25,17 +25,15 @@ import static am.jsl.personalfinances.web.util.WebUtils.CATEGORIES;
 import static am.jsl.personalfinances.web.util.WebUtils.CATEGORY;
 
 /**
- * The Category defines methods for category pages functionality
- * such as search, view, add, edit categories.
- *
- * @author hamlet
+ * CategoryController określa metody funkcjonalności stron kategorii
+ * takie jak wyszukiwanie, widok, dodaj, edytuj kategorie.
  */
 @Controller
 @RequestMapping(value = "/category")
 @Lazy
 public class CategoryController extends BaseController {
     /**
-     * The category templates paths
+     * Ścieżki szablonów kategorii
      */
     public static final String REDIRECT_CATEGORY_LIST = "redirect:list";
     public static final String FORWARD_CATEGORY_LIST = "category/category-list";
@@ -43,16 +41,16 @@ public class CategoryController extends BaseController {
     public static final String FORWARD_CATEGORY_LOOKUP_LIST = "category/category-lookup-result :: categoryLookupList";
 
     /**
-     * The {@link CategoryService}
+     * {@link CategoryService}
      */
     @Autowired
     private transient CategoryService categoryService;
 
     /**
-     * Called when loaded category list page.
+     * Wywołana po załadowaniu strony listy kategorii.
      *
-     * @param model the Model
-     * @return the category list
+     * @param model  Model
+     * @return szablon FORWARD_CATEGORY_LIST
      */
     @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
     public String list(Model model) {
@@ -63,10 +61,10 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * Called by ajax methods for retrieving catgory select options.
+     * Wywołany metodami AJAX do pobierania opcji wybierz katgorie.
      *
-     * @param model the Model
-     * @return the category lookup template
+     * @param model Model
+     * @return szablon FORWARD_CATEGORY_LOOKUP_LIST
      */
     @RequestMapping(value = {"/lookup"}, method = RequestMethod.GET)
     public String lookup(Model model) {
@@ -76,10 +74,10 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * Called when user clicks on add link from category list page.
+     * Wywołane, gdy użytkownik kliknie dodaj ze strony listy kategorii.
      *
-     * @param model the Model
-     * @return the category manage template
+     * @param model Model
+     * @return szablon FORWARD_CATEGORY_MANAGE
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage(Model model) {
@@ -93,11 +91,11 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * Called when user clicks on edit link from category list page.
+     * Wywołane, gdy użytkownik kliknie na edytuj ze strony listy kategorii.
      *
-     * @param id    the category id
-     * @param model the Model
-     * @return the category manage template
+     * @param id    category id
+     * @param model Model
+     * @return szablon FORWARD_CATEGORY_MANAGE
      */
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String editPage(@RequestParam(value = "id", required = true)
@@ -113,13 +111,13 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * Called when user clicks on save button from manage category page.
+     * Wywołane, gdy użytkownik kliknie przycisk Zapisz ze strony zarzadzania kategoriami.
      *
-     * @param request       the HttpServletRequest
-     * @param redirectAttrs the RedirectAttributes
-     * @param category      the Category
-     * @return the category list
-     * @throws Exception if exception occurs
+     * @param request       HttpServletRequest
+     * @param redirectAttrs RedirectAttributes
+     * @param category      Category
+     * @return szablon REDIRECT_CATEGORY_LIST
+     * @throws Exception jeżeli wyjatek wystąpi
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(HttpServletRequest request, RedirectAttributes redirectAttrs,
@@ -148,12 +146,12 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * Called when user clicks on delete category link.
+     * Wywołąny, gdy użytkownik kliknie Usuń na stronie kategorii .
      *
-     * @param request       the HttpServletRequest
-     * @param id            the category id
-     * @param redirectAttrs the RedirectAttributes
-     * @return the category list
+     * @param request       HttpServletRequest
+     * @param id            category id
+     * @param redirectAttrs RedirectAttributes
+     * @return szablon REDIRECT_CATEGORY_LIST
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(HttpServletRequest request, @RequestParam(value = "id", required = true) long id,

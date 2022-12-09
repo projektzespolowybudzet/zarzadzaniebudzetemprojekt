@@ -8,8 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Defines methods for working with images.
- * @author hamlet
+ * Definiuje metody pracy z obrazami.
  */
 public class ImageUtils {
 

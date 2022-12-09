@@ -9,7 +9,6 @@ import org.springframework.validation.Validator;
 
 /**
  * Spring managed class for validating user fields such as login, email, passwords.
- * @author hamlet
  */
 @Component
 public class UserValidator implements Validator {

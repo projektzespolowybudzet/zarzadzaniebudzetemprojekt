@@ -8,8 +8,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 /**
- * Role formatter for {@link Role} objects.
- * @author hamlet
+ * Formatter ról dla obiektów {@link Role}.
  */
 @Component
 public class RoleFormatter implements Formatter<Role> {

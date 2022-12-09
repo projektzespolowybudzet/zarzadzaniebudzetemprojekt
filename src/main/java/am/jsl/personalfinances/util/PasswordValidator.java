@@ -4,22 +4,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * The PasswordValidator validates passwords using regexp.
- * @author hamlet
+ * PasswordValidator weryfikuje hasła za pomocą RegexP.
  */
 public class PasswordValidator {
     private Pattern pattern;
     private Matcher matcher;
 
-    /*
-    (			# Start of group
-            (?=.*\d)		#   must contains one digit from 0-9
-            (?=.*[a-z])		#   must contains one lowercase characters
-            (?=.*[A-Z])		#   must contains one uppercase characters
-            (?=.*[@#$%])		#   must contains one special symbols in the list "@#$%"
-            .		#     match anything with previous condition checking
-    {8,20}	#        length at least 8 characters and maximum of 20
-            )			# End of group
+   /*
+    ( # Początek grupy
+            (? =.*\ d) # musi zawierać jedną cyfrę od 0-9
+            (? =.*[A-Z]) # musi zawierać jeden małe postacie
+            (? =.*[A-Z]) # musi zawierać jeden wielkie znaki
+            (? =.*[@#$%])#musi zawierać jeden specjalny symbole na liście „@#$%”
+            .# Dopasuj wszystko do poprzedniego sprawdzania warunków
+    {8,20} # długość co najmniej 8 znaków i maksymalnie 20
+            ) # Koniec grupy
     */
     private static final String PASSWORD_PATTERN =
             "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
@@ -29,9 +28,9 @@ public class PasswordValidator {
     }
 
     /**
-     * Validate password with regular expression
-     * @param password password for validation
-     * @return true valid password, false invalid password
+     * Sprawdź hasło za pomocą wyrażenia regularnego
+     * @param password hasło do sprawdzania poprawności
+     * @return true prawidłowe hasło, false nieprawidłowe hasło
      */
     public boolean validate(final String password){
 

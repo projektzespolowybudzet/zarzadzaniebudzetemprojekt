@@ -25,7 +25,7 @@ public class TransactionSearchQuery extends Query<TransactionListDTO> implements
 /**
 *Tworzy instancję nowego zapytania wyszukiwania transakcji.
 *
-*@param strona strona
+*@param page strona
 *@param pageSize rozmiar strony
 */
     public TransactionSearchQuery(int page, int pageSize) {

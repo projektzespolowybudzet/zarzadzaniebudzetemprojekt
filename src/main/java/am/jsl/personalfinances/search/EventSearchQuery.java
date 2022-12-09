@@ -17,7 +17,7 @@ public class EventSearchQuery extends Query<EventListDTO> {
 /**
 *Tworzy nowe zapytanie wyszukiwania zdarzeń.
 *
-*@param strona strona
+*@param page strona
 *@param pageSize rozmiar strony
 */
     public EventSearchQuery(int page, int pageSize) {

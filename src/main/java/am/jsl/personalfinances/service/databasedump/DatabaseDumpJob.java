@@ -10,9 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 /**
- * Simple quartz job that periodically dumps database.
- * @author hamlet
- */
+*Proste zadanie Quartz, które okresowo zrzuca bazę danych.
+*/
 @Component
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution
@@ -20,16 +19,16 @@ public class DatabaseDumpJob extends QuartzJobBean {
 
     private static final AppLogger log = new AppLogger(DatabaseDumpJob.class);
 
-    /**
-     * The database dump service.
-     */
+/**
+*Usługa zrzutu bazy danych.
+*/
     private DatabaseDumpService databaseDumpService;
 
-    /**
-     * Executes the actual job with the given context bundle.
-     * @param context the JobExecutionContext
-     * @throws JobExecutionException if error occurs
-     */
+/**
+*Wykonuje rzeczywiste zadanie z podanym pakietem kontekstu.
+*@param context JobExecutionContext
+*@throws JobExecutionException, jeśli wystąpi błąd
+*/
     protected void executeInternal(JobExecutionContext context)
             throws JobExecutionException {
         try {
@@ -41,10 +40,10 @@ public class DatabaseDumpJob extends QuartzJobBean {
         }
     }
 
-    /**
-     * Sets the database dump service.
-     * @param databaseDumpService the {@link DatabaseDumpService}
-     */
+/**
+*Ustawia usługę zrzutu bazy danych.
+*@param databaseDumpService {@link DatabaseDumpService}
+*/
     public void setDatabaseDumpService(DatabaseDumpService databaseDumpService) {
         this.databaseDumpService = databaseDumpService;
     }

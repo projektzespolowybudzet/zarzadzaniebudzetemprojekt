@@ -32,34 +32,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The service implementation of the {@link TransactionService}.
- * @author hamlet
+ *Implementacja usługi {@link TransactionService}.
  */
 @Service("transactionService")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class TransactionServiceImpl extends BaseServiceImpl<Transaction> implements TransactionService {
-
-    /**
-     * The cache keys of transactions.
-     */
+  
     private static final String CACHE_TRANSACTION_SEARCH = "transactionSearch";
     private static final String CACHE_KEY_SEARCH_BY_CATEGORY_QUERY = "ct";
     private static final String CACHE_KEY_SEARCH_QUERY = "s";
     private static final String CACHE_KEY_SEARCH_TOTALS = "t";
-
-    /**
-     * The TransactionDao
-     */
     private TransactionDao transactionDao;
 
-    /**
-     * the AccountDao
-     */
     private AccountDao accountDao;
 
-    /**
-     * The CacheManager
-     */
     @Autowired
     private CacheManager cacheManager;
 
@@ -104,7 +90,7 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
 
         transactionDao.create(transaction);
 
-        // update account balance
+        //zaktualizuj saldo konta
         updateAccountBalance(transaction);
     }
 
@@ -123,12 +109,12 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
             transaction.setTransactionDate(LocalDateTime.now());
         }
 
-        // reset account balance
+        //zresetuj saldo konta
         resetAccountBalance(transaction.getId(), transaction.getUserId());
 
         transactionDao.update(transaction);
 
-        // update account balance
+        //zaktualizuj saldo konta
         updateAccountBalance(transaction);
     }
 
@@ -143,15 +129,15 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
             throw new CannotDeleteException();
         }
 
-        // reset account balance
+        //zresetuj saldo konta
         resetAccountBalance(id, userId);
 
         transactionDao.delete(id, userId);
     }
 
     /**
-     * Updates account balance based on transaction details.
-     * @param transaction the Transaction
+     *Aktualizuje saldo konta na podstawie szczegółów transakcji.
+     *@param transaction Transakcja 
      */
     private void updateAccountBalance(Transaction transaction) {
         double amount = transaction.getAmount();
@@ -180,9 +166,9 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
     }
 
     /**
-     * Resets account balance based on transaction id.
-     * @param id the transaction id
-     * @param userId the user id
+     *Resetuje saldo konta na podstawie identyfikatora transakcji.
+     *@param id identyfikator transakcji
+     *@param userId identyfikator użytkownika
      */
     private void resetAccountBalance(long id, long userId) {
         Transaction transaction = get(id, userId);

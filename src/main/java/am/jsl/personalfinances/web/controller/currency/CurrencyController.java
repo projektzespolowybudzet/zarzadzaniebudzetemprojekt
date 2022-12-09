@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Defines methods for converting currencies.
- * @author hamlet
+ * Definiuje metody przekształcania walut.
  */
 @Controller
 @RequestMapping(value = "/currency")
@@ -28,11 +27,11 @@ public class CurrencyController extends BaseController {
     private transient CurrencyService currencyService;
 
     /**
-     * Converts the given amount from source currency to target currency.
-     * @param amount the amount
-     * @param from the source currency
-     * @param to the target currency
-     * @return the json containing pair of rate, converted amount
+     * Przekształca daną kwotę z waluty źródłowej na walutę docelową.
+     * @param amount wartość
+     * @param from waluta źródłowa
+     * @param to waluta docelowa
+     * @return json z parą stawka, kwota w nowej walucie
      */
     @RequestMapping(value = {"/convert"}, method = RequestMethod.POST)
     public @ResponseBody
@@ -53,10 +52,10 @@ public class CurrencyController extends BaseController {
     }
 
     /**
-     * Converts the given amount with the given rate.
-     * @param amount the amount
-     * @param rate the rate
-     * @return the converted amount
+     * Przekształca daną kwotę z daną stawką.
+     * @param amount wartość
+     * @param rate stawka
+     * @return kwota w nowej walucie
      */
     @RequestMapping(value = {"/convertWithRate"}, method = RequestMethod.POST)
     public @ResponseBody

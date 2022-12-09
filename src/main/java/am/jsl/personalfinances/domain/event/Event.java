@@ -19,8 +19,8 @@ public class Event extends BaseEntity implements Serializable {
 /**
 *Konstruuje nowe zdarzenie z podanymi polami.
 *@param eventType typ zdarzenia
-*@param wiadomość komunikat o zdarzeniu
-*Wykonano @param Przez identyfikator użytkownika, który utworzył tę wiadomość
+*@param message komunikat o zdarzeniu
+*@param performedBy identyfikator użytkownika, który utworzył tę wiadomość
 */
 	public Event(EventType eventType, String message, long performedBy) {
 		super();

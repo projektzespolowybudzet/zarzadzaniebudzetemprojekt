@@ -43,9 +43,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AccessDeniedExceptionHandler accessDeniedExceptionHandler;
 
-/**
-*Domyślny konstruktor.
-*/
     public SpringSecurityConfig() {
         super();
     }
@@ -65,7 +62,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 *
 *@param userDetailsService usługę UserDetails
 *@param uwierzytelnia AuthenticationManagerBuilder
-*@throws Wyjątek, jeśli wystąpi wyjątek
+*@throws Exception, jeśli wystąpi wyjątek
 */
     @Autowired
     public void configureGlobal(UserDetailsService userDetailsService, AuthenticationManagerBuilder auth) throws Exception {
@@ -76,7 +73,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 *Konfiguruje {@link WebSecurity} do ignorowania zasobów statycznych.
 *
 *@param web WebSecurity
-*@throws Wyjątek, jeśli wystąpi wyjątek
+*@throws Exception, jeśli wystąpi wyjątek
 */
     public void configure(WebSecurity web) throws Exception {
         web
@@ -88,7 +85,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 *Konfiguruje {@link HttpSecurity}.
 *
 *@param http HttpSecurity
-*@throws Wyjątek, jeśli wystąpi wyjątek
+*@throws Exception, jeśli wystąpi wyjątek
 */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -137,7 +134,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 /**
 *Tworzy {@link AccessDeniedExceptionHandler}.
-*
 *@return AccessDeniedExceptionHandler
 */
     @Bean

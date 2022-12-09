@@ -6,7 +6,6 @@ import org.thymeleaf.expression.IExpressionObjectFactory;
 
 /**
  * Custom Thymeleaf dialect.
- * @author hamlet
  */
 public class PersonalFinancesDialect extends AbstractDialect implements IExpressionObjectDialect {
     private final IExpressionObjectFactory PF_TRACKER_EXPRESSION_OBJECTS_FACTORY = new PersonalFinancesExpressionFactory();

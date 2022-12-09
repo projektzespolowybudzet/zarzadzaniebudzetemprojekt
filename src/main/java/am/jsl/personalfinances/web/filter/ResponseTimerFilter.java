@@ -10,7 +10,6 @@ import java.io.IOException;
 
 /**
  * Filter for logging response times in milliseconds.
- * @author hamlet
  */
 @Component
 @Order(1)

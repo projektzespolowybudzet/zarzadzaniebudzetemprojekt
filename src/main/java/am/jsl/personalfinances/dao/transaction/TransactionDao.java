@@ -17,7 +17,7 @@ public interface TransactionDao extends BaseDao<Transaction> {
 /**
 *Pobiera wyniki transakcji z podziałem na strony dla danego zapytania wyszukiwania.
 *@param searchQuery {@link TransactionSearchQuery} zawierający opcje zapytania
-*@zwróć {@link TransactionSearchResult} zawierający wynik stronicowania
+*@return {@link TransactionSearchResult} zawierający wynik stronicowania
 */
     TransactionSearchResult search(TransactionSearchQuery searchQuery);
 
@@ -31,14 +31,14 @@ public interface TransactionDao extends BaseDao<Transaction> {
 *Zwraca szczegóły transakcji z podanym identyfikatorem i identyfikatorem użytkownika.
 *@param id identyfikator transakcji
 *@param userId identyfikator użytkownika
-*@zwróć {@link TransactionDetailsDTO} zawierający szczegóły transakcji
+*@return {@link TransactionDetailsDTO} zawierający szczegóły transakcji
 */
     TransactionDetailsDTO getDetails(long id, long userId);
 
 /**
 *Pobiera wyniki transakcji z podziałem na strony dla danego zapytania wyszukiwania.
 *@param zapytanie o zapytanie {@link TransactionByCategorySearchQuery} zawierające opcje wyszukiwania
-*@zwróć listę pozycji {@link TransactionByCategoryDTO}
+*@return listę pozycji {@link TransactionByCategoryDTO}
 */
     List<TransactionByCategoryDTO> search(TransactionByCategorySearchQuery query);
 
@@ -46,7 +46,7 @@ public interface TransactionDao extends BaseDao<Transaction> {
 *Zwraca kwotę transakcji z podanym identyfikatorem transakcji i identyfikatorem użytkownika
 *@param id identyfikator transakcji
 *@param userId identyfikator użytkownika
-*@zwrot kwoty
+*return kwota
 */
     double getAmount(long id, long userId);
 }

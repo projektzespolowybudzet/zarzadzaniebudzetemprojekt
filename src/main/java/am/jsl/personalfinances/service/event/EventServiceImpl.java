@@ -13,9 +13,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The service implementation of the {@link EventService}.
- * @author hamlet
- */
+*Implementacja usługi {@link EventService}.
+*/
 @Service("eventService")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class EventServiceImpl implements EventService {

@@ -13,14 +13,14 @@ public interface CategoryService extends BaseService<Category> {
 /**
 *Zwraca kategorie dla podanego identyfikatora użytkownika.
 *@param userId identyfikator użytkownika
-*@zwróć kategorie
+*@return kategorie
 */
 	List<CategoryDTO> getCategories(long userId);
 
 /**
 *Zwraca kategorie nadrzędne dla podanego identyfikatora użytkownika.
 *@param userId identyfikator użytkownika
-*@zwróć kategorie
+*@return kategorie
 */
 	List<CategoryDTO> lookupParentCategories(long userId);
 }

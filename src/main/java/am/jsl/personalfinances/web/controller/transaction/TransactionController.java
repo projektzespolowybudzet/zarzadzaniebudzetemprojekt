@@ -32,16 +32,15 @@ import java.util.List;
 import static am.jsl.personalfinances.web.util.WebUtils.*;
 
 /**
- * The TransactionController defines methods for transaction pages functionality
- *  such as search, view, add, edit transactions.
- * @author hamlet
+ * TransactionController definiuje metody funkcjonalności stron transakcyjnych
+ * takie jak wyszukiwanie, widok, dodaj, edytuj transakcje.
  */
 @Controller
 @RequestMapping(value = "/transaction")
 @Lazy
 public class TransactionController extends BaseController {
     /**
-     * The transaction templates paths
+     * Ścieżki szablonów transakcji
      */
     public static final String REDIRECT_TRANSACTION_LIST = "redirect:list";
     public static final String FORWARD_TRANSACTION_LIST = "transaction/transaction-list";
@@ -52,21 +51,15 @@ public class TransactionController extends BaseController {
 
     public static String ADD_TRANSACTION = "addTransaction";
 
-    /**
-     * The AccountService
-     */
     @Autowired
     private transient AccountService accountService;
 
-    /**
-     * The TransactionService
-     */
     @Autowired
     private transient TransactionService transactionService;
 
     /**
-     * Called when transaction list loaded.
-     * @return the transaction list
+     * Wywołany po załadowaniu listy transakcji.
+     * @return Lista transakcji
      */
     @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
     public String list() {
@@ -74,10 +67,10 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called via ajax method for searching transactions based on TransactionSearchForm data.
-     * @param model the Model
-     * @param searchForm the TransactionSearchForm
-     * @return the transaction list template
+     * Nazywany metodą AJAX do wyszukiwania transakcji na podstawie danych TransactionesearchForm.
+     * @param model Model
+     * @param searchForm TransactioneSechForm
+     * @return strona z szablonu FORWARD_TRANSACTION_RESULT_LIST
      */
     @RequestMapping(value = {"/loadTransactions"}, method = RequestMethod.POST)
     public String loadTransactions(Model model,
@@ -107,7 +100,7 @@ public class TransactionController extends BaseController {
             size = Constants.PAGE_SIZE;
         }
 
-        // init search query
+        // inicjacja search query
         TransactionSearchQuery query = new TransactionSearchQuery(page, size);
         query.setUserId(getUser().getId());
         query.setTransactionType(searchForm.getType());
@@ -130,9 +123,9 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on add transaction link from transactions page.
-     * @param model the Model
-     * @return the transaction manage template
+     * Wywołane, gdy użytkownik kliknie Transakcje ze strony Transakcji.
+     * @param model Model
+     * @return strona z szablonu FORWARD_TRANSACTION_MANAGE
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage(Model model) {
@@ -151,10 +144,10 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on edit link from transaction list page.
-     * @param id the transaction id
-     * @param model the Model
-     * @return the transaction manage template
+     * Wywołane, gdy użytkownik kliknie Edytuj ze strony listy transakcji.
+     * @param id identyfikator transakcji
+     * @param model Model
+     * @return strona z szablonu FORWARD_TRANSACTION_MANAGE
      */
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String editPage(@RequestParam(value = "id") long id, Model model) {
@@ -171,9 +164,9 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on save link from manage transaction page.
-     * @param transactionDTO the TransactionDTO
-     * @return the transactions list page
+     * Wywołane, gdy użytkownik kliknie Zapisz ze strony zarządzania transakcją.
+     * @param transakcja
+     * @return Strona listy transakcji
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@Valid @ModelAttribute TransactionDTO transactionDTO) throws Exception {
@@ -190,9 +183,9 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on add batch link from transactions list page.
-     * @param model the Model
-     * @return batch transaction template
+     * Wywołane, gdy użytkownik kliknie na Dodaj ze strony listy transakcji.
+     * @param model Model
+     * @return strona z szablonu FORWARD_TRANSACTION_ADD_BATCH
      */
     @RequestMapping(value = "/addBatch", method = RequestMethod.GET)
     public String addBatchPage(Model model) {
@@ -212,9 +205,9 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on save link from add transaction batch window.
-     * @param addTransactionsDTO the AddTransactionsDTO
-     * @return the transactions page
+     * Wywołane, gdy użytkownik kliknie Zapisz z okna dodania transakcji.
+     * @param addTransactionsDTO AddTransactionsDTO
+     * @return strona z szablonu REDIRECT_TRANSACTION_LIST
      */
     @RequestMapping(value = "/addBatch", method = RequestMethod.POST)
     public String addBatch(@ModelAttribute AddTransactionsDTO addTransactionsDTO) {
@@ -225,10 +218,10 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on edit link from trasnactions list page.
-     * @param id the transaction id
-     * @param model the Model
-     * @return the view transaction template
+     * Wywołane, gdy użytkownik kliknie Edytuj ze strony listy transakcji.
+     * @param id identyfikator transakcji 
+     * @param model Model 
+     * @return strona z szablonu FORWARD_TRANSACTION_VIEW
      */
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(@RequestParam(value = "id", required = true)
@@ -244,9 +237,9 @@ public class TransactionController extends BaseController {
     }
 
     /**
-     * Called when user clicks on transaction link.
-     * @param id the transaction id to delete
-     * @return the transaction list page
+     * Wywołane, gdy użytkownik kliknie Usuń na stronie tranzakcji.
+     * @param id identyfikator transakcji do usunięcia
+     * @return strona z szablonu REDIRECT_TRANSACTION_LIST
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@RequestParam(value = "id", required = true) long id) {

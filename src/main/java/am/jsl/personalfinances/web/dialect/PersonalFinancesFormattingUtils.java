@@ -8,7 +8,6 @@ import java.util.Locale;
 
 /**
  * Date time formatter used by Thymeleaf that uses {@link PrettyTime} library.
- * @author hamlet
  */
 public class PersonalFinancesFormattingUtils {
     private final PrettyTime prettyTime;

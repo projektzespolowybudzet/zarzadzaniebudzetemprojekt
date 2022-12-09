@@ -28,7 +28,7 @@ public class VerificationToken {
 
 /**
 *Oblicza datę ważności od daty bieżącej.
-*@param wygaśnięciaTimeInMinutes Czas wygaśnięcia w minutach
+*@param expiryTimeInMinutes Czas wygaśnięcia w minutach
 *@return Data wygaśnięcia
 */
     private Date calculateExpiryDate(final int expiryTimeInMinutes) {

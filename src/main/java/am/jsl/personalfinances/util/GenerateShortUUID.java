@@ -3,12 +3,11 @@ package am.jsl.personalfinances.util;
 import java.util.UUID;
 
 /**
- * Class for generating short UUID based {@link UUID} class.
- * @author hamlet
+ * Klasa do generowania krótkiej klasy UUID {@link UUID}.
  */
 public class GenerateShortUUID {
     /**
-     *  Array of 64+2 digits
+     * Tablica 64+2 cyfr
      */
     private final static char[] DIGITS66 = {
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -16,9 +15,8 @@ public class GenerateShortUUID {
             '-', '.', '_', '~'
     };
 
-
     /**
-     * Private constructor
+     * Prywatny konstruktor
      */
     private GenerateShortUUID() {
     }

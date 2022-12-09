@@ -15,125 +15,124 @@ import javax.mail.MessagingException;
 import java.util.Locale;
 
 /**
- * Service interface which defines all the methods for working with {@link User} domain object.
- * @author hamlet
+ *Interfejs usługi, który definiuje wszystkie metody pracy z obiektem domeny {@link User}.
  */
 public interface UserService extends UserDetailsService, BaseService<User> {
 
     /**
-     * Retrieves paginated result of users for the given search query.
-     * @param userSearchQuery the {@link UserSearchQuery} containing query options
-     * @return the {@link ListPaginatedResult} object containing paged result
+     *Pobiera podzielone na strony wyniki użytkowników dla danego zapytania.
+     *@param userSearchQuery {@link UserSearchQuery} zawierający opcje zapytania
+     *@return obiekt {@link ListPaginatedResult} zawierający wynik stronicowania
      */
 	ListPaginatedResult<User> search(UserSearchQuery userSearchQuery);
 
     /**
-     * Sets last_login field with current date for the given user id.
-     * @param userId the user id
+     *Ustawia pole last_login z aktualną datą dla podanego identyfikatora użytkownika.
+     *@param userId identyfikator użytkownika
      */
 	void login(long userId);
 
 	/**
-	 * Updates the profile of the given user.
-	 * @param user the user
-	 * @throws Exception will throw if exception occurs
+	 *Aktualizuje profil danego użytkownika.
+	 *@param user użytkownik
+	 *@throws Exception zostanie zgłoszony, jeśli wystąpi wyjątek
 	 */
 	void updateProfile(User user) throws Exception;
 
     /**
-     * Returns an user with the given id.
-     * Will throw {@link UserNotFoundException} if user not found.
-     * @param userId the user id
-     * @return the user
-     * @throws UserNotFoundException if user not found
+     *Zwraca użytkownika o podanym id.
+     *Wyrzuci {@link UserNotFoundException}, jeśli użytkownik nie zostanie znaleziony.
+     *@param userId identyfikator użytkownika
+     *@return użytkownika
+     *@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
      */
 	User getUser(long userId) throws UserNotFoundException;
 
     /**
-     * Returns an user with the given user name.
-     * Will throw {@link UserNotFoundException} if user not found.
-     * @param name the user name
-     * @return the user
-     * @throws UserNotFoundException if user not found
+     *Zwraca użytkownika o podanej nazwie użytkownika.
+     *Wyrzuci {@link UserNotFoundException}, jeśli użytkownik nie zostanie znaleziony.
+     *@param name nazwa użytkownika
+     *@return użytkownika
+     *@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
      */
 	User getUser(String name) throws UserNotFoundException;
 
     /**
-	 * Encrypts the given password and updates in user.
-     * Changes user password with the given encryptedPassword.
-     * @param newPassword the new password
-     * @param id the user id
+	 *Szyfruje podane hasło i aktualizuje użytkownika.
+     *Zmienia hasło użytkownika z podanym encryptedPassword.
+     *@param newPassword nowe hasło
+     *@param id identyfikator użytkownika
      */
 	void changePassword(String newPassword, long id);
 
 	/**
-	 * Updates the icon for the given user.
-	 * @param user the user
+	 *Aktualizuje ikonę dla danego użytkownika.
+	 *@param user użytkownik
 	 */
     void updateIcon(User user);
 
 	/**
-	 * Deletes an user with the given user id
-	 * @param user the user
+	 *Usuwa użytkownika o podanym identyfikatorze użytkownika
+	 *@param user użytkownik
 	 */
 	void deleteUser(User user);
 
 	/**
-	 * Generates and sends password reset email to the given email and locale.
-	 * @param contextPath the application context path
-	 * @param email email address
-	 * @param locale the locale
-	 * @throws MessagingException if error occurs
-	 */
+	*Generuje i wysyła wiadomość e-mail dotyczącą resetowania hasła na podany adres e-mail i lokalizację.
+	*@param contextPath ścieżka kontekstu aplikacji
+	*@param email Adres e-mail 
+	*@param locale ustawienia regionalne
+	*@throws MessagingException, jeśli wystąpi błąd
+	*/
     void sendPasswordResetMail(String contextPath, String email, Locale locale)
 			throws MessagingException;
 
 	/**
-	 * Check whether the given token is valid for the given user
-	 * and returns VerificationToken object.
-	 * Will throw InvalidTokenException if token is invalid.
-	 * @param userId the user id
-	 * @param token the token
-	 * @param tokenType token type
-	 * @return the VerificationToken object
-	 * @throws InvalidTokenException if token is invalid.
+	 *Sprawdź, czy podany token jest ważny dla danego użytkownika
+	 *i zwraca obiekt VerificationToken.
+	 *Wyrzuci wyjątek InvalidTokenException, jeśli token jest nieprawidłowy.
+	 *@param userId identyfikator użytkownika
+	 *@param token token
+	 *@param tokenType typ tokena
+	 *@return obiekt VerificationToken
+	 *@throws InvalidTokenException, jeśli token jest nieprawidłowy.
 	 */
 	VerificationToken checkToken(long userId, String token, VerificationTokenType tokenType)
 			throws InvalidTokenException;
 
 	/**
-	 * Returns the VerificationToken with the user id and tokenType.
-	 * @param userId the user id
-	 * @param tokenType the token type
-	 * @return the VerificationToken
+	 *Zwraca VerificationToken z identyfikatorem użytkownika i tokenType.
+	 *@param userId identyfikator użytkownika
+	 *@param token Wpisz typ tokena
+	 *@return token weryfikacyjny
 	 */
 	VerificationToken getToken(long userId, VerificationTokenType tokenType);
-
+	
 	/**
-	 * Resets the user password based on {@link PasswordResetDTO} object.
-	 * @param passwordResetDTO the PasswordResetDTO
-	 * @throws InvalidTokenException if token is invalid
+	 *Resetuje hasło użytkownika na podstawie obiektu {@link PasswordResetDTO}.
+	 *@param passwordResetDTO dla PasswordResetDTO
+	 *@throws InvalidTokenException, jeśli token jest nieprawidłowy
 	 */
     void resetPassword(PasswordResetDTO passwordResetDTO) throws InvalidTokenException;
 
 	/**
-	 * Creates an user with inactive status and send confirm registration with activation link.
-	 * @param user the user
-	 * @param locale the Locale
-	 * @param contextPath the application context path
-	 * @throws Exception if error occurs
+	 *Tworzy użytkownika ze statusem nieaktywnym i wysyła potwierdzenie rejestracji z linkiem aktywacyjnym.
+	 *@param user użytkownik
+	 *@param local ustawienia regionalne
+	 *@param contextPath ścieżka kontekstu aplikacji
+	 *@throws Exception jeśli wystąpi błąd
 	 */
     void register(User user, Locale locale, String contextPath) throws Exception;
 
 	/**
-	 * Confirms the user registration. If registration token is valid then sets the given user status to active
-	 * and expires verification token.
-	 * Will throw {@link InvalidTokenException} if token is invalid or expired
-	 * and {@link UserNotFoundException} if user not found.
-	 * @param userId the user id
-	 * @param token the token
-	 * @throws InvalidTokenException if token is invalid or expired
-	 * @throws UserNotFoundException if user not found
+	 *Potwierdza rejestrację użytkownika. Jeśli token rejestracji jest ważny, ustawia status danego użytkownika na aktywny
+	 *i wygasa token weryfikacyjny.
+	 *Wyrzuci {@link InvalidTokenException}, jeśli token jest nieprawidłowy lub wygasł
+	 *i {@link UserNotFoundException}, jeśli nie znaleziono użytkownika.
+	 *@param userId identyfikator użytkownika
+	 *@param token token
+	 *@throws InvalidTokenException, jeśli token jest nieprawidłowy lub wygasł
+	 *@throws UserNotFoundException, jeśli użytkownik nie został znaleziony
 	 */
     void confirmRegistration(Long userId, String token) throws InvalidTokenException, UserNotFoundException;
 }

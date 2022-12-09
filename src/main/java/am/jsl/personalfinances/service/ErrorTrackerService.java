@@ -1,15 +1,13 @@
 package am.jsl.personalfinances.service;
 
 /**
- * Service interface which defines a method for emailing exception details.
- *
- * @author hamlet
+ *Interfejs usługi, który definiuje metodę wysyłania e-mailem szczegółowych informacji o wyjątkach.
  */
 public interface ErrorTrackerService {
 
     /**
-     * Emails the exception details.
-     * @param e the Exception
+     *Wysyła e-mailem szczegóły wyjątku.
+     *@param e Wyjątek
      */
     void sendError(final Exception e);
 }

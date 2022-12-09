@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * The PieChartForm is used for searching transaction from pi chart page.
- * @author hamlet
  */
 public class PieChartForm implements Serializable {
     /**

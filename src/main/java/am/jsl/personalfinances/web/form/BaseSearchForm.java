@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 /**
  * The BaseSearchForm defines common fields for searching transactions via web page.
- *
- * @author hamlet
  */
 public class BaseSearchForm implements Serializable {
     /**

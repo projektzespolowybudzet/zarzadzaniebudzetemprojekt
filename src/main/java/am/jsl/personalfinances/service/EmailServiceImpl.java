@@ -16,8 +16,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Locale;
 
 /**
- * The service implementation of the {@link EmailService}.
- * @author hamlet
+ *Implementacja usługi {@link EmailService}.
  */
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -46,22 +45,22 @@ public class EmailServiceImpl implements EmailService {
             log.debug("Mailing is disabled");
             return;
         }
-        // Prepare the thymeleaf context
+        // Przygotuj kontekst thymeleaf
         final Context ctx = new Context(locale);
         ctx.setVariable("resetPasswordLink", resetPasswordLink);
 
-        // Prepare email message
+        // Przygotuj wiadomość e-mail
         final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, Constants.UTF8);
         message.setSubject(emailMessageSource.getMessage("password.reset.subject", new Object[]{}, locale));
         message.setFrom(from);
         message.setTo(recipientEmail);
 
-        // Create the HTML body using thymeleaf
+        // Utwórz treść HTML za pomocą thymeleaf
         final String htmlContent = this.emailTemplateEngine.process(RESET_PASSWORD_TEMPLATE, ctx);
         message.setText(htmlContent, true);
 
-        // Send email
+        // Wysyła email
         this.mailSender.send(mimeMessage);
     }
 
@@ -73,22 +72,22 @@ public class EmailServiceImpl implements EmailService {
             return;
         }
 
-        // Prepare the thymeleaf context
+        // Przygotuj kontekst thymeleaf
         final Context ctx = new Context(locale);
         ctx.setVariable("registrationConfirmLink", registrationConfirmLink);
 
-        // Prepare email message
+        // Przygotuj wiadomość e-mail
         final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, Constants.UTF8);
         message.setSubject(emailMessageSource.getMessage("registration.subject", new Object[]{}, locale));
         message.setFrom(from);
         message.setTo(recipientEmail);
 
-        // Create the HTML body using thymeleaf
+        // Utwórz treść HTML za pomocą thymeleaf
         final String htmlContent = this.emailTemplateEngine.process(REGISTRATION_TEMPLATE, ctx);
         message.setText(htmlContent, true);
 
-        // Send email
+        // Wysyła email
         this.mailSender.send(mimeMessage);
     }
 
@@ -106,7 +105,7 @@ public class EmailServiceImpl implements EmailService {
         message.setTo(email);
         message.setText(emailText);
 
-        // Send email
+        // Wysyła email
         this.mailSender.send(mimeMessage);
     }
 }

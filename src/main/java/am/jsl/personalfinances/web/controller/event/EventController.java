@@ -26,8 +26,7 @@ import java.util.Date;
 import static am.jsl.personalfinances.web.util.WebUtils.USERS;
 
 /**
- * Defines methods for event list page functionality for ADMIN role.
- * @author hamlet
+ * Definiuje metody zdarzeń  dla roli administratora.
  */
 @Controller
 @RequestMapping(value = "/event")
@@ -35,20 +34,17 @@ import static am.jsl.personalfinances.web.util.WebUtils.USERS;
 @Lazy
 public class EventController extends BaseController {
     /**
-     * The event template paths
+     * Ścieżki szablonu zdarzenia
      */
     public static final String FORWARD_EVENT_LIST = "system/event/event-list";
     public static final String FORWARD_EVENT_RESULT_LIST = "system/event/event-list-result :: eventResultsList";
 
-    /**
-     * The EventService
-     */
     @Autowired
     private transient EventService eventService;
 
     /**
-     * Registers Custom Date Editor.
-     * @param binder the {@link WebDataBinder}
+     * Rejestruje niestandardowy edytor daty.
+     * @param binder {@link WebDataBinder}
      */
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -58,9 +54,9 @@ public class EventController extends BaseController {
     }
 
     /**
-     * Called when admin opens event list page.
-     * @param model the Model
-     * @return the event list page
+     * Zadzwonił, gdy admin otwiera stronę listy zdarzeń.
+     * @param model Model
+     * @return strona zszablonu FORWARD_EVENT_LIST
      */
     @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
     public String eventList(Model model) {
@@ -69,15 +65,15 @@ public class EventController extends BaseController {
     }
 
     /**
-     * Called via ajax method for searching and paging events.
-     * @param model the Model
-     * @param page the current page
-     * @param eventType the event type
-     * @param performedBy the user id
-     * @param createdAtStart the start date
-     * @param createdAtEnd the end date
-     * @param message the message
-     * @return the event list template
+     * Nazywany metodą AJAX do wyszukiwania i stronicowania zdarzeń.
+     * @param model Model
+     * @param page obecna strona
+     * @param eventType typ zdarzenia
+     * @param performedBy id uzytkownika wywołującego tą metodę
+     * @param createdAtStart data początku
+     * @param createdAtEnd data końca
+     * @param message wiadomość
+     * @return strona z szablonu FORWARD_EVENT_RESULT_LIST
      */
     @RequestMapping(value = {"/loadEvents"}, method = RequestMethod.GET)
     public String loadEvents(Model model, @RequestParam int page,

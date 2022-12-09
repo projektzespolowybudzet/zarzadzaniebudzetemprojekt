@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 /**
  * Defines method for retrieving current user from pages.
- * @author hamlet
  */
 @ControllerAdvice
 public class CurrentUserController extends BaseController {

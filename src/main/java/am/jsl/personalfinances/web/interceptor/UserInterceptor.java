@@ -13,11 +13,9 @@ import java.security.Principal;
 import static am.jsl.personalfinances.util.Constants.USER_HTML_PATH;
 
 /**
- * Extended Spring {@link HandlerInterceptor} which will be called before handler method invocation.
- * Checks whether the current user id can access to the static folder inside /userhtml/ directory which contains folders
- * with names consisting user ids.
- *
- * @author hamlet
+ * Rozszerzona Spring {@link HandlerInterceptor}, który zostanie wywołany przed wywołaniem metody obsługi.
+ * Sprawdza, czy bieżący identyfikator użytkownika może uzyskać dostęp do folderu statycznego wewnątrz katalogu /userhtml/ zawierającego foldery
+ * z identyfikatorami użytkowników.
  */
 public class UserInterceptor implements HandlerInterceptor {
     @Autowired

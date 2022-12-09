@@ -1,8 +1,7 @@
 package am.jsl.personalfinances.web.util;
 
 /**
- * Defines constants used in web pages.
- * @author hamlet
+ * Definiuje stałe używane na stronach internetowych.
  */
 public class WebUtils {
     public static String PAGE_HOME = "home";

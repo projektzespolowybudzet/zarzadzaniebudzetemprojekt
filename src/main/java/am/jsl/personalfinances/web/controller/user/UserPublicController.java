@@ -33,17 +33,15 @@ import java.io.Serializable;
 import java.util.Locale;
 
 /**
- * The UserPublicController defines methods for user public pages functionality
- * such as login, register, password reset.
- *
- * @author hamlet
+ * UserPublicController określa metody funkcjonalności stron publicznych użytkownika
+ * takie jak logowanie, rejestr, resetowanie hasła.
  */
 @Controller
 @RequestMapping(value = "/user-public")
 @Lazy
 public class UserPublicController extends BaseController implements Serializable {
     /**
-     * The user public templates
+     * Szablony publiczne użytkownika
      */
     public static final String REDIRECT_LOGIN_PAGE = "redirect:/login";
     public static final String FORGOT_PASSWORD_PAGE = "user-public/forgot-password";
@@ -56,17 +54,14 @@ public class UserPublicController extends BaseController implements Serializable
 
     private static final String PASSWORD_RESET = "passwordReset";
 
-    /**
-     * The email valdiator
-     */
     @Autowired
     @Qualifier("emailValidator")
     private transient EmailValidator emailValidator;
 
     /**
-     * Called when user clicks on reset password link.
+     * Wywołane, gdy użytkownik kliknie zapomniałem hasło.
      *
-     * @return the forgot password page
+     * @return user-public/forgot-password
      */
     @RequestMapping(value = {"/forgot-password"}, method = RequestMethod.GET)
     public String forgotPasswordPage() {
@@ -74,13 +69,13 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Send password reset email to the given email with the password reset link.
+     * Wysyła e-mail z resetowaniem hasła do podanego e-maila za pomocą linku do resetowania hasła.
      *
-     * @param request       the HttpServletRequest
-     * @param email         the email
-     * @param redirectAttrs the RedirectAttributes
-     * @param locale        the Locale
-     * @return the message page if success otherwise password reset page
+     * @param request       HttpServletRequest
+     * @param email         email
+     * @param redirectAttrs RedirectAttributes
+     * @param locale        Locale
+     * @return redirect:message jeśli sukces inaczej redirect:forgot-password
      */
     @RequestMapping(value = {"/sendPasswordResetMail"}, method = RequestMethod.POST)
     public String sendPasswordResetMail(HttpServletRequest request, @RequestParam String email,
@@ -104,14 +99,14 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Called when user clicks on reset password link from the received email.
+     * Wywołane, gdy użytkownik kliknie link do hasła z otrzymanego wiadomości e-mail.
      *
-     * @param request       the HttpServletRequest
-     * @param id            the user id
-     * @param token         the token
-     * @param model         the Model
-     * @param redirectAttrs the RedirectAttributes
-     * @return the reset password page
+     * @param request       HttpServletRequest
+     * @param id            id użytkonika
+     * @param token         token
+     * @param model         Model
+     * @param redirectAttrs RedirectAttributes
+     * @return user-public/reset-password
      */
     @RequestMapping(value = {"/reset-password"}, method = RequestMethod.GET)
     public String resetPasswordPage(HttpServletRequest request, @RequestParam Long id, @RequestParam String token,
@@ -132,12 +127,12 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Called when user clicks on reset password link for submitting new password.
+     * Wywołany, gdy użytkownik kliknie resetowania hasła w celu przesłania nowego hasła.
      *
-     * @param request          the HttpServletRequest
-     * @param passwordResetDTO the PasswordResetDTO
-     * @param redirectAttrs    the RedirectAttributes
-     * @return the login page if success
+     * @param request          HttpServletRequest
+     * @param passwordResetDTO PasswordResetDTO
+     * @param redirectAttrs    RedirectAttributes
+     * @return redirect:/login
      */
     @RequestMapping(value = "/reset-password", method = RequestMethod.POST)
     public String resetPassword(HttpServletRequest request,
@@ -181,10 +176,10 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Called when user clicks on register page.
+     * Wywołane, gdy użytkownik kliknie na stronie rejestru.
      *
-     * @param model the Model
-     * @return the user register page
+     * @param model Model
+     * @return user-public/register
      */
     @RequestMapping(value = {"/register"}, method = RequestMethod.GET)
     public String registerPage(Model model) {
@@ -195,14 +190,14 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Called when user submits registration data. Sends a confirmation email to the user.
+     * Używane, gdy użytkownik przesyła dane rejestracyjne. Wysyła wiadomość e-mail z potwierdzeniem do użytkownika.
      *
-     * @param request       the HttpServletRequest
-     * @param user          the UserDTO
-     * @param redirectAttrs the RedirectAttributes
-     * @param locale        the Locale
-     * @return the message page for showing registration result
-     * @throws Exception if exception occurs
+     * @param request       HttpServletRequest
+     * @param user          UserDTO
+     * @param redirectAttrs RedirectAttributes
+     * @param locale        Locale
+     * @return redirect:message
+     * @throws Exception jeżeli wystąpi wyjątek
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(HttpServletRequest request, @Valid @ModelAttribute UserDTO user,
@@ -257,13 +252,13 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Called when user clicks on the confirm link from the registration confirm email.
+     * Nazywany, gdy użytkownik kliknie link potwierdzający z rejestracji, potwierdź e -mail.
      *
-     * @param request       the HttpServletRequest
-     * @param id            the user id
-     * @param token         the token
-     * @param redirectAttrs the RedirectAttributes
-     * @return the login page
+     * @param request       HttpServletRequest
+     * @param id            id użytkownika
+     * @param token         token
+     * @param redirectAttrs RedirectAttributes
+     * @return redirect:/login
      */
     @RequestMapping(value = {"/confirm-registration"}, method = RequestMethod.GET)
     public String confirmRegistration(HttpServletRequest request, @RequestParam Long id, @RequestParam String token,
@@ -284,9 +279,9 @@ public class UserPublicController extends BaseController implements Serializable
     }
 
     /**
-     * Returns the message page.
+     * Zwraca stronę z wiadomością.
      *
-     * @return the message page
+     * @return user-public/message
      */
     @RequestMapping(value = {"/message"}, method = RequestMethod.GET)
     public String message() {

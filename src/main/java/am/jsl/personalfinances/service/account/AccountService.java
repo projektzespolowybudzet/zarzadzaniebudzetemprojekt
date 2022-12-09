@@ -14,21 +14,21 @@ public interface AccountService extends BaseService<Account> {
 /**
 *Zwraca wszystkie konta dla danego użytkownika.
 *@param userId identyfikator użytkownika
-*@zwróć listę kont
+*@return listę kont
 */
     List<AccountListDTO> getAccounts(long userId);
 
 /**
 *Aktualizuje stan konta na podstawie podanego obiektu AdjustBalanceDTO.
 *@param AdjustBalance obiektu AdjustBalanceDTO
-*@zobacz AdjustBalanceDTO
+*@see AdjustBalanceDTO
 */
     void updateBalance(AdjustBalanceDTO adjustBalance);
 
 /**
 *Zwraca aktywne konta dla danego użytkownika.
 *@param userId identyfikator użytkownika
-*@zwróć listę aktywnych kont
+*@return listę aktywnych kont
 */
     List<AccountListDTO> getActiveAccounts(long userId);
 }

@@ -12,8 +12,7 @@ import static am.jsl.personalfinances.util.Constants.DATE_FORMAT;
 import static am.jsl.personalfinances.util.Constants.DATE_TIME_FORMAT;
 
 /**
- * Contains methods for working with dates.
- * @author hamlet
+ * Zawiera metody pracy z datami.
  */
 public class DateUtils {
 

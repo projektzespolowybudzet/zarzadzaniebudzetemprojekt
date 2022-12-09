@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 
 /**
  * Spring managed email validator.
- * @author hamlet
  */
 @Component("emailValidator")
 public class EmailValidator {

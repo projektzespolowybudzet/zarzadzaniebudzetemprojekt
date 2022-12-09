@@ -4,8 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Class that used to bootstrap and launch a Spring application.
- * @author hamlet
+ * Klasa, która służyła do ładowania i uruchamiania aplikacji Spring.
  */
 @SpringBootApplication
 public class PersonalFinancesApplication {

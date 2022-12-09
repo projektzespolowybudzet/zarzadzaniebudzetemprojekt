@@ -20,31 +20,24 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Defines methods for the dashboard page functionality.
- *
- * @author hamlet
+ * Definiuje metody funkcjonalności strony deski rozdzielczej.
  */
 @Controller
 @RequestMapping(value = "/dashboard")
 public class DashboardController extends BaseController {
-    /**
-     * The TransactionService
-     */
+
     @Autowired
     private transient TransactionService transactionService;
 
-    /**
-     * The AccountService
-     */
     @Autowired
     private transient AccountService accountService;
 
     /**
-     * Searches the transactions for current user based on the given PieChartForm data
-     * and returns json.
+     * Wyszukuje transakcje dla bieżącego użytkownika na podstawie podanych danych PiechartForm
+     * i zwraca JSON.
      *
-     * @param searchForm the PieChartForm
-     * @return the json containing pie chart data
+     * @param searchForm PieChartForm
+     * @return json z danymi pie chart
      */
     @RequestMapping(value = {"/pieChartData"}, method = RequestMethod.POST)
     public @ResponseBody
@@ -81,8 +74,8 @@ public class DashboardController extends BaseController {
     }
 
     /**
-     * Returns list of active accounts fro current user.
-     * @return list of active accounts
+     * Zwraca listę aktywnych kont dla bieżącego użytkownika.
+     * @return lista aktywnych kont 
      */
     @RequestMapping(value = {"/accountsOverview"}, method = RequestMethod.POST)
     public @ResponseBody
