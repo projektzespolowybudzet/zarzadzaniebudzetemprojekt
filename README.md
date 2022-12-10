@@ -1,6 +1,8 @@
 # Projekt Zespołowy - aplikacja do zarządzania budżetem "Dolarek"
 
-![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/Style/dolarek-logo-zip-file/png/logo-no-background.png)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Style/dolarek-logo-zip-file/png/logo-no-background.png)
+
+https://dolarek2.herokuapp.com/dolarek/
 
 ## Opis
 
@@ -26,7 +28,27 @@ Javascript:
 **Deployment**
 * Heroku
 
+## Wymagania:
+Java 11
+Mysql8
+
+
+## Uruchomienie aplikacji
+Uruchomić skrypty z folderu setup/db/:
+ 
+    database_schema.sql 
+	  inserts.sql
+  
+Zmienić odpowiednio konfiguracje w pliku support/HOME/config/
+    
+    application.properties 
+    
+Dodać zmienne środowiskowe:
+
+    SPRING_CONFIG_LOCATION=/SCIEZKA_DO/HOME/config/
+    SPRING_CONFIG_NAME=application    
+
+
 ## [Zobacz Wymagania](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Wymagania.pdf)
-## [Zobacz Szkice wyglądu aplikacji](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Projekt%20interfejsu%20u%C5%BCytkownika.pdf)
 ### Przykład:
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Ekran%20logowania.png)
