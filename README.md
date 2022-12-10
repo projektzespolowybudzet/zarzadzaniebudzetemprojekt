@@ -53,6 +53,13 @@ Dodać zmienne środowiskowe:
 ## Diagramy:
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Diagram%20bazy%20danych%20Dolarek.jpg)
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Diagram%20przypadkow%20uzycia%20Dolarek.jpg)
-# Szkice Interfesju:
+## [Zobacz Szkice Interfejsu](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/tree/main/dokumentacja/Interfejs%20png)
+### Przyłady szkiców:
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Ekran%20logowania.png)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Kokpit.png)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Transakcje%20-%20tabela.png)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Transakcje%20-%20nowa%20transakcja.png)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Konta.png)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Konta%20-%20dodaj.png)
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Ekran%20logowania.png)
 
