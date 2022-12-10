@@ -22,7 +22,7 @@ public interface EmailService {
      *Wysyła e-mail potwierdzający rejestrację do podanego odbiorcy E-mail z linkiem potwierdzającym.
      *
      *@param recipientEmail odbiorca e-mail
-     *@param RegistrationConfirmLink link potwierdzający rejestrację
+     *@param registrationConfirmLink link potwierdzający rejestrację
      *@param locale regionalne ustawienia
      *@throws MessagingException, jeśli wystąpi błąd
      */
