@@ -59,6 +59,7 @@ Dodać zmienne środowiskowe:
 ## Diagramy:
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Diagram%20bazy%20danych%20Dolarek.jpg)
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Diagram%20przypadkow%20uzycia%20Dolarek.jpg)
+## [Zobacz Style Interfejsu]([https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/tree/main/dokumentacja/Interfejs%20png](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Style/dolarek-brand-board-your-branding-colors-and-fonts/BrandBoard.pdf))
 ## [Zobacz Szkice Interfejsu](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/tree/main/dokumentacja/Interfejs%20png)
 ### Przyłady szkiców:
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Ekran%20logowania.png)
