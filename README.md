@@ -29,8 +29,8 @@ Javascript:
 * Heroku
 
 ## Wymagania:
-Java 11
-Mysql8
+* Java 11
+* Mysql8
 
 
 ## Uruchomienie aplikacji
@@ -47,8 +47,12 @@ Dodać zmienne środowiskowe:
 
     SPRING_CONFIG_LOCATION=/SCIEZKA_DO/HOME/config/
     SPRING_CONFIG_NAME=application    
-
-
+    
 ## [Zobacz Wymagania](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Wymagania.pdf)
-### Przykład:
+## [Zobacz Instrukcję Użytkowania](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Dokumentacja-Dokumentacja-u%C5%BCytkownika-systemu-informatycznego-Aplikacja-do-zarz%C4%85dzania-bud%C5%BCetem-domowym.pdf)
+## Diagramy:
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Diagram%20bazy%20danych%20Dolarek.jpg)
+![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Diagram%20przypadkow%20uzycia%20Dolarek.jpg)
+# Szkice Interfesju:
 ![text](https://github.com/projektzespolowybudzet/zarzadzaniebudzetemprojekt/blob/main/dokumentacja/Interfejs%20png/Ekran%20logowania.png)
+
