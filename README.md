@@ -28,6 +28,12 @@ Javascript:
 **Deployment**
 * Heroku
 
+**UML**
+* Enterprise Architect
+
+**Szkice GUI**
+* Balsamiq
+
 ## Wymagania:
 * Java 11
 * Mysql8
