@@ -30,7 +30,6 @@ import am.jsl.dolarek.web.util.WebUtils;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.Serializable;
 import java.util.Locale;
 
 /**
@@ -40,7 +39,7 @@ import java.util.Locale;
 @Controller
 @RequestMapping(value = "/user-public")
 @Lazy
-public class UserPublicController extends BaseController implements Serializable {
+public class UserPublicController extends BaseController {
     /**
      * Szablony publiczne użytkownika
      */

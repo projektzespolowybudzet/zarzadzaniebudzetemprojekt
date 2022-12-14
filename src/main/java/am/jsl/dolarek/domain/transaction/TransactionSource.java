@@ -1,11 +1,10 @@
 package am.jsl.dolarek.domain.transaction;
 
-import java.io.Serializable;
 
 /**
 *Wyliczenie zawierające możliwe źródła transakcji.
 */
-public enum TransactionSource implements Serializable {
+public enum TransactionSource {
 
     MANUAL((byte) 1);
 

@@ -1,11 +1,9 @@
 package am.jsl.dolarek.dto.transaction;
 
-import java.io.Serializable;
-
 /**
 *TransactionDetailsDTO służy do przesyłania szczegółowych informacji o transakcji.
 */
-public class TransactionDetailsDTO extends BaseTransactionDTO implements Serializable {
+public class TransactionDetailsDTO extends BaseTransactionDTO {
     private String account;
     private String accountIcon;
     private String accountColor;

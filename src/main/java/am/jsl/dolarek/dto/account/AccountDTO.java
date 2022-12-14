@@ -5,12 +5,10 @@ import org.springframework.format.annotation.NumberFormat;
 import am.jsl.dolarek.domain.account.Account;
 import am.jsl.dolarek.dto.DescriptiveDTO;
 
-import java.io.Serializable;
-
 /**
 *Służy do przesyłania danych konta między stronami internetowymi i kontrolerami.
 */
-public class AccountDTO extends DescriptiveDTO implements Serializable {
+public class AccountDTO extends DescriptiveDTO {
 
     @NumberFormat(pattern = "#,##0.00")
     private double balance;

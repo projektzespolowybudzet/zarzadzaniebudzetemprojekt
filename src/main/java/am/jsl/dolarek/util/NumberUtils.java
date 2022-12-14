@@ -1,10 +1,11 @@
 package am.jsl.dolarek.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 /**
- * Definiuje metody metody użyteczności do zaokrąglania, formatowania liczb.
+ * Definiuje metody do zaokrąglania, formatowania liczb.
  */
 public class NumberUtils {
 	public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00");
@@ -16,13 +17,13 @@ public class NumberUtils {
 		}
 
 		BigDecimal bd = new BigDecimal(value);
-		bd = bd.setScale(places, BigDecimal.ROUND_HALF_UP);
+		bd = bd.setScale(places, RoundingMode.HALF_UP);
 		return bd.doubleValue();
 	}
 	
 	public static double round(double value) {
 		BigDecimal bd = new BigDecimal(value);
-		bd = bd.setScale(0, BigDecimal.ROUND_HALF_UP);
+		bd = bd.setScale(0, RoundingMode.HALF_UP);
 		return bd.doubleValue();
 	}
 

@@ -1,7 +1,6 @@
 package am.jsl.dolarek.domain.account;
 
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import am.jsl.dolarek.domain.Descriptive;
@@ -9,7 +8,7 @@ import am.jsl.dolarek.domain.Descriptive;
 /**
 *Obiekt domeny konta.
 */
-public class Account extends Descriptive implements Serializable {
+public class Account extends Descriptive {
     private double balance;
     /**
      * @see AccountType

@@ -1,13 +1,11 @@
 package am.jsl.dolarek.domain.event;
 
-import java.io.Serializable;
-
 import am.jsl.dolarek.domain.BaseEntity;
 
 /**
 *Obiekt domeny zdarzeń.
 */
-public class Event extends BaseEntity implements Serializable {
+public class Event extends BaseEntity {
 
 	/**
 	 * @see EventType

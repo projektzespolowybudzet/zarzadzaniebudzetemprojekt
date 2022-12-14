@@ -1,13 +1,12 @@
 package am.jsl.dolarek.domain;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
 *Obiekt Domain, który rozszerza NamedEntity i zawiera pole opisu.
 *Używana jako klasa bazowa dla obiektów wymagających tych właściwości.
 */
-public class Descriptive extends NamedEntity implements Serializable {
+public class Descriptive extends NamedEntity {
 
 	protected String description;
 

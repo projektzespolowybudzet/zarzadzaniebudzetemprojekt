@@ -1,13 +1,12 @@
 package am.jsl.dolarek.domain;
 
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
 *Obiekt domeny kategorii.
 */
-public class Category extends Descriptive implements Serializable {
+public class Category extends Descriptive {
  
     public static final String DEFAULT_COLOR= "#a0a0a0";
     private String icon;

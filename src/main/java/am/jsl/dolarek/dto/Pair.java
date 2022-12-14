@@ -44,7 +44,7 @@ public class Pair<K, V> implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final Pair other = (Pair) obj;
+        final Pair<K,V> other = (Pair<K,V>) obj;
         return Objects.equals(this.key, other.key)
                 && Objects.equals(this.value, other.value);
     }

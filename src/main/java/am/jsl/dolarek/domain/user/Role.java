@@ -2,12 +2,10 @@ package am.jsl.dolarek.domain.user;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import java.io.Serializable;
-
 /**
 *Wyliczenie ról zawierające możliwe role.
 */
-public enum Role implements Serializable, GrantedAuthority {
+public enum Role implements GrantedAuthority {
 
 	USER,
 	ADMIN;

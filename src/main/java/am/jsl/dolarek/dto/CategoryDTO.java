@@ -1,10 +1,9 @@
 package am.jsl.dolarek.dto;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDTO extends DescriptiveDTO implements Serializable {
+public class CategoryDTO extends DescriptiveDTO {
     private String icon;
     private String color;
     private long parentId;

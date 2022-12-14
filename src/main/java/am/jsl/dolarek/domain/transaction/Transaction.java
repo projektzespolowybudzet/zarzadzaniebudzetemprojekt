@@ -1,6 +1,5 @@
 package am.jsl.dolarek.domain.transaction;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -9,7 +8,7 @@ import am.jsl.dolarek.domain.Descriptive;
 /**
 *Obiekt domeny transakcji.
 */
-public class Transaction extends Descriptive implements Serializable {
+public class Transaction extends Descriptive {
     private long accountId;
     private long categoryId;
     private double amount;

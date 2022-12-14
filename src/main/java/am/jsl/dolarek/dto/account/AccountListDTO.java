@@ -1,13 +1,11 @@
 package am.jsl.dolarek.dto.account;
 
-import java.io.Serializable;
-
 import am.jsl.dolarek.dto.DescriptiveDTO;
 
 /**
 *Służy do przesyłania i wyświetlania szczegółów konta na stronach z listą kont.
 */
-public class AccountListDTO extends DescriptiveDTO implements Serializable {
+public class AccountListDTO extends DescriptiveDTO {
 
     private double balance;
     private byte accountType;
