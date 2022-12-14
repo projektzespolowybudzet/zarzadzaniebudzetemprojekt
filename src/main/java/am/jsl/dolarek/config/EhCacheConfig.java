@@ -16,60 +16,62 @@ import org.springframework.context.annotation.Configuration;
 @EnableCaching
 public class EhCacheConfig {
 
-/**
-*Tworzy menedżera pamięci podręcznej {@link Ehcache} z odpowiednimi konfiguracjami pamięci podręcznej.
-*Służy do przechowywania wyników zapytań userByName, walut, wyszukiwania transakcji.
-*@return CacheManager
-*/
-	@Bean(destroyMethod = "shutdown")
-	public net.sf.ehcache.CacheManager ehCacheManager() {
-		System.setProperty("net.sf.ehcache.skipUpdateCheck", "false");
+  /**
+	 * Tworzy menedżera pamięci podręcznej {@link Ehcache} z odpowiednimi konfiguracjami pamięci podręcznej.
+	 * Służy do przechowywania wyników zapytań userByName, walut, wyszukiwania transakcji.
 
-		//pamięć podręczna użytkownika według nazwy
-		net.sf.ehcache.CacheManager manager = net.sf.ehcache.CacheManager.create();
+	 * @return CacheManager
+	 */
+  @Bean(destroyMethod = "shutdown")
+  public net.sf.ehcache.CacheManager ehCacheManager() {
+    System.setProperty("net.sf.ehcache.skipUpdateCheck", "false");
 
-		CacheConfiguration cacheConfig = new CacheConfiguration();
-		cacheConfig.setName("userByName");
-		cacheConfig.maxEntriesLocalHeap(200);
-		cacheConfig.maxEntriesLocalDisk(10);
-		cacheConfig.timeToLiveSeconds(3600*2);
-		cacheConfig.timeToIdleSeconds(0);
-		Cache cache = new Cache(cacheConfig);
-		manager.addCache(cache);
+    //pamięć podręczna użytkownika według nazwy
+    net.sf.ehcache.CacheManager manager = net.sf.ehcache.CacheManager.create();
 
-		//pamięć podręczna walut
-		cacheConfig = new CacheConfiguration();
-		cacheConfig.setName("currencies");
-		cacheConfig.maxEntriesLocalHeap(200);
-		cacheConfig.maxEntriesLocalDisk(200);
-		cache = new Cache(cacheConfig);
-		manager.addCache(cache);
+    CacheConfiguration cacheConfig = new CacheConfiguration();
+    cacheConfig.setName("userByName");
+    cacheConfig.maxEntriesLocalHeap(200);
+    cacheConfig.maxEntriesLocalDisk(10);
+    cacheConfig.timeToLiveSeconds(3600 * 2);
+    cacheConfig.timeToIdleSeconds(0);
+    Cache cache = new Cache(cacheConfig);
+    manager.addCache(cache);
 
-		//pamięć podręczna kursów walut
-		cacheConfig = new CacheConfiguration();
-		cacheConfig.setName("rates");
-		cacheConfig.maxEntriesLocalHeap(200);
-		cacheConfig.maxEntriesLocalDisk(200);
-		cache = new Cache(cacheConfig);
-		manager.addCache(cache);
+    //pamięć podręczna walut
+    cacheConfig = new CacheConfiguration();
+    cacheConfig.setName("currencies");
+    cacheConfig.maxEntriesLocalHeap(200);
+    cacheConfig.maxEntriesLocalDisk(200);
+    cache = new Cache(cacheConfig);
+    manager.addCache(cache);
 
-		//Pamięć podręczna wyszukiwania transakcji
-		cacheConfig = new CacheConfiguration();
-		cacheConfig.setName("transactionSearch");
-		cacheConfig.maxEntriesLocalHeap(200);
-		cacheConfig.maxEntriesLocalDisk(10);
-		cacheConfig.timeToLiveSeconds(3600*2);
-		cache = new Cache(cacheConfig);
-		manager.addCache(cache);
-		return manager;
-	}
+    //pamięć podręczna kursów walut
+    cacheConfig = new CacheConfiguration();
+    cacheConfig.setName("rates");
+    cacheConfig.maxEntriesLocalHeap(200);
+    cacheConfig.maxEntriesLocalDisk(200);
+    cache = new Cache(cacheConfig);
+    manager.addCache(cache);
 
-/**
-*Tworzy CacheManager wspierany przez menedżera EhCache.
-*@return CacheManager wspierany przez menedżera EhCache.
-*/
-	@Bean
-	public CacheManager cacheManager() {
-		return new EhCacheCacheManager(ehCacheManager());
-	}
+    //Pamięć podręczna wyszukiwania transakcji
+    cacheConfig = new CacheConfiguration();
+    cacheConfig.setName("transactionSearch");
+    cacheConfig.maxEntriesLocalHeap(200);
+    cacheConfig.maxEntriesLocalDisk(10);
+    cacheConfig.timeToLiveSeconds(3600 * 2);
+    cache = new Cache(cacheConfig);
+    manager.addCache(cache);
+    return manager;
+  }
+
+  /**
+   * Tworzy CacheManager wspierany przez menedżera EhCache.
+   *
+   * @return CacheManager wspierany przez menedżera EhCache.
+   */
+  @Bean
+  public CacheManager cacheManager() {
+    return new EhCacheCacheManager(ehCacheManager());
+  }
 }

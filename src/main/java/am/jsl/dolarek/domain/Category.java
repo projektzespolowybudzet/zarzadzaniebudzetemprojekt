@@ -1,56 +1,99 @@
 package am.jsl.dolarek.domain;
 
-
 import java.util.Objects;
 
 /**
-*Obiekt domeny kategorii.
-*/
+ * Obiekt domeny kategorii.
+ */
 public class Category extends Descriptive {
- 
-    public static final String DEFAULT_COLOR= "#a0a0a0";
-    private String icon;
-    private String color;
-    private long parentId;
 
-    public String getIcon() {
-        return icon;
-    }
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+  public static final String DEFAULT_COLOR = "#a0a0a0";
+  private String icon;
+  private String color;
+  private long parentId;
 
-    public String getColor() {
-        return color;
-    }
-    public void setColor(String color) {
-        this.color = color;
-    }
+  /**
+   * Gets the value of the icon property.
+   */
+  public String getIcon() {
+    return icon;
+  }
 
-    public long getParentId() {
-        return parentId;
-    }
-    public void setParentId(long parentId) {
-        this.parentId = parentId;
-    }
+  /**
+   * Sets the icon of the image.
+   *
+   * @param icon - the icon to use for the icon
+   */
+  public void setIcon(String icon) {
+    this.icon = icon;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null)
-            return false;
+  /**
+   * Gets the value of the color property.
+   */
+  public String getColor() {
+    return color;
+  }
 
-        if (o instanceof Category) {
-            final Category other = (Category) o;
-            return Objects.equals(getId(), other.getId())
-                    && Objects.equals(getName(), other.getName());
-        }
-        return false;
-    }
+  /**
+   * Sets the color of the color.
+   *
+   * @param color - The color of the color.
+   */
+  public void setColor(String color) {
+    this.color = color;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName());
+  /**
+   * Gets the value of the parentId property.
+   */
+  public long getParentId() {
+    return parentId;
+  }
+
+  /**
+   * Sets the parentId of the node.
+   *
+   * @param parentId - The id of the parent node.
+   */
+  public void setParentId(long parentId) {
+    this.parentId = parentId;
+  }
+
+  /**
+   * Compares this category and its name.
+   *
+   * @param o - the object to compare this category to the given object.
+   */
+  @Override
+  public boolean equals(Object o) {
+    /**
+     *Returns true if this object is the same as the receiver.
+     */
+    if (this == o) return true;
+    /**
+     *Returns true if the object is null.
+     */
+    if (o == null) return false;
+
+    /**
+     *Returns true if the object is a category.
+     */
+    if (o instanceof Category) {
+      final Category other = (Category) o;
+      return (
+        Objects.equals(getId(), other.getId()) &&
+        Objects.equals(getName(), other.getName())
+      );
     }
+    return false;
+  }
+
+  /**
+   * Returns a hash code for this object.
+   */
+  @Override
+  public int hashCode() {
+    return Objects.hash(getId(), getName());
+  }
 }

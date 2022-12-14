@@ -1,111 +1,204 @@
 package am.jsl.dolarek.domain.transaction;
 
+import am.jsl.dolarek.domain.Descriptive;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-import am.jsl.dolarek.domain.Descriptive;
-
 /**
-*Obiekt domeny transakcji.
-*/
+ * Obiekt domeny transakcji.
+ */
 public class Transaction extends Descriptive {
-    private long accountId;
-    private long categoryId;
-    private double amount;
+
+  private long accountId;
+  private long categoryId;
+  private double amount;
+  /**
+   * @see TransactionStatus
+   */
+  private byte status;
+  private byte transactionType;
+  /**
+   * @see TransactionSource
+   */
+  private byte transactionSource = TransactionSource.MANUAL.getValue();
+  private LocalDateTime transactionDate;
+  /**
+   * @see Transfer
+   */
+  private Transfer transfer = null;
+
+  /**
+   *@return true w przypadku gdy przelew
+   */
+  /**
+   * Returns true if this transaction type is a transfer type.
+   */
+  public boolean isTransferType() {
+    return transactionType == TransactionType.TRANSFER.getValue();
+  }
+
+  /**
+   * Gets the value of the transfer property.
+   */
+  public Transfer getTransfer() {
+    return transfer;
+  }
+
+  /**
+   * Sets the transfer of the transfer.
+   *
+   * @param transfer - The transfer to set.
+   */
+  public void setTransfer(Transfer transfer) {
+    this.transfer = transfer;
+  }
+
+  /**
+   * Gets the value of the accountId property.
+   */
+  public long getAccountId() {
+    return accountId;
+  }
+
+  /**
+   * Sets the accountId value for this InvoiceParamsOutC.
+   *
+   * @param accountId - The accountId of the account to associate with this account.
+   */
+  public void setAccountId(long accountId) {
+    this.accountId = accountId;
+  }
+
+  /**
+   * Gets the value of the categoryId property.
+   */
+  public long getCategoryId() {
+    return categoryId;
+  }
+
+  /**
+   * Sets the value of the categoryId property.
+   *
+   * @param categoryId - The id of the category to set.
+   */
+  public void setCategoryId(long categoryId) {
+    this.categoryId = categoryId;
+  }
+
+  /**
+   * Gets the value of the amount property.
+   */
+  public double getAmount() {
+    return amount;
+  }
+
+  /**
+   * Sets the amount of the amount.
+   *
+   * @param amount - The amount to set.
+   */
+  public void setAmount(double amount) {
+    this.amount = amount;
+  }
+
+  /**
+   * Gets the value of the status field.
+   */
+  public byte getStatus() {
+    return status;
+  }
+
+  /**
+   * Sets the status of the message.
+   *
+   * @param status - The status of the message.
+   */
+  public void setStatus(byte status) {
+    this.status = status;
+  }
+
+  /**
+   * Gets the value of the transactionType property.
+   */
+  public byte getTransactionType() {
+    return transactionType;
+  }
+
+  /**
+   * Sets the transactionType attribute value.
+   *
+   * @param transactionType - The transactionType to set.
+   */
+  public void setTransactionType(byte transactionType) {
+    this.transactionType = transactionType;
+  }
+
+  /**
+   * Gets the value of the transactionDate property.
+   */
+  public LocalDateTime getTransactionDate() {
+    return transactionDate;
+  }
+
+  /**
+   * Sets the transactionDate attribute value.
+   *
+   * @param transactionDate - The transactionDate to set.
+   */
+  public void setTransactionDate(LocalDateTime transactionDate) {
+    this.transactionDate = transactionDate;
+  }
+
+  /**
+   * Gets the value of the transactionSource property.
+   */
+  public byte getTransactionSource() {
+    return transactionSource;
+  }
+
+  /**
+   * Sets the transactionSource attribute value.
+   *
+   * @param transactionSource - The transactionSource to set.
+   */
+  public void setTransactionSource(byte transactionSource) {
+    this.transactionSource = transactionSource;
+  }
+
+  /**
+   * Returns a hash code for this object.
+   */
+  @Override
+  public int hashCode() {
+    return Objects.hash(getId());
+  }
+
+  /**
+   * Compares this transaction with the given object.
+   *
+   * @param obj - the object to compare with this one
+   */
+  @Override
+  public boolean equals(Object obj) {
     /**
-     * @see TransactionStatus
+     * Returns true if this object is the same as this object.
      */
-    private byte status;
-    private byte transactionType;
+    if (this == obj) {
+      return true;
+    }
     /**
-     * @see TransactionSource
+     * Returns true if the object is null or if the class is not the same as the object.
      */
-    private byte transactionSource = TransactionSource.MANUAL.getValue();
-    private LocalDateTime transactionDate;
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
     /**
-     * @see Transfer
+     * Returns true if this object is equal to the object.
      */
-    private Transfer transfer = null;
-    /**
-    *@return true w przypadku gdy przelew
-    */
-    public boolean isTransferType() {
-        return transactionType == TransactionType.TRANSFER.getValue();
+    if (!super.equals(obj)) {
+      return false;
     }
-
-    public Transfer getTransfer() {
-        return transfer;
-    }
-    public void setTransfer(Transfer transfer) {
-        this.transfer = transfer;
-    }
-
-    public long getAccountId() {
-        return accountId;
-    }
-    public void setAccountId(long accountId) {
-        this.accountId = accountId;
-    }
-
-    public long getCategoryId() {
-        return categoryId;
-    }
-    public void setCategoryId(long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public byte getStatus() {
-        return status;
-    }
-    public void setStatus(byte status) {
-        this.status = status;
-    }
-
-    public byte getTransactionType() {
-        return transactionType;
-    }
-    public void setTransactionType(byte transactionType) {
-        this.transactionType = transactionType;
-    }
-
-    public LocalDateTime getTransactionDate() {
-        return transactionDate;
-    }
-    public void setTransactionDate(LocalDateTime transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-
-    public byte getTransactionSource() {
-        return transactionSource;
-    }
-    public void setTransactionSource(byte transactionSource) {
-        this.transactionSource = transactionSource;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        final Transaction other = (Transaction) obj;
-        return Objects.equals(this.getId(), other.getId());
-    }
+    final Transaction other = (Transaction) obj;
+    return Objects.equals(this.getId(), other.getId());
+  }
 }
