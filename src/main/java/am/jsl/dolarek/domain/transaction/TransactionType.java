@@ -21,11 +21,6 @@ public enum TransactionType {
     Arrays.stream(values()).forEach(type -> types.put(type.getValue(), type));
   }
 
-  /**
-   * Returns the TransactionType for the given byte value.
-   *
-   * @param value - the value to get the type for
-   */
   public static TransactionType get(byte value) {
     return types.get(value);
   }
@@ -34,9 +29,6 @@ public enum TransactionType {
     this.value = value;
   }
 
-  /**
-   * Gets the value of the value property.
-   */
   public byte getValue() {
     return value;
   }

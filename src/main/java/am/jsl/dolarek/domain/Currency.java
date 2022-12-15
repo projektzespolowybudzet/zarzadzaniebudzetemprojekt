@@ -7,8 +7,19 @@ import java.io.Serializable;
  */
 public class Currency implements Serializable {
 
+  /**
+   * Kod trzy charakter tej waluty
+   */
   private String code;
+
+  /**
+   * Nazwa tej waluty
+   */
   private String name;
+
+  /**
+   * Natywny symbol tej waluty
+   */
   private String symbol;
 
   /**

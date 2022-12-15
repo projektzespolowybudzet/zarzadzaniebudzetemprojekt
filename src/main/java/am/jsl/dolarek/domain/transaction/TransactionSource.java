@@ -6,6 +6,9 @@ package am.jsl.dolarek.domain.transaction;
 public enum TransactionSource {
   MANUAL((byte) 1);
 
+  /*
+   * Wartość
+   */
   private byte value;
 
   TransactionSource(byte value) {

@@ -8,6 +8,9 @@ import java.util.Objects;
  */
 public class NamedEntity extends BaseEntity {
 
+  /**
+   * Nazwa
+   */
   private String name;
 
   /**

@@ -7,10 +7,29 @@ import java.io.Serializable;
  */
 public class Transfer implements Serializable {
 
+  /**
+   * Wewnętrzny identyfikator
+   */
   private long id;
+
+  /**
+   * Identyfikator transakcji
+   */
   private long transactionId;
+
+  /**
+   * Identyfikator konta docelowego
+   */
   private long targetAccountId = 0;
+
+  /**
+   * Konwertowana kwota, która zostanie przeniesiona na konto docelowe
+   */
   private double convertedAmount = 0;
+
+  /**
+   * Kurs wymiany
+   */
   private double rate = 0;
 
   /**

@@ -1,44 +1,97 @@
 package am.jsl.dolarek.dto.transaction;
 
+import am.jsl.dolarek.domain.transaction.TransactionType;
 import java.io.Serializable;
 
-import am.jsl.dolarek.domain.transaction.TransactionType;
-
 /**
-*TransactionListTotalDTO służy do wyświetlania sum transakcji pogrupowanych według typu transakcji i rachunku.
-*/
+ *TransactionListTotalDTO służy do wyświetlania sum transakcji pogrupowanych według typu transakcji i rachunku.
+ */
 public class TransactionListTotalDTO implements Serializable {
 
-    private byte transactionType;
-    private double total;
-    private String symbol;
+  /**
+   * Typ transakcji
+   */
+  private byte transactionType;
 
-    public String getTransactionTypeClass() {
-        return "trType" + transactionType;
-    }
+  /**
+   * Całkowita kwota
+   */
+  private double total;
 
-    public boolean isExpense() {
-        return transactionType == TransactionType.EXPENSE.getValue();
-    }
+  /**
+   * Natywny symbol waluty
+   */
+  private String symbol;
 
-    public byte getTransactionType() {
-        return transactionType;
-    }
-    public void setTransactionType(byte transactionType) {
-        this.transactionType = transactionType;
-    }
+  /**
+   * Zwraca klasę CSS dla typu transakcji
+   *
+   * @return klasa CSS
+   */
+  public String getTransactionTypeClass() {
+    return "trType" + transactionType;
+  }
 
-    public double getTotal() {
-        return total;
-    }
-    public void setTotal(double total) {
-        this.total = total;
-    }
+  /**
+   * Zwraca prawdę, jeśli typ transakcji jest kosztem.
+   *
+   * @return prawda, jeśli typ transakcji jest kosztem.
+   */
+  public boolean isExpense() {
+    return transactionType == TransactionType.EXPENSE.getValue();
+  }
 
-    public String getSymbol() {
-        return symbol;
-    }
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
+  /**
+   * Getter for property 'transactionType'.
+   *
+   * @return Value for property 'transactionType'.
+   */
+  public byte getTransactionType() {
+    return transactionType;
+  }
+
+  /**
+   * Setter for property 'transactionType'.
+   *
+   * @param transactionType Value to set for property 'transactionType'.
+   */
+  public void setTransactionType(byte transactionType) {
+    this.transactionType = transactionType;
+  }
+
+  /**
+   * Getter for property 'total'.
+   *
+   * @return Value for property 'total'.
+   */
+  public double getTotal() {
+    return total;
+  }
+
+  /**
+   * Setter for property 'total'.
+   *
+   * @param total Value to set for property 'total'.
+   */
+  public void setTotal(double total) {
+    this.total = total;
+  }
+
+  /**
+   * Getter for property 'symbol'.
+   *
+   * @return Value for property 'symbol'.
+   */
+  public String getSymbol() {
+    return symbol;
+  }
+
+  /**
+   * Setter for property 'symbol'.
+   *
+   * @param symbol Value to set for property 'symbol'.
+   */
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
 }

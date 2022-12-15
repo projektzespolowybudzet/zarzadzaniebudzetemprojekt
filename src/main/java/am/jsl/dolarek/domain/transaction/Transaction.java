@@ -9,29 +9,53 @@ import java.util.Objects;
  */
 public class Transaction extends Descriptive {
 
-  private long accountId;
-  private long categoryId;
-  private double amount;
   /**
+   * Identyfikator konta
+   */
+  private long accountId;
+
+  /**
+   * Identyfikator kategorii
+   */
+  private long categoryId;
+
+  /**
+   * Ilość
+   */
+  private double amount;
+
+  /**
+   * Status
    * @see TransactionStatus
    */
   private byte status;
-  private byte transactionType;
+
   /**
+   * Typ transakcji
+   */
+  private byte transactionType;
+
+  /**
+   * Źródło transakcji
    * @see TransactionSource
    */
   private byte transactionSource = TransactionSource.MANUAL.getValue();
-  private LocalDateTime transactionDate;
+
   /**
+   * Data transakcji
+   */
+  private LocalDateTime transactionDate;
+
+  /**
+   * Przekazuje szczegóły typu transferu
    * @see Transfer
    */
   private Transfer transfer = null;
 
   /**
-   *@return true w przypadku gdy przelew
-   */
-  /**
-   * Returns true if this transaction type is a transfer type.
+   * Zwraca true, jeśli typ transakcji, jeśli przeniesienie
+   *
+   * @return true jeśli typ transakcji, jeśli przeniesienie
    */
   public boolean isTransferType() {
     return transactionType == TransactionType.TRANSFER.getValue();

@@ -8,16 +8,45 @@ import java.util.Objects;
  */
 public class Account extends Descriptive {
 
-  private double balance;
   /**
+   * Bieżące saldo tego konta
+   */
+  private double balance;
+
+  /**
+   * Rodzaj tego konta
    * @see AccountType
    */
   private byte accountType;
+
+  /**
+   * Kod waluty ISO 4217 tego konta
+   */
   private String currency;
+
+  /**
+   * Natywny symbol waluty
+   */
   private String symbol;
+
+  /**
+   * Status konta.To prawda, jeśli jest aktywny
+   */
   private boolean active = true;
+
+  /**
+   * Ikona tego konta
+   */
   private String icon;
+
+  /**
+   * Kolor tego konta
+   */
   private String color;
+
+  /**
+   * Kolejność sortowania
+   */
   private int sortOrder;
 
   /**

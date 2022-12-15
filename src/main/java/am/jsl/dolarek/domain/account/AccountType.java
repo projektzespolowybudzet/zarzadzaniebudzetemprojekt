@@ -17,9 +17,6 @@ public enum AccountType {
     this.value = value;
   }
 
-  /**
-   * Gets the value of the value property.
-   */
   public byte getValue() {
     return value;
   }

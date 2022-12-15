@@ -10,10 +10,25 @@ import java.util.Objects;
  */
 public class BaseEntity implements Serializable {
 
+  /**
+   * Wewnętrzny identyfikator
+   */
   private long id;
+  /**
+   * Identyfikator użytkownika
+   */
   protected long userId;
+  /**
+   * Utworzone w
+   */
   protected LocalDateTime createdAt = null;
+  /**
+   * Zmieniony przez
+   */
   protected long changedBy = 0;
+  /**
+   * Zmieniono w
+   */
   protected LocalDateTime changedAt = null;
 
   /**
@@ -116,16 +131,16 @@ public class BaseEntity implements Serializable {
   @Override
   public boolean equals(Object o) {
     /**
-     *Returns true if this object is the same as the receiver.
+     * Returns true if this object is the same as the receiver.
      */
     if (this == o) return true;
     /**
-     *Returns true if the object is null.
+     * Returns true if the object is null.
      */
     if (o == null) return false;
 
     /**
-     *Checks if this entity is a base entity.
+     * Checks if this entity is a base entity.
      */
     if (o instanceof BaseEntity) {
       final BaseEntity other = (BaseEntity) o;

@@ -15,18 +15,64 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public class User extends BaseEntity implements UserDetails {
 
+  /**
+   * Login użytkownika
+   */
   private String login;
+
+  /**
+   * Hasło użytkownika
+   */
   private String password;
+
+  /**
+   * Imię użytkownika
+   */
   private String firstName;
+
+  /**
+   * Nazwisko użytkownika
+   */
   private String lastName;
+
+  /**
+   * E-mail użytkownika
+   */
   private String email;
+
+  /**
+   * Telefon użytkownika
+   */
   private String phone;
+
+  /**
+   * Ikona użytkownika
+   */
   private String icon = null;
+
+  /**
+   * Użytkownik ostatnio zalogowany w dniu
+   */
   private LocalDateTime lastLogin = null;
+
+  /**
+   * Wskazuje, czy ten użytkownik jest włączony
+   */
   private boolean enabled = true;
+
+  /**
+   * Rola użytkownika
+   */
   private Role role;
+
+  /**
+   * Władze użytkowników
+   */
   private Set<GrantedAuthority> authorities = null;
 
+  /**
+   * Domyślny konstruktor
+   */
   public User() {
     super();
   }

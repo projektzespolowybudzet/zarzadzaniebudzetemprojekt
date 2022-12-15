@@ -10,18 +10,44 @@ import java.util.Objects;
  */
 public class VerificationToken {
 
+  /**
+   * Czas wygaśnięcia tokenu weryfikacji (24 godziny)
+   */
   private static final int EXPIRATION = 60 * 24;
+
+  /**
+   * Wewnętrzny identyfikator
+   */
   private long id;
+
+  /**
+   * Unikalny, losowo wygenerowany token
+   */
   private String token;
 
   /**
-   * (NEW_ACCOUNT, PASSWORD_RESET)
+   *Typ tokena (NEW_ACCOUNT, PASSWORD_RESET)
    */
   private byte tokenType;
+
+  /**
+   * Identyfikator użytkownika powiązany z tym tokenem weryfikacyjnym
+   */
   private long userId;
+
+  /**
+   * Data ważności tego tokena weryfikacji
+   */
   private Date expiryDate;
+
+  /**
+   * Wskazuje, czy ten token weryfikacyjny wygasł
+   */
   private boolean expired = false;
 
+  /**
+   * Domyślny konstruktor
+   */
   public VerificationToken() {
     super();
   }
@@ -31,11 +57,6 @@ public class VerificationToken {
    *
    * @param expiryTimeInMinutes Czas wygaśnięcia w minutach
    * @return Data wygaśnięcia
-   */
-  /**
-   * Calculates the expiry date for the given number of minutes.
-   *
-   * @param expiryTimeInMinutes - the number of minutes to add to the expiry date
    */
   private Date calculateExpiryDate(final int expiryTimeInMinutes) {
     final Calendar cal = Calendar.getInstance();
@@ -48,11 +69,6 @@ public class VerificationToken {
    * Ustawia token i oblicza datę ważności tego tokena weryfikacyjnego.
    *
    * @param token Token do ustawienia
-   */
-  /**
-   * Updates the token and expiration date.
-   *
-   * @param token - the new token to be updated
    */
   public void updateToken(final String token) {
     this.token = token;

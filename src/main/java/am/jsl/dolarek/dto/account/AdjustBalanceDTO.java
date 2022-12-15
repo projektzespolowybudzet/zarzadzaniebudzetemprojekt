@@ -1,38 +1,74 @@
 package am.jsl.dolarek.dto.account;
 
+import java.io.Serializable;
 import org.springframework.format.annotation.NumberFormat;
 
-import java.io.Serializable;
-
 /**
-*Używany do przenoszenia wyrównania salda konta z sieci.
-*/
+ * Używany do przenoszenia wyrównania salda konta z sieci.
+ */
 public class AdjustBalanceDTO implements Serializable {
 
-    private long id;
-    @NumberFormat(pattern = "#,##0.00")
-    private double balance;
-    private long userId;
+  /**
+   * Identyfikator konta
+   */
+  private long id;
 
-    public long getId() {
-        return id;
-    }
+  /**
+   * Równowaga do ustawiania
+   */
+  @NumberFormat(pattern = "0.00")
+  private double balance;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  /**
+   * Identyfikator użytkownika konta
+   */
+  private long userId;
 
-    public double getBalance() {
-        return balance;
-    }
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
+  /**
+   * Gets the value of the id property.
+   */
+  public long getId() {
+    return id;
+  }
 
-    public long getUserId() {
-        return userId;
-    }
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
+  /**
+   * Sets the id of the object.
+   *
+   * @param id - The new value of id.
+   */
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  /**
+   * Gets the value of the balance property.
+   */
+  public double getBalance() {
+    return balance;
+  }
+
+  /**
+   * Sets the balance of the item.
+   *
+   * @param balance - the balance of the item.
+   */
+  public void setBalance(double balance) {
+    this.balance = balance;
+  }
+
+  /**
+   * Gets the value of the userId property.
+   */
+  public long getUserId() {
+    return userId;
+  }
+
+  /**
+   * Sets the userId value for this User.
+   *
+   * @param userId - The userId of the user to be used for the user.
+   */
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
 }

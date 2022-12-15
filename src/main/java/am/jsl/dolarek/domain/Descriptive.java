@@ -8,6 +8,9 @@ import java.util.Objects;
  */
 public class Descriptive extends NamedEntity {
 
+  /**
+   * Opis
+   */
   protected String description;
 
   /**

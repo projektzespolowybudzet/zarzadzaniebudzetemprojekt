@@ -8,10 +8,19 @@ import am.jsl.dolarek.domain.BaseEntity;
 public class Event extends BaseEntity {
 
   /**
+   * Rodzaj zdarzenia
    * @see EventType
    */
   private byte eventType;
+
+  /**
+   * Wiadomość wydarzenia
+   */
   private String message;
+
+  /**
+   * Identyfikator użytkownika utworzony przez zdarzenie
+   */
   private long performedBy;
 
   /**
@@ -28,6 +37,9 @@ public class Event extends BaseEntity {
     this.performedBy = performedBy;
   }
 
+  /**
+   * Domyślny konstruktor
+   */
   public Event() {
     super();
   }

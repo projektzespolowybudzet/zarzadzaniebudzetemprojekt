@@ -7,9 +7,24 @@ import java.util.Objects;
  */
 public class Category extends Descriptive {
 
+  /**
+   * Domyślny kolor kategorii
+   */
   public static final String DEFAULT_COLOR = "#a0a0a0";
+
+  /**
+   * Ikona tej kategorii
+   */
   private String icon;
+
+  /**
+   * Kolor tej kategorii
+   */
   private String color;
+
+  /**
+   * Identyfikator nadrzędny tej kategorii
+   */
   private long parentId;
 
   /**
@@ -68,16 +83,16 @@ public class Category extends Descriptive {
   @Override
   public boolean equals(Object o) {
     /**
-     *Returns true if this object is the same as the receiver.
+     * Returns true if this object is the same as the receiver.
      */
     if (this == o) return true;
     /**
-     *Returns true if the object is null.
+     * Returns true if the object is null.
      */
     if (o == null) return false;
 
     /**
-     *Returns true if the object is a category.
+     * Returns true if the object is a category.
      */
     if (o instanceof Category) {
       final Category other = (Category) o;

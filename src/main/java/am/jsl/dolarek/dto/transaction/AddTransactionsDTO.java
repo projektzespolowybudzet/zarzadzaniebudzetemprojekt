@@ -1,79 +1,189 @@
 package am.jsl.dolarek.dto.transaction;
 
+import am.jsl.dolarek.domain.transaction.Transaction;
+import am.jsl.dolarek.util.DateUtils;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import am.jsl.dolarek.domain.transaction.Transaction;
-import am.jsl.dolarek.util.DateUtils;
-
 /**
-*AddTransactionsDTO jest używany do transakcji wsadowych ze strony dodawania transakcji wsadowych.
-*/
+ * AddTransactionsDTO jest używany do transakcji wsadowych ze strony dodawania transakcji wsadowych.
+ */
 public class AddTransactionsDTO implements Serializable {
 
-    private String description;
-    private long accountId;
-    private byte transactionType;
-    private String transactionDate;
-    private long userId;
-    private List<Transaction> transactions = new ArrayList<>();
+  /**
+   * Opis
+   */
+  private String description;
 
-    public AddTransactionsDTO() {
-        super();
-    }
+  /**
+   * Identyfikator konta
+   */
+  private long accountId;
 
-    public AddTransactionsDTO(long accountId, byte transactionType, LocalDateTime transactionDate, long userId) {
-        super();
-        this.accountId = accountId;
-        this.transactionType = transactionType;
-        this.transactionDate = DateUtils.format(transactionDate);
-        this.userId = userId;
-    }
+  /**
+   * Typ transakcji
+   */
+  private byte transactionType;
 
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  /**
+   * Data transakcji
+   */
+  private String transactionDate;
 
-    public long getAccountId() {
-        return accountId;
-    }
-    public void setAccountId(long accountId) {
-        this.accountId = accountId;
-    }
+  /**
+   * Identyfikator użytkownika
+   */
+  private long userId;
 
-    public byte getTransactionType() {
-        return transactionType;
-    }
-    public void setTransactionType(byte transactionType) {
-        this.transactionType = transactionType;
-    }
+  /**
+   * Lista transakcji, które należy utworzyć
+   */
+  private List<Transaction> transactions = new ArrayList<>();
 
-    public String getTransactionDate() {
-        return transactionDate;
-    }
-    public void setTransactionDate(String transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-    
-    public long getUserId() {
-        return userId;
-    }
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
+  /**
+   * Domyślny konstruktor
+   */
+  public AddTransactionsDTO() {
+    super();
+  }
 
-    public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
-    }
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
+  /**
+   * Konstruuje nowe addtransactionsdto z danymi dziedzinami.
+   *
+   * @param accountId       the account id
+   * @param transactionType the transaction type
+   * @param transactionDate the transaction date
+   * @param userId          the user id
+   */
+  public AddTransactionsDTO(
+    long accountId,
+    byte transactionType,
+    LocalDateTime transactionDate,
+    long userId
+  ) {
+    super();
+    this.accountId = accountId;
+    this.transactionType = transactionType;
+    this.transactionDate = DateUtils.format(transactionDate);
+    this.userId = userId;
+  }
+
+  /**
+   * Getter for property 'description'.
+   *
+   * @return Value for property 'description'.
+   */
+  public String getDescription() {
+    return description;
+  }
+
+  /**
+   * Setter for property 'description'.
+   *
+   * @param description Value to set for property 'description'.
+   */
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  /**
+   * Getter for property 'accountId'.
+   *
+   * @return Value for property 'accountId'.
+   */
+  public long getAccountId() {
+    return accountId;
+  }
+
+  /**
+   * Setter for property 'accountId'.
+   *
+   * @param accountId Value to set for property 'accountId'.
+   */
+  public void setAccountId(long accountId) {
+    this.accountId = accountId;
+  }
+
+  /**
+   * Getter for property 'transactionType'.
+   *
+   * @return Value for property 'transactionType'.
+   */
+  public byte getTransactionType() {
+    return transactionType;
+  }
+
+  /**
+   * Setter for property 'transactionType'.
+   *
+   * @param transactionType Value to set for property 'transactionType'.
+   */
+  public void setTransactionType(byte transactionType) {
+    this.transactionType = transactionType;
+  }
+
+  /**
+   * Getter for property 'transactionDate'.
+   *
+   * @return Value for property 'transactionDate'.
+   */
+  public String getTransactionDate() {
+    return transactionDate;
+  }
+
+  /**
+   * Setter for property 'transactionDate'.
+   *
+   * @param transactionDate Value to set for property 'transactionDate'.
+   */
+  public void setTransactionDate(String transactionDate) {
+    this.transactionDate = transactionDate;
+  }
+
+  /**
+   * Getter for property 'userId'.
+   *
+   * @return Value for property 'userId'.
+   */
+  public long getUserId() {
+    return userId;
+  }
+
+  /**
+   * Setter for property 'userId'.
+   *
+   * @param userId Value to set for property 'userId'.
+   */
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
+
+  /**
+   * Add transaction.
+   *
+   * @param transaction the transaction
+   */
+  public void addTransaction(Transaction transaction) {
+    transactions.add(transaction);
+  }
+
+  /**
+   * Getter for property 'transactions'.
+   *
+   * @return Value for property 'transactions'.
+   */
+  public List<Transaction> getTransactions() {
+    return transactions;
+  }
+
+  /**
+   * Setter for property 'transactions'.
+   *
+   * @param transactions Value to set for property 'transactions'.
+   */
+  public void setTransactions(List<Transaction> transactions) {
+    this.transactions = transactions;
+  }
 }

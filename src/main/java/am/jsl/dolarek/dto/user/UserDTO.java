@@ -1,172 +1,369 @@
 package am.jsl.dolarek.dto.user;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Objects;
-
 import am.jsl.dolarek.domain.user.Role;
 import am.jsl.dolarek.domain.user.User;
 import am.jsl.dolarek.util.Constants;
 import am.jsl.dolarek.util.TextUtils;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
-*Typ UserDTO
-*/
+ * Typ UserDTO
+ */
 public class UserDTO implements Serializable {
 
-    private static final long serialVersionUID = 8416849345869102122L;
-    private long id;
-    private String login;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
-    private String icon = null;
-    private String password;
-    private String confirmPassword;
-    private boolean enabled;
-    private Role role;
-    private LocalDateTime lastLogin = null;
+  private static final long serialVersionUID = 8416849345869102122L;
 
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
+  /**
+   * Wewnętrzny identyfikator
+   */
+  private long id;
 
-    public String getLogin() {
-        return login;
-    }
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  /**
+   * Logowanie użytkownika
+   */
+  private String login;
 
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  /**
+   * Imię użytkownika
+   */
+  private String firstName;
 
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  /**
+   * Nazwisko użytkownika
+   */
+  private String lastName;
 
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  /**
+   * E -mail użytkownika
+   */
+  private String email;
 
-    public String getPhone() {
-        return phone;
-    }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+  /**
+   * Telefon użytkownika
+   */
+  private String phone;
 
-    public String getIcon() {
-        return icon;
-    }
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+  /**
+   * Ikona użytkownika
+   */
+  private String icon = null;
 
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  /**
+   * Hasło użytkownika
+   */
+  private String password;
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
+  /**
+   * potwierdzoneHasłoUżytkownika
+   */
+  private String confirmPassword;
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+  /**
+   * Wskazuje, czy ten użytkownik jest włączony
+   */
+  private boolean enabled;
 
-    public Role getRole() {
-        return role;
-    }
-    public void setRole(Role role) {
-        this.role = role;
-    }
+  /**
+   * Rola tego użytkownika
+   */
+  private Role role;
 
-    public LocalDateTime getLastLogin() {
-        return lastLogin;
-    }
-    public void setLastLogin(LocalDateTime lastLogin) {
-        this.lastLogin = lastLogin;
-    }
+  /**
+   * Ostatnio zalogowany w dniu
+   */
+  private LocalDateTime lastLogin = null;
 
-    public String getIconPath() {
-        if (!TextUtils.isEmpty(icon)) {
-            StringBuilder path = new StringBuilder();
-            path.append(Constants.USER_IMG_PATH).append(id);
-            path.append(Constants.SLASH).append(icon);
-            return path.toString();
-        }
-        return Constants.USER_PROFILE_DEFAULT_IMG;
-    }
+  /**
+   * Gets id.
+   *
+   * @return the id
+   */
+  public long getId() {
+    return id;
+  }
 
-    public static UserDTO from(User user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setLogin(user.getUsername());
-        userDTO.setFirstName(user.getFirstName());
-        userDTO.setLastName(user.getLastName());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setPhone(user.getPhone());
-        userDTO.setIcon(user.getIcon());
-        userDTO.setEnabled(user.isEnabled());
-        userDTO.setRole(user.getRole());
-        return userDTO;
-    }
+  /**
+   * Sets id.
+   *
+   * @param id the id
+   */
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public User toUser() {
-        User user = new User();
-        user.setId(id);
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setPhone(phone);
-        user.setIcon(icon);
-        user.setEnabled(enabled);
-        user.setRole(role);
-        return user;
-    }
+  /**
+   * Gets login.
+   *
+   * @return the login
+   */
+  public String getLogin() {
+    return login;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, login, email);
-    }
+  /**
+   * Sets login.
+   *
+   * @param login the login
+   */
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final UserDTO other = (UserDTO) obj;
-        return Objects.equals(this.id, other.id)
-                && Objects.equals(this.login, other.login)
-                && Objects.equals(this.email, other.email);
+  /**
+   * Gets first name.
+   *
+   * @return the first name
+   */
+  public String getFirstName() {
+    return firstName;
+  }
+
+  /**
+   * Sets first name.
+   *
+   * @param firstName the first name
+   */
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  /**
+   * Gets last name.
+   *
+   * @return the last name
+   */
+  public String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * Sets last name.
+   *
+   * @param lastName the last name
+   */
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  /**
+   * Gets email.
+   *
+   * @return the email
+   */
+  public String getEmail() {
+    return email;
+  }
+
+  /**
+   * Sets email.
+   *
+   * @param email the email
+   */
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  /**
+   * Gets phone.
+   *
+   * @return the phone
+   */
+  public String getPhone() {
+    return phone;
+  }
+
+  /**
+   * Sets phone.
+   *
+   * @param phone the phone
+   */
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  /**
+   * Gets icon.
+   *
+   * @return the icon
+   */
+  public String getIcon() {
+    return icon;
+  }
+
+  /**
+   * Sets icon.
+   *
+   * @param icon the icon
+   */
+  public void setIcon(String icon) {
+    this.icon = icon;
+  }
+
+  /**
+   * Gets password.
+   *
+   * @return the password
+   */
+  public String getPassword() {
+    return password;
+  }
+
+  /**
+   * Sets password.
+   *
+   * @param password the password
+   */
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  /**
+   * Gets confirm password.
+   *
+   * @return the confirm password
+   */
+  public String getConfirmPassword() {
+    return confirmPassword;
+  }
+
+  /**
+   * Sets confirm password.
+   *
+   * @param confirmPassword the confirm password
+   */
+  public void setConfirmPassword(String confirmPassword) {
+    this.confirmPassword = confirmPassword;
+  }
+
+  /**
+   * Jest włączony boolean
+   *
+   * @return boolean
+   */
+  public boolean isEnabled() {
+    return enabled;
+  }
+
+  /**
+   * Sets enabled.
+   *
+   * @param enabled the enabled
+   */
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  /**
+   * Gets role.
+   *
+   * @return the role
+   */
+  public Role getRole() {
+    return role;
+  }
+
+  /**
+   * Sets role.
+   *
+   * @param role the role
+   */
+  public void setRole(Role role) {
+    this.role = role;
+  }
+
+  /**
+   * Gets last login.
+   *
+   * @return the last login
+   */
+  public LocalDateTime getLastLogin() {
+    return lastLogin;
+  }
+
+  /**
+   * Sets last login.
+   *
+   * @param lastLogin the last login
+   */
+  public void setLastLogin(LocalDateTime lastLogin) {
+    this.lastLogin = lastLogin;
+  }
+
+  /**
+   * Otrzymuje pełną ścieżkę ikony użytkownika
+   *
+   * @return ścieżka ikony
+   */
+  public String getIconPath() {
+    if (!TextUtils.isEmpty(icon)) {
+      StringBuilder path = new StringBuilder();
+      path.append(Constants.USER_IMG_PATH).append(id);
+      path.append(Constants.SLASH).append(icon);
+      return path.toString();
     }
+    return Constants.USER_PROFILE_DEFAULT_IMG;
+  }
+
+  /**
+   * Tworzy obiekt userDTO z obiektu domeny użytkownika
+   *
+   * @param user użytkownik
+   * @return  UserDTO
+   */
+  public static UserDTO from(User user) {
+    UserDTO userDTO = new UserDTO();
+    userDTO.setId(user.getId());
+    userDTO.setLogin(user.getUsername());
+    userDTO.setFirstName(user.getFirstName());
+    userDTO.setLastName(user.getLastName());
+    userDTO.setEmail(user.getEmail());
+    userDTO.setPhone(user.getPhone());
+    userDTO.setIcon(user.getIcon());
+    userDTO.setEnabled(user.isEnabled());
+    userDTO.setRole(user.getRole());
+    return userDTO;
+  }
+
+  /**
+   * Konwertuje userDTO na obiekt domeny użytkownika.
+   *
+   * @return obiekt domeny użytkownika
+   */
+  public User toUser() {
+    User user = new User();
+    user.setId(id);
+    user.setLogin(login);
+    user.setPassword(password);
+    user.setFirstName(firstName);
+    user.setLastName(lastName);
+    user.setEmail(email);
+    user.setPhone(phone);
+    user.setIcon(icon);
+    user.setEnabled(enabled);
+    user.setRole(role);
+    return user;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, login, email);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+    final UserDTO other = (UserDTO) obj;
+    return (
+      Objects.equals(this.id, other.id) &&
+      Objects.equals(this.login, other.login) &&
+      Objects.equals(this.email, other.email)
+    );
+  }
 }

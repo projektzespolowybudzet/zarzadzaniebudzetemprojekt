@@ -24,11 +24,6 @@ public enum EventType {
     this.operation = operation;
   }
 
-  /**
-   * Returns the event type by value.
-   *
-   * @param value - the value to search for
-   */
   public static EventType getByValue(byte value) {
     EventType[] values = values();
 
@@ -39,34 +34,18 @@ public enum EventType {
       .orElse(null);
   }
 
-  /**
-   * Gets the value of the value property.
-   */
   public byte getValue() {
     return value;
   }
 
-  /**
-   * Sets the value of the value property.
-   *
-   * @param value - allowed object is { @link byte }
-   */
   public void setValue(byte value) {
     this.value = value;
   }
 
-  /**
-   * Gets the value of the operation property.
-   */
   public String getOperation() {
     return operation;
   }
 
-  /**
-   * Sets the operation attribute value.
-   *
-   * @param operation - The operation to set.
-   */
   public void setOperation(String operation) {
     this.operation = operation;
   }
