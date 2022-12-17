@@ -48,6 +48,7 @@
                                 id="type"
                                 name="type"
                                 class="form-control"
+                                onchange="javascript:loadPieChartData()"
                               >
                                 <option
                                   th:value="${T(am.jsl.dolarek.domain.transaction.TransactionType).EXPENSE.value}"
@@ -69,6 +70,7 @@
                                 name="daterange"
                                 type="text"
                                 class="form-control"
+                                onchange="javascript:loadPieChartData()"
                               />
                             </div>
                             <div class="form-group col-md-4 col-sm-4 col-xs-6">
@@ -77,6 +79,7 @@
                                 name="account"
                                 class="form-control"
                                 style="font-family: 'FontAwesome'"
+                                onchange="javascript:loadPieChartData()"
                               ></select>
                             </div>
                             <div class="form-group col-md-1 col-sm-1 col-xs-1">
