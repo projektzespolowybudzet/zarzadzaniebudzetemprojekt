@@ -253,7 +253,7 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
     private static final String createBatchSql = "insert into transaction "
             + "(id,  account_id, category_id, amount, status, " +
             "transaction_type, transaction_source, transaction_date, description, user_id) "
-            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     @Override
     public void createBatch(List<Transaction> transactions) {
@@ -274,8 +274,8 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
                 ps.setByte(6, transaction.getTransactionType());
                 ps.setByte(7, transaction.getTransactionSource());
                 ps.setTimestamp(8, DateUtils.convert(transaction.getTransactionDate()));
-                ps.setString(10, transaction.getDescription());
-                ps.setLong(11, transaction.getUserId());
+                ps.setString(9, transaction.getDescription());
+                ps.setLong(10, transaction.getUserId());
             }
 
             @Override
