@@ -67,10 +67,10 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
             + "inner join category cat on cat.id = t.category_id "
             + "left join category pcat on pcat.id = cat.parent_id "
             + "where 1=1 ";
-    private static final String columnsSql = "distinct t.id, acc.symbol," +
+    private static final String columnsSql = "distinct t.id, acc.symbol, acc.name, acc.icon, acc.color, " +
             "cat.name as category, cat.icon as category_icon, cat.color as category_color, " +
             "pcat.name as parent_category, pcat.icon as parent_category_icon, pcat.color as parent_category_color, " +
-            "t.amount, t.transaction_type, t.transaction_date ";
+            "t.amount, t.transaction_type, t.transaction_date, t.description ";
 
     @Override
     public TransactionSearchResult search(TransactionSearchQuery searchQuery) {
@@ -290,6 +290,7 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements Tran
             + "acc.name as account, acc.icon as account_icon, acc.color as account_color, acc.symbol, "
             + "cat.name as category, cat.icon as category_icon, cat.color as category_color, "
             + "pcat.name as parent_category, pcat.icon as parent_category_icon, pcat.color as parent_category_color, "
+            + "t.description "
             + "from transaction t "
             + "inner join account acc on acc.id = t.account_id "
             + "inner join category cat on cat.id = t.category_id "

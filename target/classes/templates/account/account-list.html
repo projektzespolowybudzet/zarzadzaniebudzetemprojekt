@@ -88,11 +88,11 @@
 												</td>
 												<td>
 													<div class="hidden-sm hidden-xs action-buttons btn-group center">
-														<a href="#" class="orange" th:data-id="${account.id}" th:data-balance="${account.balance}"
+														<!--<a href="#" class="orange" th:data-id="${account.id}" th:data-balance="${account.balance}"
 														   data-toggle="modal" data-target="#adjustBalance">
 															<i class="ace-icon fa fa-adjust bigger-130" th:title="#{account.adjust.balance}"></i>
 														</a>
-														&#160;
+														&#160;-->
 														<a href="#" class="green" data-th-href="@{/account/edit(id=${account.id})}">
 															<i class="ace-icon fa fa-pencil bigger-130" th:title="#{button.edit}"></i>
 														</a>
@@ -110,12 +110,12 @@
 															</button>
 
 															<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																<li>
+																<!--<li>
 																	<a href="#" class="orange" th:data-id="${account.id}" th:data-balance="${account.balance}"
 																	   data-toggle="modal" data-target="#adjustBalance">
 																		<i class="ace-icon fa fa-adjust bigger-130" th:title="#{account.adjust.balance}"></i>
 																	</a>
-																</li>
+																</li>-->
 																<li>
 																	<a href="#" class="green" data-th-href="@{/account/edit(id=${account.id})}">
 																		<i class="ace-icon fa fa-pencil bigger-130" th:title="#{button.edit}"></i>

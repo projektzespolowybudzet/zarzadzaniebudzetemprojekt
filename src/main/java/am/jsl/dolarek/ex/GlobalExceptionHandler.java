@@ -22,8 +22,9 @@ public class GlobalExceptionHandler {
     private ErrorTrackerService errorTrackerService;
 
     @ExceptionHandler(Exception.class)
-    public void handle(final Exception e) {
+    public String handle(final Exception e) {
         log.error("Handled exception: " + e.getMessage(), e);
         errorTrackerService.sendError(e);
+        return "/error";
     }
 }

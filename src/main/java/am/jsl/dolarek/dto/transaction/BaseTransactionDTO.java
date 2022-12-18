@@ -1,10 +1,10 @@
 package am.jsl.dolarek.dto.transaction;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import am.jsl.dolarek.domain.transaction.TransactionType;
 import am.jsl.dolarek.dto.DescriptiveDTO;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
 *BaseTransactionDTO zawiera szczegóły transakcji dotyczące przesyłania między warstwami aplikacji.
@@ -13,6 +13,8 @@ public class BaseTransactionDTO extends DescriptiveDTO implements Serializable {
  
     protected String symbol;
     protected String category;
+    protected String accountIcon;
+    protected String accountColor;
     protected String categoryIcon;
     protected String categoryColor;
     protected String parentCategory;
@@ -43,6 +45,20 @@ public class BaseTransactionDTO extends DescriptiveDTO implements Serializable {
     }
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    public String getAccountIcon() {
+        return accountIcon;
+    }
+    public void setAccountIcon(String accountIcon) {
+        this.accountIcon = accountIcon;
+    }
+
+    public String getAccountColor() {
+        return accountColor;
+    }
+    public void setAccountColor(String accountColor) {
+        this.accountColor = accountColor;
     }
     
     public String getCategory() {

@@ -1,10 +1,10 @@
 package am.jsl.dolarek.domain.transaction;
 
+import am.jsl.dolarek.domain.Descriptive;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-
-import am.jsl.dolarek.domain.Descriptive;
 
 /**
 *Obiekt domeny transakcji.

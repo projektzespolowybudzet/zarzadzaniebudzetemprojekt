@@ -34,6 +34,12 @@
           <span class="categoryLabel" th:text="${transaction.category}"></span>
         </td>
         <td align="right">
+			<span th:style="'color:' + ${transaction.accountColor}">
+                <span style="font-family: 'FontAwesome';" th:utext="${transaction.accountIcon}"></span>
+				<span th:text="${transaction.name}"></span>
+			</span>
+        </td>
+        <td align="right">
           <b
             th:class="${transaction.transactionTypeClass}"
             th:title="#{'transaction.type.' + ${transaction.transactionType}}"
@@ -164,7 +170,7 @@
         th:unless="${#lists.isEmpty(page.content)}"
         style="background-color: #f4f9fc"
       >
-        <td colspan="4">
+        <td colspan="6">
           <div class="row">
             <div class="col-xs-6">
               <span

@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="refresh" content="0;url=src/main/resources/templates/error.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Core CSS - Include with every page -->
@@ -38,20 +39,17 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>There was an unexpected error</title>
+    <title>Akcja nie powiodła się</title>
 </head>
 
-<body>
+<body onload="showAlert()">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <br /><br /><br />
-            <div align="center"><h1>There was an unexpected error</h1></div>
-            <div align="center"><a th:href="${#httpServletRequest.getContextPath()}">Go Home</a></div>
-        </div>
-    </div>
-</div>
+<script>
+    function showAlert() {
+        alert ("Akcja nie powiodła się");
+        window.location = history.back();
+    }
+</script>
 
 </body>
 </html>

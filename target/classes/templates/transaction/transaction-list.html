@@ -265,19 +265,25 @@
                         <thead class="thin-border-bottom">
                           <tr>
                             <th
-                              class="col-xs-5 sorting"
+                              class="col-xs-4 sorting"
                               data-th-text="#{transaction.category}"
                               sort="cat"
                               onclick="sortBy(this);"
                             ></th>
                             <th
                               class="col-xs-3 sorting"
+                              data-th-text="#{transaction.account}"
+                              sort="description"
+                              onclick="sortBy(this);"
+                            ></th>
+                            <th
+                              class="col-xs-2 sorting"
                               data-th-text="#{common.amount}"
                               sort="amount"
                               onclick="sortBy(this);"
                             ></th>
                             <th
-                              class="col-xs-3 sorting"
+                              class="col-xs-2 sorting"
                               data-th-text="#{common.date}"
                               sort="date"
                               onclick="sortBy(this);"
