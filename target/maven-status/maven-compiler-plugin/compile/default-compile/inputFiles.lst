@@ -1,185 +1,155 @@
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/reminder/ReminderDetailsDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/mapper/TransactionDetailsMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/event/EventType.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/mapper/ReminderListDTOMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/DescriptiveDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/config/SpringMailConfig.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/form/validator/UserValidator.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/databasedump/DatabaseDumpServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/dialect/Dolarek.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/BaseDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/user/UserSearchQuery.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/category/CategoryDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/Contact.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/DashboardController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/PageWrapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/EmailServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/mapper/ReminderDetailsMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/contact/ContactMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/EventSearchQuery.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/reminder/Reminder.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/DateUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/account/AccountListDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/transaction/TransactionServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/interceptor/UserInterceptor.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/GlobalExceptionHandler.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/contact/ContactDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/reminder/ReminderTransfer.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/GenerateShortUUID.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/category/CategoryMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/user/UserController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/mapper/TransactionListDTOMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/user/PasswordChangeDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/mapper/ReminderLookupMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/ErrorTrackerService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/transaction/TransactionController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/account/AccountListDTOMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/NamedDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/mapper/TransactionMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/account/AccountType.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionSearchResult.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/EmailService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/user/UserStatus.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/Pair.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/contact/ContactController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/user/UserService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/transaction/TransactionStatus.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/account/AccountDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/user/UserDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/Query.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionByCategoryResultDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/form/PieChartForm.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/currency/CurrencyController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/event/EventLisBeanMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/transaction/TransactionSearchQuery.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/contact/ContactService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/CategoryDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/dialect/DolarekFormattingUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/reminder/BaseReminderDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/reminder/ReminderJob.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/NumberUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/account/AccountDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/event/EventService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/AddTransactionsDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/mapper/TransactionByCategoryDTOMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/user/Role.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/form/ReminderSearchForm.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/format/RoleFormatter.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/config/SecurityInitializer.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/form/TransactionSearchForm.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/CurrentUserController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/user/VerificationTokenMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/Category.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/currency/CurrencyDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/user/VerificationTokenType.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/TextUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/user/PasswordResetDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/user/User.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/event/EventListDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/ImageFileFilter.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/databasedump/DatabaseDumpService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/ImageUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/util/I18n.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/BaseEntity.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionDetailsDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/filter/ResponseTimerFilter.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/IndexController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/event/EventMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionListTotalDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/account/AccountController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/user/UserDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/CannotDeleteException.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/account/AccountService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/event/EventServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/transaction/TransactionByCategorySearchQuery.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/Constants.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/form/validator/EmailValidator.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/event/EventDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/util/WebUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/ListPaginatedResult.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/currency/CurrencyDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/reminder/ReminderAlertBuilder.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/transaction/Transfer.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/AbstractDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/converter/StringToLocalDateTimeConverter.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/TransactionDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/InvalidTokenException.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/user/UserPublicController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/dialect/DolarekExpressionFactory.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/DuplicateUserException.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/reminder/ReminderController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/account/AccountServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/config/EhCacheConfig.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/dialect/DolarekDialect.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/mapper/TransactionListTotalMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/AccessDeniedException.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/DuplicateEmailException.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/NamedEntityMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/currency/CurrencyService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/reminder/ReminderRepeat.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/security/CustomSuccessHandler.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/form/BaseSearchForm.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/ErrorTrackerServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/Descriptive.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/CustomErrorController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/event/EventLog.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/contact/ContactDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/transaction/TransactionDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/transaction/TransactionSource.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionListDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/BaseDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/util/JsonResponse.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/event/Event.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/reminder/ReminderListDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/BaseController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/mapper/ReminderTransferMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/category/CategoryService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/event/EventController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/transaction/Transaction.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/ex/UserNotFoundException.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/Currency.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/event/EventDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/account/AccountDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/contact/ContactServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/reminder/ReminderStatus.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/account/AccountMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/config/SpringWebConfig.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/category/CategoryDTOMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/BaseTransactionDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/BaseDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/NamedEntity.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/security/UserDetails.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/account/AdjustBalanceDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/BaseServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/user/UserProfileController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/search/reminder/ReminderSearchQuery.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/user/UserServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/ReminderDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/currency/CurrencyMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/reminder/ReminderTransaction.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/transaction/TransactionByCategoryDTO.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/category/CategoryDaoImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/transaction/TransactionType.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/log/AppLogger.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/databasedump/DatabaseDumpJob.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/config/SpringSecurityConfig.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/ReminderDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/reminder/ReminderServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/currency/CurrencyServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/BaseService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/security/AccessDeniedExceptionHandler.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/user/UserDao.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/user/VerificationToken.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/domain/account/Account.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/category/CategoryServiceImpl.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/web/controller/category/CategoryController.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/util/PasswordValidator.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/DBUtils.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/user/UserMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/config/RootConfig.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dao/reminder/mapper/ReminderMapper.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/DolarekApplication.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/transaction/TransactionService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/service/reminder/ReminderService.java
-/Volumes/Dysk D/Uczelnia/Semestr 7/Projekt Zespołowy/Dolarek/dolarek/src/main/java/am/jsl/dolarek/dto/reminder/ReminderDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\databasedump\DatabaseDumpService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\transaction\TransactionController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\Query.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\EventSearchQuery.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\BaseService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\dialect\Dolarek.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\IndexController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\user\UserMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\currency\CurrencyDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionByCategoryResultDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\category\CategoryService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\account\Account.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\transaction\TransactionServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\ErrorTrackerServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\transaction\TransactionByCategorySearchQuery.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\CustomErrorController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\BaseServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\config\SpringSecurityConfig.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\TransactionDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\CategoryDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\PasswordValidator.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\dialect\DolarekFormattingUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\event\EventServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\BaseController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\event\EventLog.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\category\CategoryController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\transaction\TransactionStatus.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\TextUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionSearchResult.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\form\validator\EmailValidator.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\account\AccountDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\transaction\TransactionSearchQuery.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\form\TransactionSearchForm.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\config\SpringMailConfig.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\user\VerificationTokenType.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\CannotDeleteException.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\log\AppLogger.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\user\UserServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\user\VerificationToken.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\config\RootConfig.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\NamedEntityMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\user\Role.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\BaseDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\category\CategoryDTOMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\GlobalExceptionHandler.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\config\EhCacheConfig.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\form\validator\UserValidator.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\mapper\TransactionListDTOMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\util\I18n.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\GenerateShortUUID.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\currency\CurrencyServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\DashboardController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\currency\CurrencyMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\Descriptive.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\event\EventDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\format\RoleFormatter.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\user\User.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\BaseDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\transaction\Transfer.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\Pair.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\account\AccountListDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\user\UserStatus.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\account\AccountDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\mapper\TransactionByCategoryDTOMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\DescriptiveDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\BaseDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\transaction\TransactionService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\user\PasswordChangeDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\user\UserController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\DateUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\databasedump\DatabaseDumpJob.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\NamedEntity.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\account\AdjustBalanceDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\event\EventService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\user\UserPublicController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\category\CategoryDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\user\UserDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\category\CategoryServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\util\WebUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\user\VerificationTokenMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\mapper\TransactionMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\user\UserDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionListTotalDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\ListPaginatedResult.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\user\PasswordResetDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\util\JsonResponse.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionListDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\InvalidTokenException.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\event\EventDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\user\UserService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\converter\StringToLocalDateTimeConverter.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\DBUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\account\AccountType.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\config\SecurityInitializer.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\config\SpringWebConfig.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\event\EventType.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\NumberUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\CurrentUserController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\event\EventController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\BaseEntity.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\account\AccountDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\event\Event.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\currency\CurrencyController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\transaction\Transaction.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\AddTransactionsDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\Constants.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\account\AccountMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\ImageUtils.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\category\CategoryMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\DuplicateUserException.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\account\AccountService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\Category.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\EmailServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\user\UserProfileController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\interceptor\UserInterceptor.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\transaction\TransactionSource.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\security\AccessDeniedExceptionHandler.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\DolarekApplication.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\security\UserDetails.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\user\UserDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionDetailsDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\AbstractDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\transaction\TransactionType.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\event\EventMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\form\BaseSearchForm.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\form\PieChartForm.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\mapper\TransactionDetailsMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\TransactionDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\PageWrapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\controller\account\AccountController.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\account\AccountListDTOMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\search\user\UserSearchQuery.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\NamedDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\transaction\mapper\TransactionListTotalMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\currency\CurrencyDao.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\event\EventLisBeanMapper.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\ErrorTrackerService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\TransactionByCategoryDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\EmailService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\filter\ResponseTimerFilter.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\dialect\DolarekDialect.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dao\category\CategoryDaoImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\AccessDeniedException.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\currency\CurrencyService.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\util\ImageFileFilter.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\transaction\BaseTransactionDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\domain\Currency.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\databasedump\DatabaseDumpServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\DuplicateEmailException.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\dto\event\EventListDTO.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\security\CustomSuccessHandler.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\ex\UserNotFoundException.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\service\account\AccountServiceImpl.java
+C:\Users\Adam\ZespNewProject\zarzadzaniebudzetemprojekt\src\main\java\am\jsl\dolarek\web\dialect\DolarekExpressionFactory.java

@@ -16,7 +16,7 @@ public class AdjustBalanceDTO implements Serializable {
   /**
    * Równowaga do ustawiania
    */
-  @NumberFormat(pattern = "0.00")
+  @NumberFormat(pattern = "# ### ### ##0.00")
   private double balance;
 
   /**

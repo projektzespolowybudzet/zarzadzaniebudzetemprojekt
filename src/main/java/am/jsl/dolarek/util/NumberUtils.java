@@ -9,9 +9,11 @@ import java.text.DecimalFormat;
  */
 public class NumberUtils {
 
-  public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
+  public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat(
+    "# ## ### ##0.00"
+  );
   public static final DecimalFormat PERCENT_DECIMAL_FORMAT = new DecimalFormat(
-    "0.00"
+    "# ### ### ##0.00"
   );
 
   public static double round(double value, int places) {

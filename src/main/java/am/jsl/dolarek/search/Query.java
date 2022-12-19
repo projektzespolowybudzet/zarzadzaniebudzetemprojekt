@@ -1,62 +1,135 @@
 package am.jsl.dolarek.search;
 
 /**
-*Podstawowa klasa zapytań, która zawiera informacje o stronicowaniu do wysyłania zapytań o elementy w sposób ogólny.
-*@param <T> parametr typu
-*/
+ *Podstawowa klasa zapytań, która zawiera informacje o stronicowaniu do wysyłania zapytań o elementy w sposób ogólny.
+ *@param <T> parametr typu
+ */
 public class Query<T> {
-	protected long id;
-	protected int page = 1;
-	protected int pageSize = -1;
-	protected String sortBy;
-	protected boolean asc;
 
-	public Query() {
-	}
+  /**
+   * Identyfikator elementu, który można znaleźć.
+   */
+  protected long id;
+  /**
+   * Bieżąca strona do zapytania.
+   */
+  protected int page = 1;
+  /**
+   * Liczba elementów, które należy zwrócić.
+   */
+  protected int pageSize = -1;
+  /**
+   * Sortowanie
+   */
+  protected String sortBy;
+  /**
+   * Prawda, jeśli sortowanie w kolejności rosnącej.
+   */
+  protected boolean asc;
 
-	public Query(int page, int pageSize) {
-		this.page = page;
-		this.pageSize = pageSize;
-	}
+  /**
+   * Konstruktor domyślny.
+   */
+  public Query() {}
 
+  /**
+   * Konstruktor Query.
+   *
+   * @param page     strona
+   * @param pageSize rozmiar strony
+   */
+  public Query(int page, int pageSize) {
+    this.page = page;
+    this.pageSize = pageSize;
+  }
 
-	public long getId() {
-		return id;
-	}
+  /**
+   * Gets id.
+   *
+   * @return the id
+   */
+  public long getId() {
+    return id;
+  }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+  /**
+   * Sets id.
+   *
+   * @param id the id
+   */
+  public void setId(long id) {
+    this.id = id;
+  }
 
-	public int getPage() {
-		return page;
-	}
+  /**
+   * Gets page.
+   *
+   * @return the page
+   */
+  public int getPage() {
+    return page;
+  }
 
-	public void setPage(int page) {
-		this.page = page;
-	}
+  /**
+   * Sets page.
+   *
+   * @param page the page
+   */
+  public void setPage(int page) {
+    this.page = page;
+  }
 
-	public int getPageSize() {
-		return pageSize;
-	}
+  /**
+   * Gets page size.
+   *
+   * @return the page size
+   */
+  public int getPageSize() {
+    return pageSize;
+  }
 
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
+  /**
+   * Sets page size.
+   *
+   * @param pageSize the page size
+   */
+  public void setPageSize(int pageSize) {
+    this.pageSize = pageSize;
+  }
 
-	public String getSortBy() {
-		return sortBy;
-	}
+  /**
+   * Gets sort by.
+   *
+   * @return the sort by
+   */
+  public String getSortBy() {
+    return sortBy;
+  }
 
-	public void setSortBy(String sortBy) {
-		this.sortBy = sortBy;
-	}
+  /**
+   * Sets sort by.
+   *
+   * @param sortBy the sort by
+   */
+  public void setSortBy(String sortBy) {
+    this.sortBy = sortBy;
+  }
 
-	public boolean isAsc() {
-		return asc;
-	}
+  /**
+   * Is asc boolean.
+   *
+   * @return the boolean
+   */
+  public boolean isAsc() {
+    return asc;
+  }
 
-	public void setAsc(boolean asc) {
-		this.asc = asc;
-	}
+  /**
+   * Sets asc.
+   *
+   * @param asc the asc
+   */
+  public void setAsc(boolean asc) {
+    this.asc = asc;
+  }
 }

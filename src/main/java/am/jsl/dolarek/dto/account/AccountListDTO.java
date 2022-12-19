@@ -13,7 +13,7 @@ public class AccountListDTO extends DescriptiveDTO {
   private double balance;
 
   /**
-   * The type of this account.
+   * Rodzaj tego konta.
    */
   private byte accountType;
 

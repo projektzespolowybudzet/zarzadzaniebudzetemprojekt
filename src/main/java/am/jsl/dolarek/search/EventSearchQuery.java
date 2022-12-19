@@ -1,67 +1,116 @@
 package am.jsl.dolarek.search;
 
+import am.jsl.dolarek.dto.event.EventListDTO;
 import java.util.Date;
 
-import am.jsl.dolarek.dto.event.EventListDTO;
-
 /**
-*Niestandardowe {@link Query} do wyszukiwania elementów {@link EventListDTO}.
-*/
+ * Niestandardowe {@link Query} do wyszukiwania elementów {@link EventListDTO}.
+ */
 public class EventSearchQuery extends Query<EventListDTO> {
-    private int eventType;
-    private long performedBy;
-    private Date createdAtStart = null;
-    private Date createdAtEnd = null;
-    private String message;
 
-/**
-*Tworzy nowe zapytanie wyszukiwania zdarzeń.
-*
-*@param page strona
-*@param pageSize rozmiar strony
-*/
-    public EventSearchQuery(int page, int pageSize) {
-        super(page, pageSize);
-    }
+  private int eventType;
+  private long performedBy;
+  private Date createdAtStart = null;
+  private Date createdAtEnd = null;
+  private String message;
 
+  /**
+   * Tworzy nowe zapytanie wyszukiwania zdarzeń.
+   *
+   * @param page strona
+   * @param pageSize rozmiar strony
+   */
+  public EventSearchQuery(int page, int pageSize) {
+    super(page, pageSize);
+  }
 
-    public int getEventType() {
-        return eventType;
-    }
+  /**
+   * Gets event type.
+   *
+   * @return the event type
+   */
+  public int getEventType() {
+    return eventType;
+  }
 
-    public void setEventType(int eventType) {
-        this.eventType = eventType;
-    }
+  /**
+   * Sets event type.
+   *
+   * @param eventType the event type
+   */
+  public void setEventType(int eventType) {
+    this.eventType = eventType;
+  }
 
-    public long getPerformedBy() {
-        return performedBy;
-    }
+  /**
+   * Gets performed by.
+   *
+   * @return the performed by
+   */
+  public long getPerformedBy() {
+    return performedBy;
+  }
 
-    public void setPerformedBy(long performedBy) {
-        this.performedBy = performedBy;
-    }
+  /**
+   * Sets performed by.
+   *
+   * @param performedBy the performed by
+   */
+  public void setPerformedBy(long performedBy) {
+    this.performedBy = performedBy;
+  }
 
-    public Date getCreatedAtStart() {
-        return createdAtStart;
-    }
+  /**
+   * Gets created at start.
+   *
+   * @return the created at start
+   */
+  public Date getCreatedAtStart() {
+    return createdAtStart;
+  }
 
-    public void setCreatedAtStart(Date createdAtStart) {
-        this.createdAtStart = createdAtStart;
-    }
+  /**
+   * Sets created at start.
+   *
+   * @param createdAtStart the created at start
+   */
+  public void setCreatedAtStart(Date createdAtStart) {
+    this.createdAtStart = createdAtStart;
+  }
 
-    public Date getCreatedAtEnd() {
-        return createdAtEnd;
-    }
+  /**
+   * Gets created at end.
+   *
+   * @return the created at end
+   */
+  public Date getCreatedAtEnd() {
+    return createdAtEnd;
+  }
 
-    public void setCreatedAtEnd(Date createdAtEnd) {
-        this.createdAtEnd = createdAtEnd;
-    }
+  /**
+   * Sets created at end.
+   *
+   * @param createdAtEnd the created at end
+   */
+  public void setCreatedAtEnd(Date createdAtEnd) {
+    this.createdAtEnd = createdAtEnd;
+  }
 
-    public String getMessage() {
-        return message;
-    }
+  /**
+   * Gets message.
+   *
+   * @return the message
+   */
+  public String getMessage() {
+    return message;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  /**
+   * Sets message.
+   *
+   * @param message the message
+   */
+  public void setMessage(String message) {
+    this.message = message;
+  }
 }

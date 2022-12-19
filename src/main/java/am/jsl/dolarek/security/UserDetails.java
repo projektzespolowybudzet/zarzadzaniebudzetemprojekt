@@ -1,88 +1,86 @@
 package am.jsl.dolarek.security;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import am.jsl.dolarek.ex.AccessDeniedException;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
-*Dane użytkownika zawierają informacje o użytkowniku, które będą przechowywane w sesji.
-*/
+ * Dane użytkownika zawierają informacje o użytkowniku, które będą przechowywane w sesji.
+ */
 @Component("userDetails")
 @Scope("session")
 public class UserDetails implements Serializable {
-	private long id = 0;
-	private String login = null;
-	private String role = null;
-	private String fullName = null;
-	private Map<String, String> permissions = new HashMap<String, String>(0);
 
-	public UserDetails(long id, String login) {
-		super();
-		this.id = id;
-		this.login = login;
-	}
+  private long id = 0;
+  private String login = null;
+  private String role = null;
+  private String fullName = null;
+  private Map<String, String> permissions = new HashMap<String, String>(0);
 
-	public UserDetails() {
-		super();
-	}
+  public UserDetails(long id, String login) {
+    super();
+    this.id = id;
+    this.login = login;
+  }
 
-	public boolean hasPermission(String permissionName) {
-		return permissions.containsKey(permissionName);
-	}
+  public UserDetails() {
+    super();
+  }
 
-	public boolean hasRole(String roleStr) {
-		return roleStr.equals(role);
-	}
+  public boolean hasPermission(String permissionName) {
+    return permissions.containsKey(permissionName);
+  }
 
-	public long getId() {
-		return id;
-	}
+  public boolean hasRole(String roleStr) {
+    return roleStr.equals(role);
+  }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+  public long getId() {
+    return id;
+  }
 
-	public String getLogin() {
-		return login;
-	}
+  public void setId(long id) {
+    this.id = id;
+  }
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+  public String getLogin() {
+    return login;
+  }
 
-	public String getRole() {
-		return role;
-	}
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+  public String getRole() {
+    return role;
+  }
 
-	public Map<String, String> getPermissions() {
-		return permissions;
-	}
+  public void setRole(String role) {
+    this.role = role;
+  }
 
-	public void setPermissions(Map<String, String> permissions) {
-		this.permissions = permissions;
-	}
+  public Map<String, String> getPermissions() {
+    return permissions;
+  }
 
-	public String getFullName() {
-		return fullName;
-	}
+  public void setPermissions(Map<String, String> permissions) {
+    this.permissions = permissions;
+  }
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
 
-	public void check(String permission) {
-		if (!hasPermission(permission)) {
-			throw new AccessDeniedException();
-		}
-	}
+  public void check(String permission) {
+    if (!hasPermission(permission)) {
+      throw new AccessDeniedException();
+    }
+  }
 }

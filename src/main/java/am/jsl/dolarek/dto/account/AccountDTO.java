@@ -12,7 +12,7 @@ public class AccountDTO extends DescriptiveDTO {
   /**
    * Obecne saldo tego konta.
    */
-  @NumberFormat(pattern = "0.00")
+  @NumberFormat(pattern = "# ### ### ##0.00")
   private double balance;
 
   /**

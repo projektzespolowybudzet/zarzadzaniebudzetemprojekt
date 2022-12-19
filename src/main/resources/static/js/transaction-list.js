@@ -1,217 +1,245 @@
-/* Search for parameters */
+/**
+ * Wyszukaj parametry
+ */
 var $prevSortCol;
 var prevSortBy;
 var prevSortClass;
 
-var $searchForm = $('#searchForm');
-var $sortBy = $searchForm.find('#sortBy');
-var $asc = $searchForm.find('#asc');
-var $pageSize = $('#pageSize');
-
+var $searchForm = $("#searchForm");
+var $sortBy = $searchForm.find("#sortBy");
+var $asc = $searchForm.find("#asc");
+var $pageSize = $("#pageSize");
 
 /**
- * Setup date range picker
+ * Picker daty konfiguracji
  */
-var start = moment().startOf('month');
-var end = moment().endOf('month');
+var start = moment().startOf("month");
+var end = moment().endOf("month");
 
-var $daterangepicker =  $searchForm.find('#daterange');
-$daterangepicker.daterangepicker({
+var $daterangepicker = $searchForm.find("#daterange");
+$daterangepicker.daterangepicker(
+  {
     startDate: start,
     endDate: end,
     ranges: {
-        'Dziś': [moment(), moment()],
-        'Wczoraj': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-        'Ostatnie 7 dni': [moment().subtract(6, 'days'), moment()],
-        'Bieżący miesiąc': [moment().startOf('month'), moment().endOf('month')],
-        'Bieżący rok': [moment().startOf('year').startOf('month'), moment()]
-    }
-}, cb);
+      Dziś: [moment(), moment()],
+      Wczoraj: [moment().subtract(1, "days"), moment().subtract(1, "days")],
+      "Ostatnie 7 dni": [moment().subtract(6, "days"), moment()],
+      "Bieżący miesiąc": [moment().startOf("month"), moment().endOf("month")],
+      "Bieżący rok": [moment().startOf("year").startOf("month"), moment()],
+    },
+  },
+  cb
+);
 
 /**
- * Initialize daterangepicker with default start and end dates.
+ * Zainicjuj DangePicker z domyślnymi datami Start i End.
  */
 function initDaterangepicker() {
-    cb(start, end);
+  cb(start, end);
 }
 
 /**
- * Sets the given start and end dates to the range picker.
- * @param start the start date
- * @param end the end date
+ * Ustawia dane daty początkowego i końcowego do zbieracza zasięgu.
+ *
+ * @param start data rozpoczęcia
+ * @param end data końcowa
  */
 function cb(start, end) {
-    $daterangepicker.text(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+  $daterangepicker.text(
+    start.format("DD/MM/YYYY") + " - " + end.format("DD/MM/YYYY")
+  );
 }
 
 /**
- * Sets the sort by column and makes ajax call for sorting.
+ * Ustawia sortowanie według kolumny i sprawia, że Ajax wywołuje do sortowania.
+ *
  * @param col the column to sort
  */
 function sortBy(col) {
-    var $sortCol = $(col);
-    var sortBy = $sortCol.attr('sort');
-    $sortBy.val(sortBy);
-    var sortClass = '';
-    var sortClassNew = '';
+  var $sortCol = $(col);
+  var sortBy = $sortCol.attr("sort");
+  $sortBy.val(sortBy);
+  var sortClass = "";
+  var sortClassNew = "";
 
-    if ($sortCol.hasClass('sorting')) {
-        sortClass = 'sorting';
-        sortClassNew = 'sorting_asc';
-        $asc.val(true);
-    } else if ($sortCol.hasClass('sorting_asc')) {
-        sortClass = 'sorting_asc';
-        sortClassNew = 'sorting_desc';
-        $asc.val(false);
-    } else if ($sortCol.hasClass('sorting_desc')) {
-        sortClass = 'sorting_desc';
-        sortClassNew = 'sorting_asc';
-        $asc.val(true);
-    }
+  if ($sortCol.hasClass("sorting")) {
+    sortClass = "sorting";
+    sortClassNew = "sorting_asc";
+    $asc.val(true);
+  } else if ($sortCol.hasClass("sorting_asc")) {
+    sortClass = "sorting_asc";
+    sortClassNew = "sorting_desc";
+    $asc.val(false);
+  } else if ($sortCol.hasClass("sorting_desc")) {
+    sortClass = "sorting_desc";
+    sortClassNew = "sorting_asc";
+    $asc.val(true);
+  }
 
-    $sortCol.removeClass(sortClass);
-    $sortCol.addClass(sortClassNew);
+  $sortCol.removeClass(sortClass);
+  $sortCol.addClass(sortClassNew);
 
-    if (prevSortBy && prevSortBy != sortBy) {
-        $prevSortCol.removeClass(prevSortClass);
-        $prevSortCol.addClass('sorting');
-    }
+  if (prevSortBy && prevSortBy != sortBy) {
+    $prevSortCol.removeClass(prevSortClass);
+    $prevSortCol.addClass("sorting");
+  }
 
-    $prevSortCol = $sortCol;
-    prevSortBy = sortBy;
-    prevSortClass = sortClassNew;
+  $prevSortCol = $sortCol;
+  prevSortBy = sortBy;
+  prevSortClass = sortClassNew;
 
-    loadTransactions(1);
+  loadTransactions(1);
 }
 
 /**
- * Searches using ajax method.
+ * Wyszukiwa się za pomocą metody AJAX.
  */
 function search() {
-    if (prevSortBy) {
-        $prevSortCol.removeClass(prevSortClass);
-        $prevSortCol.addClass('sorting');
-    }
+  if (prevSortBy) {
+    $prevSortCol.removeClass(prevSortClass);
+    $prevSortCol.addClass("sorting");
+  }
 
-    $prevSortCol = null;
-    prevSortBy = null;
-    prevSortClass = null;
-    loadTransactions(1);
+  $prevSortCol = null;
+  prevSortBy = null;
+  prevSortClass = null;
+  loadTransactions(1);
 }
 
 /**
- * Resets search form and searches using ajax method.
+ * Resekuje formularz wyszukiwania i wyszukiwania za pomocą metody AJAX.
  */
 function resetSearch() {
-    document.getElementById("searchForm").reset();
+  document.getElementById("searchForm").reset();
 
-    $searchForm.find('#accountIcon').removeClass();
-    $searchForm.find('#categoryIcon').removeClass();
+  $searchForm.find("#accountIcon").removeClass();
+  $searchForm.find("#categoryIcon").removeClass();
 
-    if (prevSortBy) {
-        $prevSortCol.removeClass(prevSortClass);
-        $prevSortCol.addClass('sorting');
-    }
+  if (prevSortBy) {
+    $prevSortCol.removeClass(prevSortClass);
+    $prevSortCol.addClass("sorting");
+  }
 
-    $prevSortCol = null;
-    prevSortBy = null;
-    prevSortClass = null;
+  $prevSortCol = null;
+  prevSortBy = null;
+  prevSortClass = null;
 
-    $pageSize.find("option:first").prop("selected", "selected");
+  $pageSize.find("option:first").prop("selected", "selected");
 
-    initDaterangepicker();
+  initDaterangepicker();
 
-    loadTransactions(1);
+  loadTransactions(1);
 }
 
 var categoriesLoaded = false;
 
 /**
- * Loads html file containing category options.
+ * Ładuje plik HTML zawierający opcje kategorii.
+ *
  * @param callback
  */
 function loadCategories(callback) {
-    if (categoriesLoaded) {
-        callback();
-        return;
-    }
-    // categories
-    var $category = $searchForm.find('#category');
-    var categoryUrl = ctx + '/userhtml/' + currentUserId + '/category-lookup.html';
-    $category.html('<i class="ace-icon fa fa-spinner fa-spin orange bigger-125"></i>').load(categoryUrl, function () {
-        callback();
+  if (categoriesLoaded) {
+    callback();
+    return;
+  }
+  // categories
+  var $category = $searchForm.find("#category");
+  var categoryUrl =
+    ctx + "/userhtml/" + currentUserId + "/category-lookup.html";
+  $category
+    .html('<i class="ace-icon fa fa-spinner fa-spin orange bigger-125"></i>')
+    .load(categoryUrl, function () {
+      callback();
     });
 
-    categoriesLoaded = true;
+  categoriesLoaded = true;
 }
 
 var accountsLoaded = false;
 
 /**
- * Loads html file containing account options.
+ * Ładuje plik HTML zawierający opcje konta.
+ *
  * @param callback
  */
 function loadAccounts(callback) {
-    if (accountsLoaded) {
-        callback();
-        return;
-    }
+  if (accountsLoaded) {
+    callback();
+    return;
+  }
 
-    // accounts
-    var $account = $searchForm.find('#account');
-    var accountUrl = ctx + '/userhtml/' + currentUserId + '/account-lookup.html';
-    $account.html('<i class="ace-icon fa fa-spinner fa-spin orange bigger-125"></i>').load(accountUrl, function () {
-        callback();
+  // Konta
+  var $account = $searchForm.find("#account");
+  var accountUrl = ctx + "/userhtml/" + currentUserId + "/account-lookup.html";
+  $account
+    .html('<i class="ace-icon fa fa-spinner fa-spin orange bigger-125"></i>')
+    .load(accountUrl, function () {
+      callback();
     });
 
-    accountsLoaded = true;
+  accountsLoaded = true;
 }
 
 /**
- * Toggles search form
+ * Przełącza formularz wyszukiwania
  */
 function toggleSearch() {
-    $("#filterIcon").toggleClass('fa-chevron-down fa-chevron-up');
-    loadCategories(function(){});
-    loadAccounts(function(){});
+  $("#filterIcon").toggleClass("fa-chevron-down fa-chevron-up");
+  loadCategories(function () {});
+  loadAccounts(function () {});
 }
 
 /**
- * Loads transactions by page.
- * @param page the page
+ * Ładuje transakcje po stronie.
+ *
+ * @param page Strona
  */
 function loadTransactions(page) {
-    var data = $searchForm.serializeArray();
-    data.push( { "name" : "page", "value" : page } );
-    data.push( { "name" : "size", "value" : $pageSize.find('option:selected').val() } );
+  var data = $searchForm.serializeArray();
+  data.push({ name: "page", value: page });
+  data.push({ name: "size", value: $pageSize.find("option:selected").val() });
 
-    $("#resultsBlock").html('<tr><td align="center" colspan="4"><div class="cp-spinner cp-skeleton"></div></td></tr>').load('loadTransactions', data);
+  $("#resultsBlock")
+    .html(
+      '<tr><td align="center" colspan="4"><div class="cp-spinner cp-skeleton"></div></td></tr>'
+    )
+    .load("loadTransactions", data);
 }
 
 /**
- * Loads add transaction template.
+ * Obciążenia Dodaj szablon transakcji.
  */
 function addTransaction() {
-    $('#trDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('add');
+  $("#trDialogContentDiv")
+    .html('<div class="cp-spinner cp-skeleton"></div>')
+    .load("add");
 }
 
 /**
- * Loads add batch transactions template.
+ * Obciążenia Dodaj szablon transakcji wsadowych.
  */
 function addTransactionBatch() {
-    $('#trDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('addBatch');
+  $("#trDialogContentDiv")
+    .html('<div class="cp-spinner cp-skeleton"></div>')
+    .load("addBatch");
 }
 
 /**
- * Loads view transaction template.
+ * Ładuje Szablon transakcji.
  */
 function viewTransaction(transactionId) {
-    $('#trDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('view?id=' + transactionId);
+  $("#trDialogContentDiv")
+    .html('<div class="cp-spinner cp-skeleton"></div>')
+    .load("view?id=" + transactionId);
 }
 
 /**
- * Loads edit transaction template.
+ * Ładuje szablon transakcji edytuj.
  */
 function editTransaction(transactionId) {
-    $('#trDialogContentDiv').html('<div class="cp-spinner cp-skeleton"></div>').load('edit?id=' + transactionId);
+  $("#trDialogContentDiv")
+    .html('<div class="cp-spinner cp-skeleton"></div>')
+    .load("edit?id=" + transactionId);
 }
